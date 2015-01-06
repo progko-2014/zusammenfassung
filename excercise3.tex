@@ -78,11 +78,12 @@ Jeder Zustand verknüpft über Befehle, vgl. Überführungsfunktion
 	Wieso verletzt das Konzept der lokalen static-Variablen in C das Paradigma der funktionalen
 	Programmierung?
 	\hr
-	Pardigma der f. Programmierung: Funktionsausgabe nur abhängig von Eingabe. D.h. bei gleicher Eingabe gleiche Ausgabe.
+	Funktionsausgabe nur abhängig von Eingabe. D.h. bei gleicher Eingabe gleiche Ausgabe.
 	\begin{lstlisting}[language=C]
 int f(int i) {
+  // Ausfuehrung bei Objekt-Init, 
+  // nicht bei Methodenaufruf
   static int x = 0; 
-  // Ausfuehrung bei Objekt-Init, nicht bei Methodenaufruf
   x++;
   return x+i;
 }
@@ -95,14 +96,36 @@ int f(int i) {
 	Pardigma der f. Programmierung: Funktionsausgabe nur abhängig von Eingabe.  D.h. bei gleicher Eingabe gleiche Ausgabe.
 	\begin{lstlisting}[language=C]
 int f(int *i) {
-  *i = 1234 // Veraendern der Speicheradresse und somit der Eingabe
+  // Veraendern der Speicheradresse und 
+  //somit der Eingabe
+  *i = 1234
   ...
 }
 	\end{lstlisting}	
 \end{card}
 
 \begin{card}
-	In Java gibt es mit dem Collection-Framework eine Reihe von sogenannten Container-Klassen. Welches objektorientierte Programmierparadigma verletzen Objekte zB. der Klassen	ArrayList oder Vector? 
+	In Java gibt es mit dem Collection-Framework eine Reihe von sogenannten Container-Klassen. Welches objektorientierte Programmierparadigma verletzen Objekte z.B. der Klassen	ArrayList oder Vector? 
 	\hr
-	
+	Es werden Referenzen gespeichert. D.h. die Datenkapselung ist verletzt.
+	\begin{lstlisting}[language=Java]
+Class Dummy{int value;}
+...
+Dummy example = new Dummy()
+ArrayList<Dummy> list = new ArrayList<Dummy>()
+list.add(example)
+
+// Zugriff auf value via:
+example.value
+list.get(0).value
+	\end{lstlisting}	
+\end{card}
+
+\begin{card}
+	Wie müsste das Funktionskonzept in C beschränkt bzw. erweitert werden, damit es nicht zu Verletzungen des Paradigmas der funktionalen Programmierung kommen kann?
+	\hr
+	\begin{enumerate}
+	\item kein static und Pointer 
+	\item keine Systemaufrufe
+	\end{enumerate}
 \end{card}
