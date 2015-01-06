@@ -1,0 +1,36 @@
+% !TeX spellcheck = de
+\documentclass[10pt,a4paper]{beamer}
+
+\usepackage[german]{babel} % deutsch und deutsche Rechtschreibung
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % Umlaute und deutsches Trennen
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{color}
+\usepackage{listings}
+
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\graphicspath{{img/}}
+
+\newcommand{\ent}{\mathrel{\widehat{=}}}
+\newcommand{\hr}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\vspace{0.8em}\\}
+
+\newenvironment{card}[1]
+  {\begin{frame}[fragile,environment=card]#1}
+  {\end{frame}}
+  
+\lstset{
+	keepspaces=true,
+	columns=flexible,
+	keywordstyle=\color{blue},
+	stringstyle=\color{red!40!black},
+	commentstyle=\color{green!40!black},
+	identifierstyle=\color{blue!40!black}
+}
+
+\begin{document}
+\input{excercise3.tex}
+\end{document}
