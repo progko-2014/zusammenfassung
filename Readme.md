@@ -12,3 +12,9 @@ Arbeitsweise
 ------------
 - mehrere Fragen zusammenfassen oder verkürzen
 - Rechtschreibefehler korrigieren
+
+
+Zuordnung
+---------
+Übung 1-3 wird aktuell von Mario bearbeitet
+Der Rest von Max :)
