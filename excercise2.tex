@@ -1,0 +1,279 @@
+\begin{card}
+	\frametitle{Übung 2: Konzepte Abstraktion}
+	\url{http://people.f4.htw-berlin.de/~hebold/htw/pka/exercises/konzepte-Abstraktion.pdf}
+\end{card}
+
+\begin{card}
+	Nennen Sie mindestens 3 Gründe für Abstraktion.
+	\hr
+	\begin{enumerate}
+	\item Wiederverwendbarkeit von allgemeinen Problemlösungen
+	\item Klassifizieren von Problemen, erkennen der Struktur
+	\item Allgemeine Lösung zu detaillierten Problemen (Kompression)
+	\item Vereinfachung
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Inwiefern wird beim Programmieren ganz generell abstrahiert?
+	\hr
+	\begin{enumerate}
+	\item OOP $\Leftrightarrow$ reelle Welt, internes Modell als Abstraktion
+	\item Abstraktion von Problembeispielen auf Programmcode
+	\item Programme $\Leftrightarrow$ Prozessen, insbesondere beim Debuggen ständiger Kontextwechsel
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Inwiefern wird bei der \textbf{strukturierten} Programmierung abstrahiert?
+	\hr
+	\begin{enumerate}
+	\item if, for, while-Konstrukte ersetzen Sprungbefehle\\
+		Beispiel: labels mit goto (?)
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Inwiefern wird bei der \textbf{prozeduralen} Programmierung abstrahiert?
+	\hr
+	\begin{enumerate}
+	\item parametrisierte Prozeduren ersetzen alle Werte-Kombinationen beim Aufruf
+	\end{enumerate}
+	Beispiel:
+\end{card}
+
+\begin{card}
+	Inwiefern wird bei der \textbf{modularen} Programmierung abstrahiert?
+	\hr
+	\begin{enumerate}
+	\item statische Werte, d.h. kein Zustand
+	\item Blackbox, Implementierung unbekannt\\
+		Beispiel: sort(array[] field)
+	\end{enumerate}
+
+\end{card}
+
+\begin{card}
+	Inwiefern wird bei der \textbf{objekt-orientierten} Programmierung abstrahiert?
+	\hr
+	\begin{enumerate}
+	\item Vererbung von generischen Datentypen
+	\item Polymorphismus, dynamisches Binden
+	\end{enumerate}
+	Beispiel:
+\end{card}
+
+\begin{card}
+	Inwiefern wird bei der \textbf{funktionalen} Programmierung abstrahiert?
+	\hr
+	\begin{enumerate}
+	\item Nur Funktionen und Rückgabewerte, keine Datentypen, bzw. Objekte
+	\item Überladen von Funktionen
+	\end{enumerate}
+	Beispiel:
+\end{card}
+
+\begin{card}
+	Inwiefern wird bei der Programmierung abstrakter Datentypen abstrahiert?
+	\hr
+	\begin{enumerate}
+	\item Lists, Arrays als Abstraktion, vgl. Gruppe (Math.)\\
+		Beispiel: new ArrayList<Integer>().get(0)
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Beim Abstraktionskonzept wird auf verschiedenen konkreten Objekten mit einem Namen referiert, wobei die Besonderheiten unberücksichtigt bleiben - von diesen wird abstrahiert.\\
+	Bei der Konkretisierung wird umgekehrt einem Namen ein bestimmtes konkretes Objekt zugeordnet - der Name wird gebunden.\\
+	Wann erfolgt im Rahmen der Programmierung die Konkretisierung, d.h. die Bindung	eines Namens?
+	\hr
+	Bei der Zuweisung, zur Laufzeit: Namen = Konstant\\
+	Beispiel:
+	\begin{lstlisting}[language=Java]
+	// Abstraktion:
+	List x = new ArrayList();
+	// Konkretisierung:
+	void doSth(List x) {ArrayList y=(ArrayList)x;}
+	\end{lstlisting}
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch einen Variablennamen abstrahiert?
+	\hr
+	Vom Wert, da nur die Referenz auf den Wert benutzt wird\\
+	Beispiel
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch Pointer abstrahiert?
+	\hr
+	Von der Speicheradresse\\
+	Beispiel
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch eine Initialisierung \texttt{int i=42} abstrahiert?
+	\hr
+	Von der Speicherdarstellung	\\
+	Beispiel: Big Indian/ Little Indian(?)
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch eine Zuweisung abstrahiert?
+	\hr
+	Von allen verschiedenen Zuweisungsoperatoren\\
+	Beispiel
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch 
+	\begin{enumerate}
+	\item if-Abfrage
+	\item for-Schleife \texttt{for(int i=0;i<a;i++) block} 
+	\item while-Schleife
+	\end{enumerate}
+	abstrahiert?
+	\hr
+	goto + label\\
+	Beispiel
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch eine Prozedur (void) abstrahiert?
+	\hr
+	Von der Implementierung\\
+	Beispiel
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch eine Funktion (non-void) abstrahiert?
+	\hr
+	Von der Implementierung\\
+	der Rückgabewert abstrahiert von der Funktion\\
+	Beispiel
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird in C und C++ und Java durch den abstrakten Datentyp Array abstrahiert?
+	\hr
+	C und C++: Von Pointern, Beispiel: \begin{lstlisting}
+		
+		\end{lstlisting}
+	
+	Java: Von Referenzen, Beispiel: \begin{lstlisting}
+	{"a", "b", "c"}.get(0)
+	\end{lstlisting}
+	
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Funktionen werden in C, C++ und Java durch Aufrufe zur Laufzeit konkretisiert. Signatur und Methode sind die Abstraktionen. Zusätzlich bietet C++ Funktionen mit default Parametern. Was bedeuten diese für Abstraktion und Konkretisierung?
+	\hr
+	???
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird in C++ durch eine inline-Funktion abstrahiert?
+	\hr
+	Wie Makros als Textersetzung ohne Stack, jedoch wie Funktion mit Auswertung
+\end{card}
+
+\begin{card}
+	Objektorientierte Programmierung:\\
+	Von was wird in Java durch eine Referenz \texttt{Type ref} abstrahiert?
+	\hr
+	\texttt{Type}: Für alle Objekt-Typen und deren Ableitung von Type\\
+	\texttt{ref}: Abstraktion der Objekte, aber nicht vom Objekt selbst
+\end{card}
+
+\begin{card}
+	Objektorientierte Programmierung:\\
+	Die meisten objektorientierter Sprachen verfügen über primitive Datentypen wie z.B. int. Warum haben diese primitiven Datentypen aus der Warte des Abstraktionskonzepts einen Sonderstatus?
+	\hr
+	Call-by-Value: Passen direkt in Referenzspeicherbereich, keine Kapselung notwendig
+\end{card}
+
+\begin{card}
+	Objektorientierte Programmierung:\\
+	Was wird durch die ausschließliche Verwendung von Klassen, Objekten und Referenzen, d.h. durch die Streichung der primitiven Datentypen, im Sinne des Abstraktionskonzepts erreicht?
+	\hr
+	Kontinuität
+\end{card}
+
+\begin{card}
+	Objektorientierte Programmierung:\\
+	C++ und Java kennen die Möglichkeit des \textbf{overriding}. Inwiefern handelt es sich um eine Abstraktion? D.h. von welchen konkrete Elementen wird abstrahiert? 
+	\hr
+	Von der Implementierung der Objekt-Methode
+\end{card}
+
+\begin{card}
+	Objektorientierte Programmierung:\\
+	Mehrfachvererbung ist in Java bei Klassen nicht zugelassen. 
+	\begin{enumerate}
+	\item Nennen Sie eine Begründung im Rahmen des Abstraktionsprinzips.
+	\item Wieso ist Mehrfachvererbung bei Interfaces zugelassen?
+	\item Wie löst C++ die genannten Probleme?
+	\end{enumerate}
+	\hr
+	\begin{enumerate}
+	\item Overriding von Methoden ist somit eindeutig
+	\item Es steckt keine konkrete Implementierung dahinter
+	\item Durch die Reihenfolge der Vererbung
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Objektorientierte Programmierung:\\
+	Inwiefern handelt es sich bei der Definition von superclasses um eine Abstraktion?
+	\hr
+	\begin{enumerate}
+	\item Verallgemeinerung mit weniger Eigenschaften
+	\item Allgemeingültige Klasse für alle Unterklassen
+	\item Generalisierung Richtung Oberklasse
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Funktionale Programmierung:\\
+	Inline-Funktionen sind Teil der meisten funktionalen Sprachen. Beschreiben Sie im Rahmen des Abstraktionskonzepts das Problem mit rekursiv definierten (inline-) Funktionen.
+	\hr
+	Nur 1 Rückgabewert\\
+	Beispiel:
+\end{card}
+
+\begin{card}
+	Funktionale Programmierung:\\
+	Inwiefern kann man sagen, dass in rein funktionalen Sprachen auf einer höheren Stufe der Abstraktion programmiert wird?
+	\hr
+	Funktionen wie Werte veränderbar, daher nur Werte zu verarbeiten und keine Prozeduraufrufe vorhanden.\\
+	Beispiel: 
+\end{card}
+
+\begin{card}
+	Funktionale Programmierung:\\
+	In rein funktionalen Sprachen sind Funktionen als Parameter und Rückgabewerte von Funktionen zugelassen. Inwiefern wird dadurch eine höhere Stufe der Abstraktion erreicht, als Paradigmen bei Sprachen, die dieses Feature nicht haben?
+	\hr
+	\begin{enumerate}
+	\item Asynchroner Ablauf, Event-basiert / Ereignis-gesteuert
+	\item Dynamischer Kontrollfluss, Callbacks
+	\item Skalierbarkeit, da bekannter Gültigkeitsbereich
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Funktionale Programmierung:\\
+	Ist es möglich, durch diese Erweiterung Probleme zu lösen, die in imperativen Sprachen nicht gelöst werden können?
+	\hr
+	Nein, trotzdem aber andere Ansätze möglich und besserer Umgang mit Parallelität
+\end{card}
