@@ -9,8 +9,8 @@
 	\begin{enumerate}
 	\item Wiederverwendbarkeit von allgemeinen Problemlösungen
 	\item Klassifizieren von Problemen, erkennen der Struktur
-	\item Allgemeine Lösung zu detaillierten Problemen (Kompression)
-	\item Vereinfachung
+	\item Allgemeine Lösung zu detaillierten Problemen ($\approx$ Kompression)
+	\item Vereinfachung, reduzieren auf gemeinsame Eigenschaft
 	\end{enumerate}
 \end{card}
 
@@ -20,7 +20,7 @@
 	\begin{enumerate}
 	\item OOP $\Leftrightarrow$ reelle Welt, internes Modell als Abstraktion
 	\item Abstraktion von Problembeispielen auf Programmcode
-	\item Programme $\Leftrightarrow$ Prozessen, insbesondere beim Debuggen ständiger Kontextwechsel
+	\item Programme $\Leftrightarrow$ Prozessen (vgl. Debuggen - ständiger Kontextwechsel)
 	\end{enumerate}
 \end{card}
 
@@ -37,9 +37,9 @@
 	Inwiefern wird bei der \textbf{prozeduralen} Programmierung abstrahiert?
 	\hr
 	\begin{enumerate}
-	\item parametrisierte Prozeduren ersetzen alle Werte-Kombinationen beim Aufruf
+	\item parametrisierte Prozeduren ersetzen alle Werte-Kombinationen beim Aufruf\\
+		Beispiel: f(x) $\ent$ f(1), f(2), ... f(n)
 	\end{enumerate}
-	Beispiel:
 \end{card}
 
 \begin{card}
@@ -48,7 +48,7 @@
 	\begin{enumerate}
 	\item statische Werte, d.h. kein Zustand
 	\item Blackbox, Implementierung unbekannt\\
-		Beispiel: sort(array[] field)
+		Beispiel: sort(array[] field) sortiert ohne, dass wir wissen wie.
 	\end{enumerate}
 
 \end{card}
@@ -57,20 +57,23 @@
 	Inwiefern wird bei der \textbf{objekt-orientierten} Programmierung abstrahiert?
 	\hr
 	\begin{enumerate}
-	\item Vererbung von generischen Datentypen
-	\item Polymorphismus, dynamisches Binden
+	\item Vererbung, generischen Datentypen\\
+			Beispiel: A extends B\\
+			(A Konkretisierung  von B $\leftrightarrow$ B Generalisierung/Abstraktion von A)
+	\item Polymorphismus, dynamisches Binden\\
+			Beispiel:
 	\end{enumerate}
-	Beispiel:
 \end{card}
 
 \begin{card}
 	Inwiefern wird bei der \textbf{funktionalen} Programmierung abstrahiert?
 	\hr
 	\begin{enumerate}
-	\item Nur Funktionen und Rückgabewerte, keine Datentypen, bzw. Objekte
-	\item Überladen von Funktionen
+	\item Nur Funktionen und Rückgabewerte, keine Datentypen, bzw. Objekte\\
+		Beispiel:
+	\item Überladen von Funktionen\\
+		Beispiel:
 	\end{enumerate}
-	Beispiel:
 \end{card}
 
 \begin{card}
@@ -87,7 +90,7 @@
 	Bei der Konkretisierung wird umgekehrt einem Namen ein bestimmtes konkretes Objekt zugeordnet - der Name wird gebunden.\\
 	Wann erfolgt im Rahmen der Programmierung die Konkretisierung, d.h. die Bindung	eines Namens?
 	\hr
-	Bei der Zuweisung, zur Laufzeit: Namen = Konstant\\
+	Bei der Zuweisung wird der Typ und Name konkret festgelegt: Zur Laufzeit\\
 	Beispiel:
 	\begin{lstlisting}[language=Java]
 	// Abstraktion:
@@ -102,7 +105,7 @@
 	Von was wird durch einen Variablennamen abstrahiert?
 	\hr
 	Vom Wert, da nur die Referenz auf den Wert benutzt wird\\
-	Beispiel
+		Beispiel: int x = 3; x=x+4;
 \end{card}
 
 \begin{card}
@@ -110,7 +113,7 @@
 	Von was wird durch Pointer abstrahiert?
 	\hr
 	Von der Speicheradresse\\
-	Beispiel
+		Beispiel
 \end{card}
 
 \begin{card}
@@ -126,7 +129,7 @@
 	Von was wird durch eine Zuweisung abstrahiert?
 	\hr
 	Von allen verschiedenen Zuweisungsoperatoren\\
-	Beispiel
+		Beispiel
 \end{card}
 
 \begin{card}
