@@ -1,0 +1,140 @@
+\begin{card}
+	\frametitle{Übung 1: Einführung}
+	\url{http://people.f4.htw-berlin.de/~hebold/htw/pka/exercises/einf\%C3\%BChrung.pdf}
+\end{card}
+
+\begin{card}
+	Schreiben Sie in Java jeweils ein Programm, das die Funktionen
+	\begin{enumerate}
+	\item $x+y$
+	\item $x*y$
+	\item $x^y$
+	\end{enumerate}
+	als int-Werten rekursiv berechnet
+	\hr
+	\begin{lstlisting}[language=Java]
+public static int add(int x, int y) {
+  if (y == 0) { return x; }
+  return 1 + add(x, y-1);
+}
+
+public static int multiply(int x, int y) {
+  if (y == 0) { return 0; }
+  return x + multiply(x, y-1);
+}
+
+public static int pow(int x, int y) {
+  if (y == 0) { return 1; }
+  return x * pow(x, y-1);
+}
+	\end{lstlisting}	
+\end{card}
+
+\begin{card}
+	Schreiben Sie in Java Programme zu Berechnung der Fakultät mit dem Datentyp BigInteger.
+\end{card}
+
+\begin{card}
+	Collatz-Problem Definition:\\
+	$f: \mathbb{N} \rightarrow \mathbb{N}$ mit 
+	$f(1) = 1$, n gerade: $f(n) = n / 2$,n ungerade: $f(n) = 3n + 1$\\
+	$F: \mathbb{N} \rightarrow \mathbb{N}$ mit $F(1) = f(1)  = 1$, $F(n) = F(f(n))$
+	
+	Collatz-Problem: Ist F für jedes $n \in \mathbb{N}$  definiert, d.h. $\forall n \in \mathbb{N}$ $\exists$ $F(n) \in \mathbb{N}$?
+	\hr
+	\begin{lstlisting}[language=Java]
+public static int f(int x) { 
+    if (x == 1) { return 1; } 
+    else if (x % 2 == 0) { return x / 2; }
+    return 3 * x + 1;
+} 
+public static int F(int x) { 
+    if (x == 1) return 1; 
+    return F(f(x)); 
+}
+public static int Flength(int x, int c) { 
+    if (x == 1) return c; 
+    return Flength(f(x), c + 1); 
+}
+public static int Flength(int x) {return Flength(x, 1);}
+	\end{lstlisting}
+\end{card}
+
+\begin{card}
+	Relationen, mit$R \subseteq M \times M$\\
+	\begin{tabular}{ll}
+		Reflexivität:& $(x, x) \in R $\\
+		Symmetrie:&	$(x, y) \in R \Rightarrow (y, x) \in R$\\
+		Antisymmetrie:& $(x, y) \in R, (y, x) \in R \Rightarrow x=y$\\
+		Asymmetrie:& $(x, y) \in R \Rightarrow (y, x) \notin R$\\
+		Transitivität:& $(x, y) \in R, (y, z) \in R \Rightarrow (x, z) \in R$\\
+		Funktion: & bijektiv = surjektiv (rechtstotal, isOnto) +\\
+	     	      & injektiv (linkseindeutig, isOneOne)
+		\end{tabular}
+\end{card}
+
+\begin{card}
+	Mengen: $A = \{3, 4\}$, $B = \{\{3, 4\}\}$\\Welche Behauptung stimmt?
+	\begin{enumerate}
+	\item $A = B$
+	\item $A \subseteq B$
+	\item $A \subsetneq B$
+	\item $|A| = |B|$
+	\end{enumerate}
+	\hr
+	\begin{enumerate}
+	\item Nein, da unterschiedlich mächtig. siehe 4.)
+	\item Nein, da gelten muss: $\forall x \in A: x \in B$, aber hier: $3,4 \notin B$ 
+	\item A keine echte Teilmenge von B, da gelten muss: $A \subset B \land A \neq B \Rightarrow 1.) \land \lnot 2.)$ , 1. ist falsch
+	\item Nein, da $2 \neq 1$
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Das cartesische Produkt zweier Mengen A und B ist wie folgt definiert:
+	$A \times B = \{(x,y):x	\in	A \land	y \in B\}$\\
+	Prüfen Sie, ob das kartesische Produkt assoziativ ist, d.h. ob für Mengen X,Y,Z gilt:
+	$(X	\times Y)\times Z=X \times(Y \times Z)$
+	\hr
+	Nein, da andere Struktur
+\end{card}
+
+\begin{card}
+	Welcher der folgenden Ausdrücke ist korrekt?
+	\begin{enumerate}
+	\item $0 \in \emptyset$
+	\item $0 = \emptyset$
+	\item $0 \subseteq \emptyset$
+	\item $\{0\} \subseteq \emptyset$
+	\end{enumerate}
+	\hr
+	\begin{enumerate}
+	\item Nein, die leere Menge hat keine Elemente
+	\item Nein, Zahlen sind keine Menge
+	\item Nein, siehe 2.)
+	\item Nein, siehe 1.)
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Sei X eine Menge endlicher Größe und $2^X$ die Potenzmenge von $X$. Welches Ergebnis liefern:
+	\begin{enumerate}
+	\item $|2^X \cup X|$
+	\item $|2^X| \cup |X|$
+	\end{enumerate}
+	\hr
+	Beispiel: Potenzmenge  von $\{ a,b \} = \{ \emptyset, \{ a \}, \{ b \} , \{ a,b \} \}$
+	\begin{enumerate}
+	\item $|X| = 2^{|X|}$
+	\item Widerspruch, Vereinigung von Zahlen, nicht Mengen
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+\end{card}
+
+\begin{card}
+\end{card}
+
+\begin{card}
+\end{card}
