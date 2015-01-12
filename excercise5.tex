@@ -1,0 +1,56 @@
+\begin{card}
+	\frametitle{Übung 5: Induktion}
+	\url{http://people.f4.htw-berlin.de/~hebold/htw/pka/exercises/algorithmen-Induktion.pdf}
+\end{card}
+
+\begin{card}
+	Was bedeutet es, wenn die Verankerung bei n=a, also z.B. n=5 bewiesen wird, aber nicht für kleinere Werte?
+	\hr
+	Bewiesen erst ab n=5 und aufwärts, bzw. Voraussetzung erst ab dann beweisbar anwendbar.
+\end{card}
+
+\begin{card}
+	Kann man aus der Allgemeingültigkeit von $\varphi$ schließen, dass $\varphi (0)$ und $\varphi (n)\Rightarrow \varphi (n^+)$ gelten?
+	\hr
+	Durch 0 und den Nachfolger schließt man auf die Allgemeingültigkeit, daher ist dieser Satz falsch... hier sind Prämisse und Konklusion vertauscht.
+\end{card}
+
+\begin{card}
+	Angenommen $\varphi$ wird für 0 bewiesen, ist für ein $n= a > 0$ ungültig und $\varphi(n) \Rightarrow \varphi(n+1)$ kann wiederum gezeigt werden. Was besagt das für die Induktion? 
+	\hr
+	
+\end{card}
+
+\begin{card}
+	Darf die bewiesene Verankerung im Induktionsschritt verwendet werden?
+	\hr
+	Induktionsschritt ist die Verallgemeinerung, die Verankerung wird mit konkreten Werten angewendet. Daraus folgt: Nein, darf man nicht.
+\end{card}
+
+\begin{card}
+	Das Schema der vollständigen Induktion lautet:\\
+	Gilt für eine Menge A
+	\begin{enumerate}
+	\item $0 \in A$
+	\item $x \in A \Rightarrow x^+ \in A$
+	\end{enumerate}
+	$\vDash \mathbb{N} \subseteq A$\\
+	
+	oder 
+	
+	Gilt für ein auf $\mathbb{N}$ definiertes Prädikat $\varphi$	
+	\begin{enumerate}
+	\item $\varphi(0)$
+	\item $\varphi(x) \Rightarrow \varphi(x+)$
+	\end{enumerate}
+	$\vDash \forall x (\varphi(x))$\\
+	Geben Sie wenigstens 3 Möglichkeiten der Verallgemeinerung (Abstrahierung) an.
+	\hr
+	\begin{enumerate}
+	\item beliebige Startwerte, statt 0
+	\item mehrere Startwerte/Verankerungen
+	\item andere Nachfolgerfunktion
+	\item $\mathbb{N}$ oder Menge $A$ kann ersetzt werden
+	\item Prädikat $\varphi$ kann ersetzt werden
+	\end{enumerate}
+\end{card}
