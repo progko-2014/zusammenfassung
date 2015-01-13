@@ -4,6 +4,66 @@
 \end{card}
 
 \begin{card}
+	Das $\lambda$-Kalkül unterscheidet zwei Arten von Ausdrücken: Auswertungen und Abstraktionen. Benennen Sie für jeden der Ausdrücke dessen Art und dann innerhalb des Ausdrucks gebundene Variablen und Rumpf bzw. Funktionsargument und Funktion. 
+	\begin{enumerate}
+	\item $\lambda a.(a \quad \lambda b.(b \quad a))$
+	\item $\lambda x.\lambda y.\lambda z.((z \ x) \quad (z \quad y))$
+	\end{enumerate}
+	\hr
+	Auswertung: in Klammern, hat Argumente\\
+	Abstraktion: hat \textit{keine} Argumente, $\sim$ Funktion
+	Achtung: Nicht verwechseln mit Rumpf, der auch in Klammern stehen kann.
+	\begin{enumerate}
+	\item Abstraktion, da nicht in Klammern\\
+	Funktion: $\lambda a.f$\\
+	Rumpf: $(a \quad \lambda b.(b \quad a))$\\
+	Gebundene Variablen: $a$ (was ist mit b?)
+	\item wie 1)\\
+	Funktion: $\lambda x.\lambda y.\lambda z.f$ \\
+	Rumpf: $((z \ x) \quad (z \quad y))$\\
+	Gebundene Variablen: $x,y,z$
+	\end{enumerate}
+\end{card}
+
+
+\begin{card}
+	Das $\lambda$-Kalkül unterscheidet zwei Arten von Variablen: gebundene und freie. Benennen Sie für jeden der folgenden Ausdrücke diese.
+	\begin{enumerate}
+	\item $\lambda x.\lambda y.(\lambda x.y \quad \lambda y.x)$
+	\item $\lambda x.(x \quad (\lambda y.(\lambda x.x \quad y) \quad x))$
+	\end{enumerate}
+	\hr
+	Alle Variablen sind gebunden.
+\end{card}
+
+
+\begin{card}
+	Werten Sie folgende $\lambda$-Ausdrücke aus:
+	\begin{enumerate}
+	\item $((\lambda x.\lambda y.(y \quad x) \quad \lambda p.\lambda q.p) \quad \lambda i.i)$
+	\item $((\lambda x.\lambda y.\lambda z((x \quad y) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \lambda i.i) \quad\lambda j.j)$
+	\end{enumerate}
+	\hr
+	Der \underline{Ausdruck} wird als Wert in dem/der \textbf{Symbol/Variable} ersetzt, festgelegt durch $\lambda\mathbf{Symbol}$. Beachte die Klammern um den jeweilige funktion, die erst die Auswertung erlaubt.
+	\begin{enumerate}
+	\item
+	$((\lambda \mathbf{x}.\lambda y.(y \quad \mathbf{x}) \quad \uline{\lambda p.\lambda q.p}) \quad \lambda i.i) 
+	\Rightarrow 
+	((\lambda y.(y \quad \lambda p.\lambda q.p)) \quad \lambda i.i)$\\
+	
+	$((\lambda \mathbf{y}.(\mathbf{y} \quad \lambda p.\lambda q.p)) \quad \uline{\lambda i.i})
+	\Rightarrow
+	(\lambda i.i \quad \lambda p.\lambda q.p)$\\
+	
+	$(\lambda \mathbf{i}.\mathbf{i} \quad \uline{\lambda p.\lambda q.p})
+	\Rightarrow
+	\lambda p.\lambda q.p$
+	\item Lösungsweg fehlt: $\lambda j.j$
+	\end{enumerate}	
+\end{card}
+
+
+\begin{card}
 	Wieso wird das abstrakteste $\lambda$-Kalkül als \textbf{typfrei} bezeichnet?
 	\hr
 	Arbeit nur auf Symbolen, reine Textersetzung
