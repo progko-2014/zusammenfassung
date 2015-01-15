@@ -7,14 +7,40 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{mathabx}
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{color}
 \usepackage{listings}
+\usepackage{xspace}
 \usepackage[normalem]{ulem}
 
 \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \graphicspath{{img/}}
+
+% Klammern {{{
+\newcommand{\lrk}{\left(}
+\newcommand{\rrk}{\right)}
+\newcommand{\lgk}{\left\{}
+\newcommand{\rgk}{\right\}}
+\newcommand{\lek}{\left[}
+\newcommand{\rek}{\right]}
+% }}}
+
+\newcommand{\field}[1]{\ensuremath{\mathbb{#1}}\xspace}
+\newcommand{\N}{\field{N}}
+\newcommand{\Z}{\field{Z}}
+\newcommand{\Q}{\field{Q}}
+\newcommand{\R}{\field{R}}
+\newcommand{\C}{\field{C}}
+\newcommand{\K}{\field{K}}
+
+\newcommand{\inda}[2]{\textit{Induktionsanfang ($#1=#2$): }}
+\newcommand{\indv}{\textit{Induktionsvoraussetzung ($\star$): }}
+\newcommand{\inds}[1]{\textit{Induktionsschritt ($#1\rightsquigarrow #1+1$): }}
+\newcommand{\proofend}{\begin{flushright}$\Box$\end{flushright}}
+
+\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
 
 \newcommand{\ent}{\mathrel{\widehat{=}}}
 \newcommand{\hr}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\vspace{0.6em}\\}
@@ -36,6 +62,7 @@
 \input{excercise1.tex}
 \input{excercise2.tex}
 \input{excercise3.tex}
+\input{excercise4.tex}
 \input{excercise5.tex}
 \input{excercise6.tex}
 \input{excercise7.tex}
