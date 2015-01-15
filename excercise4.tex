@@ -1,0 +1,149 @@
+\begin{card}
+	\frametitle{Übung 4: Primitiv rekursive Funktionen}
+	\url{http://people.f4.htw-berlin.de/~hebold/htw/pka/exercises/algorithmen-rekursiveFunktionen.pdf}
+\end{card}
+
+\begin{card}
+  Formulieren Sie die folgenden Ausdrücke mit Hilfe von F = ${+, \cdot}$ und ${N, O, P^m_i, S^{n+1}, R}$:
+	\begin{enumerate}
+    \item[a)] $a \cdot b + c$
+    \item[d)] $4 \cdot (3 + x)$
+    \item[e)] $(a + b) \cdot (a + b)$
+    \item[h)] $(a + b) \cdot (c + d)$
+	\end{enumerate}
+	\hr
+	\begin{enumerate}
+    \item[a)] $S(+, S(\cdot, P^3_1, P^3_2), P^3_3)(a, b, c)$
+    \item[d)] $S(\cdot, P^3_1, S(+, P^3_2, P^3_3))(4, 3, x)$
+    \item[e)] $S(\cdot, +, +)(a, b)$
+    \item[h)] $S(\cdot, S(+, P^4_1, P^4_2), S(+, P^4_3, P^4_4))(a, b, c, d)$
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+  Formulieren Sie eine primitiv rekursive Funktion, die
+  \begin{enumerate}[a)]
+    \item die arithmetische Differenz bestimmt.
+    \item die das Vorzeichen prüft und 0 bei 0 und 1 bei Werten > 0 liefert.
+    \item das Maximum von zwei Zahlen liefert.
+	\end{enumerate}
+	\hr
+  \begin{enumerate}[a)]
+    \item
+      \begin{align*}
+        pre &= S(R(O, P^3_2), P^1_1, O) \\
+        diff &= S(R(P^1_1, pre \circ P^3_1)), P^2_2, P^2_1)(a, b)
+      \end{align*}
+    \item $sign = S(R(O, N \circ O \circ P^3_2), P^1_1, O)$
+    \item
+      \begin{align*}
+        a &= S(\cdot, S(gt, P^2_1, P^2_2), P^2_1) \\
+        b &= S(\cdot, S(gt, P^2_2, P^2_1), P^2_2) \\
+        c &= S(\cdot, S(eq, P^2_1, P^2_2), P^2_1) \\
+        max &= S(add, S(add, a, b), c)
+      \end{align*}
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+  Formulieren Sie eine primitiv rekursive Funktion, die
+  \begin{enumerate}[a)]
+    \item den ganzzahligen Rest der Werte x und y bestimmt.
+    \item die Teilbarkeit einer Zahl x hinsichtlich y prüft.
+	\end{enumerate}
+	\hr
+  \begin{enumerate}[a)]
+    \item
+      \begin{align*}
+        mod(a, b) &= x < y ? x : mod(x-y, y) \\
+        mod(a, b) &= x \cdot gt(y, x) + mod(x-y, y) \cdot gte(x ,y) \\
+        R_g &= S(+, S(\cdot, x, gt(y, x)), S(\cdot, S(P^4_1, S(\dotdiv, x, y) , y), gt(x ,y)))
+      \end{align*}
+    \item 
+      $neg = S(R(N \circ O, O \circ P^3_2), P^1_1, P^1_1)$ mit
+      $neg \circ sign \circ mod(x, y)$
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+  0 und N sind Funktionen $\N \rightarrow \N, P, S^{n+1}$ und R dagegen
+  Funktionen auf Funktionen, dh. Operatoren. S n+1 ist wie folgt definiert:
+
+  \begin{enumerate}[a)]
+    \item Wieso kann man sagen, dass $S^{n+1}$ für mehrere Operatoren steht?
+    \item Wieviele verschiedene Operatoren ergeben sich aus $S^{n+1}$?
+    \item Was bedeutet es für die Programmierung, dass es mehrere Operatoren $S^{n+1} $ gibt?
+  \end{enumerate}
+  \hr
+\end{card}
+
+\begin{card}
+  Der Ausdruck $S^{n+1}(f, g_1, \ldots, g_n)$ abstrahiert von der Anzahl $n$ möglicher Funktionen und der Stelligkeit von $f$.
+  \begin{enumerate}[a)]
+    \item Begründen Sie:
+    \begin{enumerate}[i)]
+      \item Es handelt sich also eigentlich um $n$ verschiedene Operatoren.
+      \item Die Stelligkeit von $f$ ist $n$.
+      \item Die Stelligkeit Funktionen $g_1, \ldots, g_n$ ist $m$.
+    \end{enumerate}
+    \item Was bedeuten i) – iii) für die Implementierung (Programmierung) von $S^{n+1}$?
+  \end{enumerate}
+  \hr
+\end{card}
+
+\begin{card}
+  Die Stelligkeit $m$ der Funktionen $g_1, \ldots, g_n$ spielt für den Operator $S^{n+1} = S^{n+1}(f, g_1, \ldots, g_n)$ im Rahmen des Konzepts der rekursiven Funktionen und bei den Fragestellungen der Berechenbarkeit keine Rolle.
+  \begin{enumerate}[a)]
+    \item Was ist mit dieser Aussage gemeint?
+    \item Was bedeutet das für die Programmierung von $S^{n+1}$ ?
+  \end{enumerate}
+  \hr
+\end{card}
+
+\begin{card}
+  Die Stelligkeit $n$ der Funktion $f$ spielt für den Operator $S^{n+1} = S^{n+1}(f, g_1, \ldots, g_n)$ im Rahmen des Konzepts der rekursiven Funktionen und bei den Fragestellungen der Berechenbarkeit keine Rolle.
+  \begin{enumerate}[a)]
+    \item Was ist mit dieser Aussage gemeint?
+    \item Was bedeutet das für die Programmierung von $S^{n+1}$ ?
+  \end{enumerate}
+  \hr
+\end{card}
+
+\begin{card}
+  Die Mehrstelligkeit der rekursiven Funktionen führt nicht aus der Menge der rekursiven Funktionen hinaus. Es spielt also keine Rolle, ob man $S, R$ und $\mu$ auf n-stellige oder ein-stellige Funktionen anwendet. Mit anderen Worten: Alle n-stelligen rekursiven Funktionen können durch einstellige rekursive Funktionen dargestellt werden.
+  \begin{enumerate}[a)]
+    \item Beschreiben Sie die Umsetzung.
+  \end{enumerate}
+  \hr
+\end{card}
+
+\begin{card}
+Sie wollen eine primitiv rekursive Funktion definieren, die die Funktion
+\[
+f(x) =
+\begin{cases}
+1 & \text{wenn $x = 1$} \\
+  \frac{x}{2} & \text{wenn $x$ gerade} \\
+3 \cdot x + 1 &\text{wenn $x$ ungerade}
+\end{cases}
+\]
+berechnet, d.h. die Formulierung erfolgt ausschließlich mit den Funktionen bzw. Funktionssymbolen $N, 0, P^m_i , S, R$.
+  \begin{enumerate}[a)]
+    \item Warum scheitern Sie?
+  \end{enumerate}
+  \hr
+\end{card}
+
+\begin{card}
+  Was bedeutet die Aussage: „Alle berechenbaren Funktionen können mit Hilfe der Funktionen $0, N, P^m_i, S^{n+1}, R$ und $\mu$ formuliert werden“ für die Programmierung?
+  \hr
+\end{card}
+
+\begin{card}
+Was unterscheidet die folgenden Aufzählfunktionen $\N^2 \rightarrow \N$ (Paare natürlicher Zahlen auf natürliche Zahlen) voneinander:
+\begin{itemize}
+  \item $c(x, y) = \frac{(x + y)(x + y + 1)}{2}$
+  \item $p(x, y) = 2^x \cdot 3^y$
+\end{itemize}
+  \hr
+\end{card}
