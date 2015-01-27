@@ -5,7 +5,7 @@
 
 \begin{card}
 	Das $\lambda$-Kalkül unterscheidet zwei Arten von Ausdrücken: Auswertungen und Abstraktionen. Benennen Sie für jeden der Ausdrücke dessen Art und dann innerhalb des Ausdrucks gebundene Variablen und Rumpf bzw. Funktionsargument und Funktion. 
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item $\lambda a.(a \quad \lambda b.(b \quad a))$
 	\item $\lambda x.\lambda y.\lambda z.((z \ x) \quad (z \quad y))$
 	\end{enumerate}
@@ -13,7 +13,7 @@
 	Auswertung: in Klammern, hat Argumente\\
 	Abstraktion: hat \textit{keine} Argumente, $\sim$ Funktion
 	Achtung: Nicht verwechseln mit Rumpf, der auch in Klammern stehen kann.
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Abstraktion, da nicht in Klammern\\
 	Funktion: $\lambda a.f$\\
 	Rumpf: $(a \quad \lambda b.(b \quad a))$\\
@@ -28,7 +28,7 @@
 
 \begin{card}
 	Das $\lambda$-Kalkül unterscheidet zwei Arten von Variablen: gebundene und freie. Benennen Sie für jeden der folgenden Ausdrücke diese.
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item $\lambda x.\lambda y.(\lambda x.y \quad \lambda y.x)$
 	\item $\lambda x.(x \quad (\lambda y.(\lambda x.x \quad y) \quad x))$
 	\end{enumerate}
@@ -39,13 +39,13 @@
 
 \begin{card}
 	Werten Sie folgende $\lambda$-Ausdrücke aus:
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item $((\lambda x.\lambda y.(y \quad x) \quad \lambda p.\lambda q.p) \quad \lambda i.i)$
 	\item $((\lambda x.\lambda y.\lambda z((x \quad y) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \lambda i.i) \quad\lambda j.j)$
 	\end{enumerate}
 	\hr
 	Der \underline{Ausdruck} wird als Wert in dem/der \textbf{Symbol/Variable} ersetzt, festgelegt durch $\lambda\mathbf{Symbol}$. Beachte die Klammern um den jeweilige funktion, die erst die Auswertung erlaubt.
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item
 	$((\lambda \mathbf{x}.\lambda y.(y \quad \mathbf{x}) \quad \uline{\lambda p.\lambda q.p}) \quad \lambda i.i) 
 	\Rightarrow 
@@ -77,7 +77,7 @@
 
 \begin{card}
 	Mit welchen Programmierkonzept aus C ist das typfreie $\lambda$-Kalkül vergleichbar? 
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Makros
 	\item Templates
 	\item Funktionen

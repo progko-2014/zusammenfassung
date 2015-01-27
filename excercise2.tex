@@ -6,7 +6,7 @@
 \begin{card}
 	Nennen Sie mindestens 3 Gründe für Abstraktion.
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Wiederverwendbarkeit von allgemeinen Problemlösungen
 	\item Klassifizieren von Problemen, erkennen der Struktur
 	\item Allgemeine Lösung zu detaillierten Problemen ($\approx$ Kompression)
@@ -17,7 +17,7 @@
 \begin{card}
 	Inwiefern wird beim Programmieren ganz generell abstrahiert?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item OOP $\Leftrightarrow$ reelle Welt, internes Modell als Abstraktion
 	\item Abstraktion von Problembeispielen auf Programmcode
 	\item Programme $\Leftrightarrow$ Prozessen (vgl. Debuggen - ständiger Kontextwechsel)
@@ -27,7 +27,7 @@
 \begin{card}
 	Inwiefern wird bei der \textbf{strukturierten} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item if, for, while-Konstrukte ersetzen Sprungbefehle\\
 		Beispiel: labels mit goto (?)
 	\end{enumerate}
@@ -36,7 +36,7 @@
 \begin{card}
 	Inwiefern wird bei der \textbf{prozeduralen} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item parametrisierte Prozeduren ersetzen alle Werte-Kombinationen beim Aufruf\\
 		Beispiel: f(x) $\ent$ f(1), f(2), ... f(n)
 	\end{enumerate}
@@ -45,7 +45,7 @@
 \begin{card}
 	Inwiefern wird bei der \textbf{modularen} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item statische Werte, d.h. kein Zustand
 	\item Blackbox, Implementierung unbekannt\\
 		Beispiel: sort(array[] field) sortiert ohne, dass wir wissen wie.
@@ -56,7 +56,7 @@
 \begin{card}
 	Inwiefern wird bei der \textbf{objekt-orientierten} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Vererbung, generischen Datentypen\\
 			Beispiel: A extends B\\
 			(A Konkretisierung  von B $\leftrightarrow$ B Generalisierung/Abstraktion von A)
@@ -68,7 +68,7 @@
 \begin{card}
 	Inwiefern wird bei der \textbf{funktionalen} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Nur Funktionen und Rückgabewerte, keine Datentypen, bzw. Objekte\\
 		Beispiel:
 	\item Überladen von Funktionen\\
@@ -79,7 +79,7 @@
 \begin{card}
 	Inwiefern wird bei der Programmierung abstrakter Datentypen abstrahiert?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Lists, Arrays als Abstraktion, vgl. Gruppe (Math.)\\
 		Beispiel: new ArrayList<Integer>().get(0)
 	\end{enumerate}
@@ -135,7 +135,7 @@
 \begin{card}
 	Imperative Programmierung:\\
 	Von was wird durch 
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item if-Abfrage
 	\item for-Schleife \texttt{for(int i=0;i<a;i++) block} 
 	\item while-Schleife
@@ -223,13 +223,13 @@
 \begin{card}
 	Objektorientierte Programmierung:\\
 	Mehrfachvererbung ist in Java bei Klassen nicht zugelassen. 
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Nennen Sie eine Begründung im Rahmen des Abstraktionsprinzips.
 	\item Wieso ist Mehrfachvererbung bei Interfaces zugelassen?
 	\item Wie löst C++ die genannten Probleme?
 	\end{enumerate}
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Overriding von Methoden ist somit eindeutig
 	\item Es steckt keine konkrete Implementierung dahinter
 	\item Durch die Reihenfolge der Vererbung
@@ -240,7 +240,7 @@
 	Objektorientierte Programmierung:\\
 	Inwiefern handelt es sich bei der Definition von superclasses um eine Abstraktion?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Verallgemeinerung mit weniger Eigenschaften
 	\item Allgemeingültige Klasse für alle Unterklassen
 	\item Generalisierung Richtung Oberklasse
@@ -267,7 +267,7 @@
 	Funktionale Programmierung:\\
 	In rein funktionalen Sprachen sind Funktionen als Parameter und Rückgabewerte von Funktionen zugelassen. Inwiefern wird dadurch eine höhere Stufe der Abstraktion erreicht, als Paradigmen bei Sprachen, die dieses Feature nicht haben?
 	\hr
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Asynchroner Ablauf, Event-basiert / Ereignis-gesteuert
 	\item Dynamischer Kontrollfluss, Callbacks
 	\item Skalierbarkeit, da bekannter Gültigkeitsbereich

@@ -5,7 +5,7 @@
 
 \begin{card}
 	Die Komplexitätsklasse $\mathbf{P}$ wird üblicherweise als Entscheidungsproblem definiert.
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Formulieren Sie die entsprechende Definition.
 	\item Formulieren Sie $\mathbf{P}$ als Suchproblem. 
 	\end{enumerate}
@@ -14,7 +14,7 @@
 
 \begin{card}
 	Die Komplexitätsklasse $\mathbf{NP}$ wird üblicherweise als Entscheidungsproblem definiert.
-	\begin{enumerate}
+	\begin{enumerate}[a)]
 	\item Formulieren Sie die entsprechende Definition.
 	\item Formulieren Sie $\mathbf{NP}$ als Suchproblem. 
 	\end{enumerate}
@@ -22,7 +22,127 @@
 \end{card}
 
 \begin{card}
-	Die Zeitkomplexität eines Algorithmus wird in Abhängigkeit von der Länge der Eingabe auf	der Turing-Maschine gemessen und nicht in Abhängigkeit vom Wert der Eingabe. Dabei bleibt die entsprechende Funktion $time_F$, die die Zeitkomplexität von Algorithmus F beschreibt, auf [01]* definiert, dh. 
-	
+	Die Zeitkomplexität eines Algorithmus wird in Abhängigkeit von der Länge der Eingabe auf der Turing-Maschine gemessen und nicht in Abhängigkeit vom Wert der Eingabe. Dabei bleibt die entsprechende Funktion $time_F$, die die Zeitkomplexität von Algorithmus F beschreibt, auf [01]* definiert, dh.
+	$time_F:[01]^* \rightarrow \mathbb{N}_0 : x \mapsto max \{ steps_F(y):|x| = |y| \}$
+	mit $steps_F(y)$ als Funktion, die die Rechenschritte zu y liefert. 
+	\begin{enumerate}[a)]
+	\item Nennen Sie zwei Gründe für diesen Wechsel des Maßes. Mit
+	$time_F$ wird die folgende Relation definiert: 
+	$x \sim y := time_F(x) = time_F(y)$
+	\item Beschreiben Sie verbal, was die Relation besagt.
+	\item Prüfen Sie, ob die Relation die drei klassischen Eigenschaften einer Relation erfüllt, dh. prüfen Sie, ob $\sim$ eine Äquivalenzrelation ist. 
+	\end{enumerate}
 	\hr
+\end{card}
+
+\begin{card}
+	Was besagen die Aussagen: 
+	\begin{enumerate}[a)]
+	\item $\mathbf{P = NP}$
+	\item $\mathbf{P \subset NP}$
+	\item $\mathbf{NP \subset P}$
+	\end{enumerate}
+	in der Definition mit \textbf{Turing-Maschinen} und \textbf{Beweissystemen}
+	\hr
+\end{card}
+
+\begin{card}
+	Lösungsfunktion und Algorithmus sind etwas anderes.
+	\begin{enumerate}[a)]
+	\item Erklären Sie den Unterschied an einem Beispiel.
+	\item Wieso beziehen sich die Begriffe	\textbf{P} und \textbf{NP} auf Algorithmen und nicht auf Funktionen ? 
+	\end{enumerate}
+	\hr
+	\begin{enumerate}[a)]
+	\item Primzahl und Verfahren zur Berechnung, ob eine Primzahl ist oder nicht.
+	\item Wieso beziehen sich die Begriffe	\textbf{P} und \textbf{NP} auf Algorithmen und nicht auf Funktionen ? 
+	\end{enumerate}
+	\hr
+\end{card}
+
+\begin{card}
+	In welche der beiden folgenden Komplexitätsklassen gehört ein Programm, das aus einer
+	gegebenen endlichen Menge alle Teilmengen erzeugt?
+	\begin{enumerate}[a)]
+	\item \textbf{P}
+	\item \textbf{NP}
+	\end{enumerate}
+	\hr
+\end{card}
+
+\begin{card}
+	Bestimmen Sie die Ableitungen der folgenden Funktionen:
+	\begin{enumerate}[a)]
+	\item $f(x) = x * ln x$
+	\item $f(x) = ln ( ln x)$
+	\item $f(x) = log_n x$
+	\item $f(x) = lg x$
+	\item $f(x) = x^x$
+	\item $f(x) = e^{ln x}$
+	\end{enumerate}
+	\hr
+\end{card}
+
+\begin{card}
+	Finden Sie zu jeder der gegebenen Funktionen $f$ eine Funktion $g$, so dass $f \in \mathbf{O}(g)$ gilt: 
+	\begin{enumerate}[a)]
+	\item $f(n) =f(n – 1 ) + 10 $
+	\item $f(n) =f(n– 1 ) +n$
+	\item $f(n) = 2*f(n– 1 )$
+	\item $f(n) =f(n/ 2 ) + 10$
+	\item $f(n) =f(n/ 2 ) +n$
+	\item $f(n) = 2*f(n/ 2 ) +n$
+	\item $f(n) = 3*f(n/ 2 )$
+	\item $f(n) = 2*f(n/ 2 ) + \mathbf{O} (n2)$
+	\end{enumerate}
+	\hr
+\end{card}
+
+\begin{card}
+	Nennen Sie jeweils zwei Beispiele für Probleme, die von:
+	\begin{enumerate}[a)]
+	\item konstanter
+	\item logarithmischer
+	\item linearer
+	\item quadratischer
+	\item polynomieller
+	\item exponentieller
+	\item faktorieller 
+	\end{enumerate}
+	Wachstumsordnung sind.
+	\hr
+\end{card}
+
+\begin{card}
+	Beschreiben Sie verbal oder auch formal die Bedeutung der Ausdrücke: 
+	\begin{enumerate}[a)]
+	\item $f \in \mathbf{O}(n^2)$
+	\item $\mathbf{O}(f) = \mathbf{O}(n^2)$
+	\item $\mathbf{O}(f) \in \mathbf{O}(n^2)$
+	\item $n^2 \in \mathbf{O}(e^x)$
+	\item $f(x) = 1+x^2+\mathbf{O}(log x)$
+	\item $\mathbf{O}(f) \subseteq \mathbf{O}(n^2)$
+	\end{enumerate}
+	Hinweis: Falls ein Ausdruck sinnlos ist, sollten Sie das vermerken.
+	\hr
+	\begin{enumerate}[a)]
+	\item $f$ ist Element der Menge aller Funktionen mit quadratischem Wachstum
+	\item Wachstumsklasse $f$ ist äquivalent zur Wachstumsklasse $n^2$
+	\item \lightning  $\mathbf{O}(n^2)$ enthält keine Mengen
+	\item existiert ein c für: $n^2 \leq c * e^x$ ?
+	\item $=$ macht keinen Sinn, $\in$ wäre hier richtig
+	\item Teilmenge kann es sein, vgl. c)
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+	Die Symbole $\mathbf{O}, \Omega, \Theta,o \text{ und } \omega$ beschreiben Relationen zwischen Funktionen.
+	\begin{enumerate}[a)]
+	\item Formulieren Sie die Aussagen, die erfüllt sein müssten, damit die genannten Relationen reflexiv, symmetrisch und transitiv sind.\\
+	(Hinweis: Es geht ausdrücklich nicht darum, eine gültige Aussage zu formulieren,
+	sondern nur um die Formalisierung.)
+	\item Überprüfen Sie die Gültigkeit der Aussagen aus a). 
+	\item Handelt es sich bei den genannten Relationen jeweils um eine:
+	Äquivalenzrelation, Quasiordnung, Ordnung und/oder Halbordnung 
+	\end{enumerate}
 \end{card}
