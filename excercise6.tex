@@ -41,10 +41,10 @@
 	Werten Sie folgende $\lambda$-Ausdrücke aus:
 	\begin{enumerate}[a)]
 	\item $((\lambda x.\lambda y.(y \quad x) \quad \lambda p.\lambda q.p) \quad \lambda i.i)$
-	\item $((\lambda x.\lambda y.\lambda z((x \quad y) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \lambda i.i) \quad\lambda j.j)$
+	\item $(((\lambda x.\lambda y.\lambda z((x \quad y) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \lambda i.i) \quad\lambda j.j)$
 	\end{enumerate}
 	\hr
-	Der \underline{Ausdruck} wird als Wert in dem/der \textbf{Symbol/Variable} ersetzt, festgelegt durch $\lambda\mathbf{Symbol}$. Beachte die Klammern um den jeweilige funktion, die erst die Auswertung erlaubt.
+	Der \underline{Ausdruck} wird als Wert in dem/der \textbf{Symbol/Variable} ersetzt, festgelegt durch $\lambda\mathbf{Symbol}$. Beachte die Klammern um den jeweilige Funktion, die erst die Auswertung erlaubt.
 	\begin{enumerate}[a)]
 	\item
 	$((\lambda \mathbf{x}.\lambda y.(y \quad \mathbf{x}) \quad \uline{\lambda p.\lambda q.p}) \quad \lambda i.i) 
@@ -58,7 +58,18 @@
 	$(\lambda \mathbf{i}.\mathbf{i} \quad \uline{\lambda p.\lambda q.p})
 	\Rightarrow
 	\lambda p.\lambda q.p$
-	\item Lösungsweg fehlt: $\lambda j.j$
+	\item 
+	$(((\lambda \mathbf{x}.\lambda y.\lambda z((\mathbf{x} \quad y) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \lambda i.i) \quad \uline{\lambda j.j}) \Rightarrow
+	((\lambda y.\lambda z((\lambda j.j \quad y) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \lambda i.i)$
+	
+	$((\lambda \mathbf{y}.\lambda z((\lambda j.j \quad \mathbf{y}) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \uline{\lambda i.i}) \Rightarrow 
+	(\lambda z((\lambda j.j \quad \lambda i.i) \quad z) \quad \lambda f.\lambda a.(f \quad a))$
+	
+	$(\lambda \mathbf{z}((\lambda j.j \quad \lambda i.i) \quad \mathbf{z}) \quad \uline{\lambda f.\lambda a.(f \quad a)}) \Rightarrow 
+	((\lambda j.j \quad \lambda i.i) \quad \lambda f.\lambda a.(f \quad a)$
+	
+	$((\lambda j.j \quad \lambda i.i) \quad \lambda f.\lambda a.(f \quad a)$
+	\\Lösungsweg unklar! $\lambda j.j$
 	\end{enumerate}	
 \end{card}
 
