@@ -121,7 +121,7 @@
 	Von was wird durch eine Initialisierung \texttt{int i=42} abstrahiert?
 	\hr
 	Von der Speicherdarstellung	\\
-	Beispiel: Big Indian/ Little Indian(?)
+	Beispiel: Big Indian/ Little Endian(?)
 \end{card}
 
 \begin{card}
@@ -201,23 +201,30 @@
 
 \begin{card}
 	Objektorientierte Programmierung:\\
-	Die meisten objektorientierter Sprachen verfügen über primitive Datentypen wie z.B. int. Warum haben diese primitiven Datentypen aus der Warte des Abstraktionskonzepts einen Sonderstatus?
+	Die meisten objektorientierter Sprachen verfügen über primitive Datentypen wie z.B. \texttt{int}. Warum haben diese primitiven Datentypen aus der Warte des Abstraktionskonzepts einen Sonderstatus?
 	\hr
-	Call-by-Value: Passen direkt in Referenzspeicherbereich, keine Kapselung notwendig
+	\begin{itemize}
+	\item Call-by-Value: Passen direkt in Referenzspeicherbereich
+	\item keine Kapselung notwendig/möglich
+	\item Vererbung nicht möglich bei texttt{int}.
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Objektorientierte Programmierung:\\
 	Was wird durch die ausschließliche Verwendung von Klassen, Objekten und Referenzen, d.h. durch die Streichung der primitiven Datentypen, im Sinne des Abstraktionskonzepts erreicht?
 	\hr
-	Kontinuität
+	\begin{itemize}
+	\item Kontinuität
+	\item Gemeinsamer Oberdatentyp
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Objektorientierte Programmierung:\\
 	C++ und Java kennen die Möglichkeit des \textbf{overriding}. Inwiefern handelt es sich um eine Abstraktion? D.h. von welchen konkrete Elementen wird abstrahiert? 
 	\hr
-	Von der Implementierung der Objekt-Methode
+	Funktionsname wird von der Implementierung der Objekt-Methode abstrahiert.
 \end{card}
 
 \begin{card}
@@ -240,11 +247,11 @@
 	Objektorientierte Programmierung:\\
 	Inwiefern handelt es sich bei der Definition von superclasses um eine Abstraktion?
 	\hr
-	\begin{enumerate}[a)]
-	\item Verallgemeinerung mit weniger Eigenschaften
+	\begin{itemize}
+	\item Verallgemeinerungder konkreten Klasse, mit weniger Eigenschaften
 	\item Allgemeingültige Klasse für alle Unterklassen
 	\item Generalisierung Richtung Oberklasse
-	\end{enumerate}
+	\end{itemize}
 \end{card}
 
 \begin{card}
@@ -252,7 +259,15 @@
 	Inline-Funktionen sind Teil der meisten funktionalen Sprachen. Beschreiben Sie im Rahmen des Abstraktionskonzepts das Problem mit rekursiv definierten (inline-) Funktionen.
 	\hr
 	Nur 1 Rückgabewert\\
-	Beispiel:
+	Beispiel:\\
+	\vfill
+	Abgrenzung: Makro $\Leftrightarrow$ Inline-Funktion\\
+	Haben beide keine Stack und Heap, d.h. Textersetzung. Inline-Funktionen sehen aber aus wie Funktionen. 
+	Problem bei Texterzersetzung mit Mehrfachaufruf, Beispiel: 
+	\begin{lstlisting}
+	Max(x,y) = {x > y ? x : y}
+	Max(x++, y++)
+	\end{lstlisting}
 \end{card}
 
 \begin{card}
@@ -265,18 +280,18 @@
 
 \begin{card}
 	Funktionale Programmierung:\\
-	In rein funktionalen Sprachen sind Funktionen als Parameter und Rückgabewerte von Funktionen zugelassen. Inwiefern wird dadurch eine höhere Stufe der Abstraktion erreicht, als Paradigmen bei Sprachen, die dieses Feature nicht haben?
+	In rein funktionalen Sprachen sind Funktionen als Parameter und Rückgabewerte von Funktionen zugelassen. 
+	\begin{enumerate}[a)]
+	\item  Inwiefern wird dadurch eine höhere Stufe der Abstraktion erreicht, als Paradigmen bei Sprachen, die dieses Feature nicht haben?
+	\item Ist es möglich, durch diese Erweiterung Probleme zu lösen, die in imperativen Sprachen nicht gelöst werden können?
+	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-	\item Asynchroner Ablauf, Event-basiert / Ereignis-gesteuert
-	\item Dynamischer Kontrollfluss, Callbacks
-	\item Skalierbarkeit, da bekannter Gültigkeitsbereich
+	\item \begin{itemize}
+		\item Asynchroner Ablauf, Event-basiert / Ereignis-gesteuert
+		\item Dynamischer Kontrollfluss (Bsp: Callbacks), Funktionen können zur Laufzeit konstruiert/modifiziert werden.
+		\item Bessere Skalierbarkeit, da bekannter Gültigkeitsbereich
+		\end{itemize}
+	\item  Nein. Ackermann ist iterativ nicht lösbar, sondern nur rekursiv?
 	\end{enumerate}
-\end{card}
-
-\begin{card}
-	Funktionale Programmierung:\\
-	Ist es möglich, durch diese Erweiterung Probleme zu lösen, die in imperativen Sprachen nicht gelöst werden können?
-	\hr
-	Nein, trotzdem aber andere Ansätze möglich und besserer Umgang mit Parallelität
 \end{card}
