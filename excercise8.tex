@@ -7,7 +7,7 @@
 	Die Komplexitätsklasse $\mathbf{P}$ wird üblicherweise als Entscheidungsproblem definiert.
 	\begin{enumerate}[a)]
 	\item Formulieren Sie die entsprechende Definition.
-	\item Formulieren Sie $\mathbf{P}$ als Suchproblem. 
+	\item Formulieren Sie $\mathbf{P}$ als Suchproblem.
 	\end{enumerate}
 	\hr
 \end{card}
@@ -71,31 +71,69 @@
 \end{card}
 
 \begin{card}
-	Bestimmen Sie die Ableitungen der folgenden Funktionen:
-	\begin{enumerate}[a)]
-	\item $f(x) = x * ln x$
-	\item $f(x) = ln ( ln x)$
-	\item $f(x) = log_n x$
-	\item $f(x) = lg x$
-	\item $f(x) = x^x$
-	\item $f(x) = e^{ln x}$
-	\end{enumerate}
-	\hr
+	\begin{columns}
+		\begin{column}{.5\linewidth}
+		Bestimmen Sie die Ableitungen der folgenden Funktionen:
+			\begin{enumerate}[a)]
+			\item $f(x) = x * ln~x$
+			\item $f(x) = ln ( ln~x)$
+			\item $f(x) = log_n x$
+			\item $f(x) = lg~x$
+			\item $f(x) = x^x$
+			\item $f(x) = e^{ln~x}$
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.5\linewidth}
+		Lösung:
+			\begin{enumerate}[a)]
+			\item $f'(x) = ln~x$ mit P.
+			\item $f'(x) = \frac{1}{x*ln~x}$ mit K. + P.
+			\item $f'(x) = \frac{1}{x*ln~n}$ mit P.
+			\item $f'(x) = \frac{1}{x*ln~10}$
+			\item $f'(x) = ln~x*x^x$ mit K. + P.
+			\item $f'(x) = 1 (= 1 * x^{1-1})$
+			\end{enumerate}
+		\end{column}
+	\end{columns}
+	\vfill	
+	Legende: Anwendung der Kettenregel (K), Produktregel (P)\\
+	Hinweise:\\
+	\begin{itemize}
+	\item $lg = log_{10}$, $ln = log_e$,
+	\item $e^{ln(x)} = x \text{, da aus } a^b = c \text{ und } b = log_a~c \text{ folgt } a^{b = log_a~c} = c$
+	\item $log_a~b = \frac{ln~b}{ln~a}$
+	\item $\frac{a}{b} = a * b^{-1}$
+	\end{itemize}
 \end{card}
 
 \begin{card}
-	Finden Sie zu jeder der gegebenen Funktionen $f$ eine Funktion $g$, so dass $f \in \mathbf{O}(g)$ gilt: 
-	\begin{enumerate}[a)]
-	\item $f(n) =f(n – 1 ) + 10 $
-	\item $f(n) =f(n– 1 ) +n$
-	\item $f(n) = 2*f(n– 1 )$
-	\item $f(n) =f(n/ 2 ) + 10$
-	\item $f(n) =f(n/ 2 ) +n$
-	\item $f(n) = 2*f(n/ 2 ) +n$
-	\item $f(n) = 3*f(n/ 2 )$
-	\item $f(n) = 2*f(n/ 2 ) + \mathbf{O} (n2)$
-	\end{enumerate}
-	\hr
+	Finden Sie zu jeder der gegebenen Funktionen $f$ eine Funktion $g$, so dass $f \in \mathbf{O}(g)$ gilt:
+	\begin{columns}
+		\begin{column}{.5\linewidth}
+			\begin{enumerate}[a)]
+			\item $f(n) =f(n - 1 ) + 10$
+			\item $f(n) =f(n- 1 ) +n$
+			\item $f(n) = 2*f(n- 1 )$
+			\item $f(n) =f(n/ 2 ) + 10$
+			\item $f(n) =f(n/ 2 ) +n$
+			\item $f(n) = 2*f(n/ 2 ) +n$
+			\item $f(n) = 3*f(n/ 2 )$
+			\item $f(n) = 2*f(n/ 2 ) + \mathbf{O} (n2)$
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.5\linewidth}
+			\begin{enumerate}[a)]
+			\item 
+			\item 
+			\item 
+			\item 
+			\item 
+			\item 
+			\item 
+			\item 
+			\end{enumerate}
+		\end{column}
+	\end{columns}
 \end{card}
 
 \begin{card}
@@ -130,7 +168,7 @@
 	\item Wachstumsklasse $f$ ist äquivalent zur Wachstumsklasse $n^2$
 	\item \lightning  $\mathbf{O}(n^2)$ enthält keine Mengen
 	\item existiert ein c für: $n^2 \leq c * e^x$ ?
-	\item $=$ macht keinen Sinn, $\in$ wäre hier richtig
+	\item Formal: $=$ macht keinen Sinn, $\in$ wäre hier richtig
 	\item Teilmenge kann es sein, vgl. c)
 	\end{enumerate}
 \end{card}
