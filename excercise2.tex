@@ -4,85 +4,145 @@
 \end{card}
 
 \begin{card}
+	Knappsack:\\
+	Bildet von unterschiedlichen Summen eine Menge von n Summanden. (vgl. Merkle-Hellman Verfahren)\\
+	Beispiel: Die Folge der Werte $( 3, 4, 5 )$ liefert die Summen $0, 3, 4, 5, 7, 8, 9, 12$.
+	\hr
+	Bilde Potenzmenge der Eingabe und addiere Elemente dieser einzelnen Mengen.\\
+	Zum Beispiel: $2^{\{ 3, 4, 5 \}} = \{\emptyset, \{3\}, \{4\}, \{5\}, \{3,4\}, \{4,5\}, \{3,5\}, \{3,4,5\} \}$
+\end{card}
+
+\begin{card}
 	Nennen Sie mindestens 3 Gründe für Abstraktion.
 	\hr
 	\begin{enumerate}[a)]
-	\item Wiederverwendbarkeit von allgemeinen Problemlösungen
-	\item Klassifizieren von Problemen, erkennen der Struktur
-	\item Allgemeine Lösung zu detaillierten Problemen ($\approx$ Kompression)
-	\item Vereinfachung, reduzieren auf gemeinsame Eigenschaft
+	\item \textbf{Wiederverwendbarkeit} von allgemeinen Problemlösungen
+	\item \textbf{Klassifizieren} von Problemen, erkennen der Struktur
+	\item Allgemeine Lösung zu detaillierten Problemen ($\approx$ \textbf{Kompression})
+	\item \textbf{Ver\uline{ein}fachung}, reduzieren auf gemeinsame Eigenschaft
 	\end{enumerate}
 \end{card}
 
 \begin{card}
 	Inwiefern wird beim Programmieren ganz generell abstrahiert?
 	\hr
-	\begin{enumerate}[a)]
-	\item OOP $\Leftrightarrow$ reelle Welt, internes Modell als Abstraktion
-	\item Abstraktion von Problembeispielen auf Programmcode
-	\item Programme $\Leftrightarrow$ Prozessen (vgl. Debuggen - ständiger Kontextwechsel)
-	\end{enumerate}
+	\begin{itemize}
+	\item OOP (A) $\Leftrightarrow$ reale Welt (K)
+	\item Programmcode (A) $\Leftrightarrow$ Problembeispiele (K)
+	\item Programme (A)$\Leftrightarrow$ Prozesse / Programmlauf (K)\\(vgl. Debuggen - ständiger Kontextwechsel)
+	\end{itemize}
+	Legende: Konkretisierung (K), Abstraktion (A)
 \end{card}
 
 \begin{card}
 	Inwiefern wird bei der \textbf{strukturierten} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}[a)]
-	\item if, for, while-Konstrukte ersetzen Sprungbefehle\\
-		Beispiel: labels mit goto (?)
-	\end{enumerate}
+	if, for, while-Konstrukte ersetzen Sprungbefehle\\
+	Beispiel: 
+	\begin{lstlisting}[language=C]
+	while(c>0) {
+	  c--;
+	}
+	\end{lstlisting}
+	wird zu 
+	\begin{lstlisting}[language=C]
+	start:
+	if(c <= 0) goto end;
+	  c--;
+	  goto start;
+	
+	end: ...
+	\end{lstlisting}
 \end{card}
 
 \begin{card}
 	Inwiefern wird bei der \textbf{prozeduralen} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}[a)]
+	\begin{itemize}
 	\item parametrisierte Prozeduren ersetzen alle Werte-Kombinationen beim Aufruf\\
 		Beispiel: f(x) $\ent$ f(1), f(2), ... f(n)
-	\end{enumerate}
+	\item Prozeduren ersetzen konkrete Implementierungen ($\approx$ \textbf{Blackbox})\\
+		Beispiel: sort(array[] field) sortiert ohne, dass bekannt ist wie.
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Inwiefern wird bei der \textbf{modularen} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}[a)]
-	\item statische Werte, d.h. kein Zustand
-	\item Blackbox, Implementierung unbekannt\\
-		Beispiel: sort(array[] field) sortiert ohne, dass wir wissen wie.
-	\end{enumerate}
-
+	\begin{itemize}
+	\item Kein konkreten Zustände, d.h. nur statische (vgl. \texttt{static}) Werte ($\approx$ \textbf{Zustandslos})
+	\item Implementierung unbekannt, Referenzierung über Name ($\approx$ \textbf{Blackbox})\\
+		Beispiel: \texttt{import java.io} $\rightarrow$ \texttt{import java.nio} bei gleicher API
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Inwiefern wird bei der \textbf{objekt-orientierten} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}[a)]
+	\begin{itemize}
 	\item Vererbung, generischen Datentypen\\
 			Beispiel: A extends B\\
 			(A Konkretisierung  von B $\leftrightarrow$ B Generalisierung/Abstraktion von A)
 	\item Polymorphismus, dynamisches Binden\\
-			Beispiel:
-	\end{enumerate}
+		Beispiel:
+		\begin{lstlisting}[language=Java]
+		class B {
+		  void f() { out.println("B"); }
+		}
+		
+		class A extends B {
+		  void f() { out.println("A"); }
+		}
+		
+		B testA = new A();
+		testA.f(); // "A"
+		B testB = new B();
+		testB.f(); // "B"
+		\end{lstlisting}
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Inwiefern wird bei der \textbf{funktionalen} Programmierung abstrahiert?
 	\hr
-	\begin{enumerate}[a)]
-	\item Nur Funktionen und Rückgabewerte, keine Datentypen, bzw. Objekte\\
+	\begin{itemize}
+	\item Nur Funktionen und Rückgabewerte, keine Unterscheidung zwischen Daten(typen) und  Objekten\\
 		Beispiel:
+		%eigentlich JavaScript
+		\begin{lstlisting}[language=Java] 
+		function addiere(x,y) {
+		  if (typeof y === "undefined" ) {
+		    return function (y) { return x + y; }
+		  }
+		  return x + y;
+		}
+		addiere(2,4); // 6 
+		var addiere_zu_drei = addiere(3)
+		addiere_zu_drei(5) // 8
+		\end{lstlisting}
+		%Quelle: https://de.wikipedia.org/wiki/Currying#JavaScript
 	\item Überladen von Funktionen\\
-		Beispiel:
-	\end{enumerate}
+		Beispiel: \texttt{summe(a,b,c)} (A) und \texttt{summe(a,summe(b,c))} (K)
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Inwiefern wird bei der Programmierung abstrakter Datentypen abstrahiert?
 	\hr
-	\begin{enumerate}[a)]
-	\item Lists, Arrays als Abstraktion, vgl. Gruppe (Math.)\\
-		Beispiel: new ArrayList<Integer>().get(0)
-	\end{enumerate}
+	\begin{itemize}
+	\item Lists, Arrays als Abstraktion\\
+		vgl. Gruppe (Math.), generische Datentypen\\
+		Beispiele: 
+		\begin{lstlisting}[language=Java] 
+		static Object getFirst(ArrayList b) {
+		   return ...
+		}
+		
+		ArrayList a = new ArrayList<Integer>();
+		...
+		<?> c = getFirst(a);
+		\end{lstlisting}
+	\end{itemize}
 \end{card}
 
 \begin{card}
@@ -90,12 +150,12 @@
 	Bei der Konkretisierung wird umgekehrt einem Namen ein bestimmtes konkretes Objekt zugeordnet - der Name wird gebunden.\\
 	Wann erfolgt im Rahmen der Programmierung die Konkretisierung, d.h. die Bindung	eines Namens?
 	\hr
-	Bei der Zuweisung wird der Typ und Name konkret festgelegt: Zur Laufzeit\\
+	Die Konkretisierung erfolgt zur \textbf{Laufzeit}, d.h. bei der Zuweisung wird der Typ und Name konkret festgelegt.\\
 	Beispiel:
 	\begin{lstlisting}[language=Java]
-	// Abstraktion:
+	// Abstraktion: Instanziierung
 	List x = new ArrayList();
-	// Konkretisierung:
+	// Konkretisierung: Zuweisung, Casting
 	void doSth(List x) {ArrayList y=(ArrayList)x;}
 	\end{lstlisting}
 \end{card}
@@ -104,8 +164,8 @@
 	Imperative Programmierung:\\
 	Von was wird durch einen Variablennamen abstrahiert?
 	\hr
-	Vom Wert, da nur die Referenz auf den Wert benutzt wird\\
-		Beispiel: int x = 3; x=x+4;
+	Vom konkreten Wert hinter dem Variablennamen, da nur die Referenz auf den Wert benutzt wird.\\
+		Beispiel: \texttt{int x = 3; x = 7;}
 \end{card}
 
 \begin{card}
@@ -113,15 +173,22 @@
 	Von was wird durch Pointer abstrahiert?
 	\hr
 	Von der Speicheradresse\\
-		Beispiel
+	Beispiel:
+	\begin{lstlisting}[language=C]
+	int *myPointer = 3 //Wert;
+	myPointer = 1234 // Speicheradresse
+	\end{lstlisting}
 \end{card}
 
 \begin{card}
 	Imperative Programmierung:\\
 	Von was wird durch eine Initialisierung \texttt{int i=42} abstrahiert?
 	\hr
-	Von der Speicherdarstellung	\\
-	Beispiel: Big Indian/ Little Endian(?)
+	\begin{itemize}
+	\item Speicherreservierung + Zuweisung und Belegung
+	\item Darstellung
+	\end{itemize}
+	Beispiel: Big Indian / Little Endian (dt.: Byte-Reihenfolge)
 \end{card}
 
 \begin{card}
