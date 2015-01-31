@@ -4,6 +4,40 @@
 \end{card}
 
 \begin{card}
+	Gegeben: $f_1(x) = x^2-2$, $f_2(x) = x-5$, $f_3(x) = e^{x-2}$,  $f_4(x) = ln(x+5)$, $f_5(x) = 5$
+	\vfill
+	\begin{columns}
+		\begin{column}{.5\linewidth}
+		Bestimmen Sie die Ausdrücke der folgenden Funktionen:
+			\begin{enumerate}[a)]
+			\item $f_1 \circ f_2$
+			\item $f_1 \circ f_2 \circ f_3$
+			\item $(f_1 + f_4) \circ f_2$
+			\item $f_3 \circ (f_1 + f_4) \circ f_2$
+			\item $f_4 \circ f_4^{-1}$
+			\item $ f_4^{-1} \circ f_4$
+			\item $f_2 \circ f_3 \circ f_3^{-1} \circ f_2^{-1}$
+			\item $f_1 \circ f_5 \circ f_5^{-1} \circ f_1^{-1}$
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.5\linewidth}
+		Lösung:
+			\begin{enumerate}[a)]
+			\item $(x-5)^2-2$
+			\item $(e^{x-2}-5)^2-2$
+			\item $(x-5)^2-2+ln(x)$
+			\item $e^{(x-5)^2-2+ln(x)-2}$
+			\item $id \text{ (da } f_4^{-1} \text{existiert)}$
+			\item $id \text{ (da } f_4^{-1} \text{existiert)}$
+			\item $id \text{ (da } f_2^{-1} \text{,} f_3^{-1} \text{existiert)}$
+			\item \lightning ($f_5^{-1}$ existiert nicht)
+			\end{enumerate}
+		\end{column}
+	\end{columns}
+	Bilden Umkehrfunktion: $y = ln(x+5) \Leftrightarrow e^y = e^{ln(x+5)} \Leftrightarrow e^y = x+5 \Leftrightarrow e^y-5 = x \Rightarrow y = e^x-5$
+\end{card}
+
+\begin{card}
 	Schreiben Sie in Java jeweils ein Programm, das die Funktionen
 	\begin{enumerate}[a)]
 	\item $x+y$
@@ -27,11 +61,19 @@ public static int pow(int x, int y) {
   if (y == 0) { return 1; }
   return x * pow(x, y-1);
 }
-	\end{lstlisting}	
+	\end{lstlisting}
 \end{card}
 
 \begin{card}
 	Schreiben Sie in Java Programme zu Berechnung der Fakultät mit dem Datentyp BigInteger.
+	\hr
+	$n! = 1*2*...*(n-1)*n = n * (n-1)!$
+	\begin{lstlisting}[language=Java]
+	public static int fac(int x) {
+	  if (x == 0) return 1;
+	  return x * fac(x-1);
+	}
+	\end{lstlisting}
 \end{card}
 
 \begin{card}
@@ -61,7 +103,7 @@ public static int Flength(int x) {return Flength(x, 1);}
 \end{card}
 
 \begin{card}
-	Relationen, mit$R \subseteq M \times M$\\
+	Relationen, mit $R \subseteq M \times M$\\
 	\begin{tabular}{ll}
 		Reflexivität:& $(x, x) \in R $\\
 		Symmetrie:&	$(x, y) \in R \Rightarrow (y, x) \in R$\\
@@ -71,6 +113,8 @@ public static int Flength(int x) {return Flength(x, 1);}
 		Funktion: & bijektiv = surjektiv (rechtstotal, isOnto) +\\
 	     	      & injektiv (linkseindeutig, isOneOne)
 		\end{tabular}
+		\\
+		TODO: Bild Bijektivität
 \end{card}
 
 \begin{card}
@@ -85,18 +129,18 @@ public static int Flength(int x) {return Flength(x, 1);}
 	\begin{enumerate}[a)]
 	\item Nein, da unterschiedlich mächtig. siehe 4.)
 	\item Nein, da gelten muss: $\forall x \in A: x \in B$, aber hier: $3,4 \notin B$ 
-	\item A keine echte Teilmenge von B, da gelten muss: $A \subset B \land A \neq B \Rightarrow 1.) \land \lnot 2.)$ , 1. ist falsch
+	\item A keine echte Teilmenge von B, da gelten muss: $A \subset B \land A \neq B \Rightarrow a.) \land \lnot b.)$ , a.) ist falsch
 	\item Nein, da $2 \neq 1$
 	\end{enumerate}
 \end{card}
 
 \begin{card}
-	Das cartesische Produkt zweier Mengen A und B ist wie folgt definiert:
+	Das kartesische Produkt zweier Mengen A und B ist wie folgt definiert:
 	$A \times B = \{(x,y):x	\in	A \land	y \in B\}$\\
 	Prüfen Sie, ob das kartesische Produkt assoziativ ist, d.h. ob für Mengen X,Y,Z gilt:
 	$(X	\times Y)\times Z=X \times(Y \times Z)$
 	\hr
-	Nein, da andere Struktur
+	Nein, da die Tupel $((x,y),z)$ und $(x,(y,z))$ unterschiedlich sind, also eine andere Struktur haben.
 \end{card}
 
 \begin{card}
@@ -111,8 +155,8 @@ public static int Flength(int x) {return Flength(x, 1);}
 	\begin{enumerate}[a)]
 	\item Nein, die leere Menge hat keine Elemente
 	\item Nein, Zahlen sind keine Menge
-	\item Nein, siehe 2.)
-	\item Nein, siehe 1.)
+	\item Nein, siehe b.)
+	\item Nein, siehe a.)
 	\end{enumerate}
 \end{card}
 
@@ -123,9 +167,10 @@ public static int Flength(int x) {return Flength(x, 1);}
 	\item $|2^X| \cup |X|$
 	\end{enumerate}
 	\hr
-	Beispiel: Potenzmenge  von $\{ a,b \} = \{ \emptyset, \{ a \}, \{ b \} , \{ a,b \} \}$
+	Beispiel: Potenzmenge  $X = \{ a,b \} \Rightarrow 2^X = \{ \emptyset, \{ a \}, \{ b \} , \{ a,b \} \}$
 	\begin{enumerate}[a)]
-	\item $|X| = 2^{|X|}$
-	\item Widerspruch, Vereinigung von Zahlen, nicht Mengen
+	\item $2^X \cup X = \{ \emptyset, \{ a \}, \{ b \} , \{ a,b \}, a, b\} \Rightarrow 
+	|2^X \cup X| = 2^{|X|} + |X|$
+	\item \lightning Vereinigung von Zahlen, nicht Mengen
 	\end{enumerate}
 \end{card}
