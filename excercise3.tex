@@ -11,17 +11,17 @@
 \end{card}
 
 \begin{card}
-Die Turing-Maschine realisiert ebenfalls das imperativen Programmierparadigma. Warum?
-\hr
-Jeder Zustand verknüpft über Befehle, vgl. Überführungsfunktion
+	Die Turing-Maschine realisiert ebenfalls das imperativen Programmierparadigma. Warum?
+	\hr
+	Jeder Zustand verknüpft über Befehle, vgl. Überführungsfunktion
 \end{card}
 
 \begin{card}
-	Wiese wird vom von-Neumann-Rechner\textbf{konzept} aber von der Turing-\textbf{Maschine} gesprochen?
+	Wieso wird vom von-Neumann-Rechner\textbf{konzept} aber von der Turing-\textbf{Maschine} gesprochen?
 	\hr
 	Konzept: Abstraktion
 	
-	Maschine: Konkrete Idee (auch wenn so nicht realisierbar)
+	Maschine: Konkrete Idee (auch wenn so nicht realisierbar, durch das unendlich lange Band)
 	\begin{figure}[h]
 	\centering
 	\includegraphics[width=4cm]{Von-Neumann_Architektur}
@@ -32,15 +32,15 @@ Jeder Zustand verknüpft über Befehle, vgl. Überführungsfunktion
 
 \begin{card}
 	Im Zusammenhang mit dem Neumann-Rechnerkonzept ist die Rede vom von-Neumann-Flaschenhals, wenn Nachteile des Konzepts genannte werden.
-	
+	\begin{enumerate}[a)]
+	\item Was ist darunter zu verstehen?
+	\item Gibt es eine vergleichbare Problematik für die Turing-Maschine? 
+	\end{enumerate}
 	\hr
-	a) Was ist darunter zu verstehen?
-	
-	Alle Befehle müssen durch den Bus
-	\hr
-	b) Gibt es eine vergleichbare Problematik für die Turing-Maschine? 
-	
-	Schreib/Lesekopf kann nur entweder schreiben oder lesen
+	\begin{enumerate}[a)]
+	\item Alle Befehle / Daten müssen durch den Bus
+	\item Schreib-/Lesekopf kann pro Zeiteinheit entweder schreiben oder lesen
+	\end{enumerate} 
 \end{card}
 
 \begin{card}
@@ -48,45 +48,50 @@ Jeder Zustand verknüpft über Befehle, vgl. Überführungsfunktion
 	\hr
 	Von TM ausgehend:
 	
-	\begin{enumerate}[a)]
+	\begin{itemize}
 	\item Daten und Programme liegen \textbf{nicht} im selben Speicher
-	\item keine Nummerierung auf dem Band
+	\item keine Nummerierung/Adressierung eines Feldes auf dem Band
 	\item keine Sprungadressen
 	\item kann nur 1 Feld gehen pro Befehl
-	\end{enumerate}
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Setzt die Turing-Maschine das von-Neumann-Rechnerkonzept um?
 	\hr
 	\textbf{Nein}, weil
-	\begin{enumerate}[a)]
+	\begin{itemize}
 	\item Bei TM: Daten $\neq$ Programme
 	\item TM hat keine Sprungadresse
-	\end{enumerate}
-	oder \textbf{Ja} mit Einschränkungen (s.o)
+	\end{itemize}
+	\vfill
+	oder \textbf{Ja} mit Einschränkungen (vgl. Nein)
+	\begin{itemize}
+	\item Arbeiten befehlsorientiert
+	\item Arbeiten deterministisch
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Wie könnte das Paradigma der strukturierten Programmierung in das von-Neumann-Rechnerkonzept integriert werden?
 	\hr
-	Überwachen, bzw. Regeln der Sprunganweisungen.\\
-	D.h. Begrenzter Bereich z.B. bei if-Anweisungen
+	Überwachen bzw. Regeln der Sprunganweisungen.\\
+	D.h. begrenzter Bereich (Scope) z.B. bei if-Anweisungen
 \end{card}
 
 \begin{card}
 	Wieso verletzt das Konzept der lokalen static-Variablen in C das Paradigma der funktionalen
 	Programmierung?
 	\hr
-	Funktionsausgabe nur abhängig von Eingabe. D.h. bei gleicher Eingabe gleiche Ausgabe.
+	Funktionsausgabe nur abhängig von Eingabe. D.h. bei gleicher Eingabe gleiche Ausgabe (Idempotent, Deterministisch).
 	\begin{lstlisting}[language=C]
-int f(int i) {
-  // Ausfuehrung bei Objekt-Init, 
-  // nicht bei Methodenaufruf
-  static int x = 0; 
-  x++;
-  return x+i;
-}
+	int f(int i) {
+	  // Ausfuehrung bei Objekt-Init, 
+	  // nicht bei Methodenaufruf
+	  static int x = 0; 
+	  x++;
+	  return x+i;
+	}
 	\end{lstlisting}	
 \end{card}
 
@@ -95,61 +100,95 @@ int f(int i) {
 	\hr
 	Pardigma der f. Programmierung: Funktionsausgabe nur abhängig von Eingabe.  D.h. bei gleicher Eingabe gleiche Ausgabe.
 	\begin{lstlisting}[language=C]
-int f(int *i) {
-  // Veraendern der Speicheradresse und 
-  //somit der Eingabe
-  *i = 1234
-  ...
-}
+	int f(int *i) {
+	  // Veraendern der Speicheradresse und 
+	  //somit der Eingabe
+	  *i = 1234
+	  ...
+	}
 	\end{lstlisting}	
 \end{card}
 
 \begin{card}
 	In Java gibt es mit dem Collection-Framework eine Reihe von sogenannten Container-Klassen. Welches objektorientierte Programmierparadigma verletzen Objekte z.B. der Klassen	ArrayList oder Vector? 
 	\hr
-	Es werden Referenzen gespeichert. D.h. die Datenkapselung ist verletzt.
+	Es werden Referenzen gespeichert. D.h. die Datenkapselung ist verletzt. Werte müssten unveränderlich (immutable) sein.
 	\begin{lstlisting}[language=Java]
-Class Dummy{int value;}
-...
-Dummy example = new Dummy()
-ArrayList<Dummy> list = new ArrayList<Dummy>()
-list.add(example)
-
-// Zugriff auf value via:
-example.value
-list.get(0).value
+	Class Dummy{int value;}
+	...
+	Dummy example = new Dummy()
+	ArrayList<Dummy> list = new ArrayList<Dummy>()
+	list.add(example)
+	
+	// Zugriff auf value ueber 2 Wege:
+	example.value
+	list.get(0).value
 	\end{lstlisting}	
 \end{card}
 
 \begin{card}
 	Wie müsste das Funktionskonzept in C beschränkt bzw. erweitert werden, damit es nicht zu Verletzungen des Paradigmas der funktionalen Programmierung kommen kann?
 	\hr
-	\begin{enumerate}[a)]
+	Zustandslosigkeit durch:
+	\begin{itemize}
 	\item kein static und Pointer 
 	\item keine Systemaufrufe
-	\end{enumerate}
+	\end{itemize}
 \end{card}
 
 \begin{card}
-	Das funktionale Programmierparadigma, das die referentielle Transparenz der Variablen fordert, wird in C durch die Zuweisung verletzt. Wie müssten die Regeln für die Verwendung der Zuweisung geändert werden, damit die	Zuweisung in das funktionale Konzept passt? 
+	Das funktionale Programmierparadigma, das die referentielle Transparenz der Variablen fordert, wird in C durch die Zuweisung verletzt. 
+	\begin{enumerate}[a)]
+	\item Wie müssten die Regeln für die Verwendung der Zuweisung geändert werden, damit die	Zuweisung in das funktionale Konzept passt?
+	\item Welcher Art von Anweisung entspräche die veränderte Zuweisung dann?
+	\end{enumerate}
 	\hr
-	Welcher Art von Anweisung entspräche die veränderte Zuweisung dann? 
-	TODO
+	\begin{enumerate}[a)]
+	\item Unveränderliche Variablen, Einmal-Zuweisung, bzw. nur Init.
+	\item Konstanteninitialisierung
+	\end{enumerate}
+	
 \end{card}
 
 \begin{card}
 	Die referentielle Transparenz sorgt dafür, dass Programme in rein funktionalen Sprachen	problemlos nebenläufig abgearbeitet werden können. 
-	Erklären Sie den Zusammenhang an einem Beispiel.
-	Erklären Sie an einem Beispiel den Zusammenhang fehlender referentieller Transparenz und Problemen bei nebenläufig ausgeführten Programmen. 
+	\begin{enumerate}[a)]
+	\item Erklären Sie den Zusammenhang an einem Beispiel. 
+	\item Erklären Sie an einem Beispiel den Zusammenhang fehlender referentieller Transparenz und Problemen bei nebenläufig ausgeführten Programmen. 
+	\end{enumerate}
+	\hr
+	\begin{enumerate}[a)]
+	\item Werte unveränderlich (immutable), d.h. kein Zustand und stark begrenzter Gültigkeitsbereich. Funktionen sind Thread-Safe, da Parameter nicht von außen geändert werden können.\\
+	Beispiel: Immutable-Klassen sind automatisch thread-Safe, parallelisierbar und skalierbar. 
+	\item Objekt-Parameter können während Thread-Unterbrechung über eine Referenz außerhalb der eigentlich Funktion verändert werden und haben somit einen anderen Zustand. Kein Determinismus, Race-Condition möglich.
+	\end{enumerate}
 \end{card}
 
 \begin{card}
 	Objektorientierte Sprachen kennen sogenannte inline-Funktionen.
-	Wieso sind inline-Funktionen in objektorientierten Programmiersprachen implementiert?
-	Sind inline-Funktionen in rein funktionalen Programmiersprachen sinnvoll?
-	Welches Problem ergibt sich aus inline-Funktionen im Rahmen einer rein funktionalen	Sprache? 
+	\begin{enumerate}[a)]
+	\item Wieso sind inline-Funktionen in objektorientierten Programmiersprachen implementiert?
+	\item Sind inline-Funktionen in rein funktionalen Programmiersprachen sinnvoll?
+	\item Welches Problem ergibt sich aus inline-Funktionen im Rahmen einer rein funktionalen Sprache?
+	\end{enumerate}
+	\hr
+	\begin{enumerate}[a)]
+	\item Performancevorteile, da weniger Overhead ohne Heap / Stack.
+	\item Ja, erhöhen Geschwindigkeit
+	\item Rekursionen können nicht aufgelöst werden. Daher nur als Zusatz, nicht als Ersatz für normale Funktionen.
+	\end{enumerate}
 \end{card}
 
 \begin{card}
-	Angenommen in C würden innerhalb von parametrisierten Makros Zuweisungen nicht mehr	zugelassen.	Inwiefern verletzen Makros dann trotzdem weiterhin Paradigmen der funktionalen Programmierung? 
+	Angenommen in C würden innerhalb von parametrisierten Makros Zuweisungen nicht mehr	zugelassen sein.\\
+	Inwiefern verletzen Makros dann trotzdem weiterhin Paradigmen der funktionalen Programmierung?
+	\hr
+	Variablen sind außerhalb vom Makro gültig, d.h vor oder nach dem Aufruf / Ersetzung.\\
+	Durch die Textersetzung können Variablen(namen) genutzt werden, die erst im nachfolgenden Programm definiert werden. Dadurch ist Idempotenz / Determinismus verletzt.\\
+	Beispiel:
+	\begin{lstlisting}[language=C]
+	#define printX print x
+	int x = 100;
+	printX() // Ausgabe: 100
+	\end{lstlisting}
 \end{card}
