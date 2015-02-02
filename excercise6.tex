@@ -100,6 +100,7 @@
 	\item Pointern
 	\end{enumerate}
 	\hr
+	Makros, da diese keine Textersetzung durchführen.
 \end{card}
 
 \begin{card}
@@ -107,11 +108,16 @@
 	$\alpha$
 	Konvertierung gelöst werden. Erklären Sie an einem Beispiel die Problematik. Wie wird das Problem konkret gelöst?
 	\hr
+  Die $\alpha$-Konvertierung ist das Umbenennen der Elemente. Bei $(\lambda x.(x \quad x) \quad \lambda x.(x \quad x))$ kommt es zu einem Konflikt. Nach
+  der Konvertierung: $(\lambda x.(x \quad x) \quad \lambda f.(f \quad f))$
 \end{card}
 
 \begin{card}
 	Die Auswertung von Ausdrücken wird als $\beta$–Reduktion bezeichnet. Welches Problem tritt hier auf? (Beispiel!)
 	\hr
+	Es können Konflikte auftreten, die durch die $\alpha$-Konvertierung gelöst werden müssen.
+
+	Beispiel: $(\lambda x.(x \quad x) \quad \lambda x.(x \quad x))$
 \end{card}
 
 \begin{card}

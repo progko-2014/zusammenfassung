@@ -32,15 +32,15 @@
     \item
       \begin{align*}
         pre &= S(R(O, P^3_2), P^1_1, O) \\
-        diff &= S(R(P^1_1, pre \circ P^3_1)), P^2_2, P^2_1)(a, b)
+        \dotdiv &= S(R(P^1_1, pre \circ P^3_1)), P^2_2, P^2_1)(a, b)
       \end{align*}
     \item $sign = S(R(O, N \circ O \circ P^3_2), P^1_1, O)$
     \item
       \begin{align*}
-        a &= S(\cdot, S(gt, P^2_1, P^2_2), P^2_1) \\
-        b &= S(\cdot, S(gt, P^2_2, P^2_1), P^2_2) \\
-        c &= S(\cdot, S(eq, P^2_1, P^2_2), P^2_1) \\
-        max &= S(add, S(add, a, b), c)
+        first &= S(\cdot, S(gt, P^2_1, P^2_2), P^2_1) \\
+        sec &= S(\cdot, S(gt, P^2_2, P^2_1), P^2_2) \\
+        eq &= S(\cdot, S(eq, P^2_1, P^2_2), P^2_1) \\
+        max &= S(add, S(add, first, sec), eq)
       \end{align*}
 	\end{enumerate}
 \end{card}
@@ -75,6 +75,11 @@
     \item Was bedeutet es für die Programmierung, dass es mehrere Operatoren $S^{n+1} $ gibt?
   \end{enumerate}
   \hr
+  \begin{enumerate}[a)]
+    \item Die beliebigen f's bilden ein Funktionsschema
+    \item $n$
+    \item Overloading muss möglich sein für unterschiedliche Stelligkeiten $n$
+  \end{enumerate}
 \end{card}
 
 \begin{card}
@@ -84,29 +89,51 @@
     \begin{enumerate}[i)]
       \item Es handelt sich also eigentlich um $n$ verschiedene Operatoren.
       \item Die Stelligkeit von $f$ ist $n$.
-      \item Die Stelligkeit Funktionen $g_1, \ldots, g_n$ ist $m$.
+      \item Die Stelligkeit der Funktionen $g_1, \ldots, g_n$ ist $m$.
     \end{enumerate}
     \item Was bedeuten i) – iii) für die Implementierung (Programmierung) von $S^{n+1}$?
   \end{enumerate}
   \hr
+  \begin{enumerate}[a)]
+    \item Definition: $S^{n+1}(f, g_1, \ldots, g_n)(x_1, \ldots, x_m) = f(g_1(x_i, \ldots, x_m), \ldots, g_n(x_i, \ldots, x_m))$
+    \begin{enumerate}[i)]
+      \item Ja, da $g_i$ $n$-mal aufgerufen wird.
+      \item Ja, da die Parameter $g_1, \ldots, g_n$ sind.
+      \item Ja, da die Parameter von $g_i$ $x_1, \ldots, x_m$ ist.
+    \end{enumerate}
+    \item
+    \begin{enumerate}[i)]
+      \item Variable Parameterliste muss in der Sprache vorhanden sein.
+      \item Variable Parameterliste muss in der Sprache vorhanden sein.
+      \item Variable Parameterliste muss in der Sprache vorhanden sein.
+    \end{enumerate}
+  \end{enumerate}
 \end{card}
 
 \begin{card}
-  Die Stelligkeit $m$ der Funktionen $g_1, \ldots, g_n$ spielt für den Operator $S^{n+1} = S^{n+1}(f, g_1, \ldots, g_n)$ im Rahmen des Konzepts der rekursiven Funktionen und bei den Fragestellungen der Berechenbarkeit keine Rolle.
+  Die Stelligkeit $m$ der Funktionen $g_1, \ldots, g_n$ spielt für den Operator $S^{n+1}(f, g_1, \ldots, g_n)$ im Rahmen des Konzepts der rekursiven Funktionen und bei den Fragestellungen der Berechenbarkeit keine Rolle.
   \begin{enumerate}[a)]
     \item Was ist mit dieser Aussage gemeint?
     \item Was bedeutet das für die Programmierung von $S^{n+1}$ ?
   \end{enumerate}
   \hr
+  \begin{enumerate}[a)]
+    \item 
+    \item 
+  \end{enumerate}
 \end{card}
 
 \begin{card}
-  Die Stelligkeit $n$ der Funktion $f$ spielt für den Operator $S^{n+1} = S^{n+1}(f, g_1, \ldots, g_n)$ im Rahmen des Konzepts der rekursiven Funktionen und bei den Fragestellungen der Berechenbarkeit keine Rolle.
+  Die Stelligkeit $n$ der Funktion $f$ spielt für den Operator $S^{n+1}(f, g_1, \ldots, g_n)$ im Rahmen des Konzepts der rekursiven Funktionen und bei den Fragestellungen der Berechenbarkeit keine Rolle.
   \begin{enumerate}[a)]
     \item Was ist mit dieser Aussage gemeint?
     \item Was bedeutet das für die Programmierung von $S^{n+1}$ ?
   \end{enumerate}
   \hr
+  \begin{enumerate}[a)]
+    \item 
+    \item 
+  \end{enumerate}
 \end{card}
 
 \begin{card}
@@ -115,6 +142,10 @@
     \item Beschreiben Sie die Umsetzung.
   \end{enumerate}
   \hr
+  \begin{enumerate}[a)]
+    \item Durch das Currying wird eine mehrstellige Funktion $f(x_1, x_2)$ in mehrere einstellige Funktionen, die
+      hintereinander ausgeführt werden, umgeformt: $f(x_1)(x_2)$
+  \end{enumerate}
 \end{card}
 
 \begin{card}
@@ -132,11 +163,15 @@ berechnet, d.h. die Formulierung erfolgt ausschließlich mit den Funktionen bzw.
     \item Warum scheitern Sie?
   \end{enumerate}
   \hr
+  \begin{enumerate}[a)]
+    \item ??
+  \end{enumerate}
 \end{card}
 
 \begin{card}
   Was bedeutet die Aussage: „Alle berechenbaren Funktionen können mit Hilfe der Funktionen $0, N, P^m_i, S^{n+1}, R$ und $\mu$ formuliert werden“ für die Programmierung?
   \hr
+  Alle berechenbare Probleme können mit primitiv rekursiven Funktionen umgesetzt werden.
 \end{card}
 
 \begin{card}
