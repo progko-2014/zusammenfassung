@@ -182,7 +182,7 @@
 
 \begin{card}
 	Imperative Programmierung:\\
-	Von was wird durch eine Initialisierung \texttt{int i=42} abstrahiert?
+	Von was wird durch eine Initialisierung \texttt{int i=42} bzw. Zuweisung abstrahiert?
 	\hr
 	\begin{itemize}
 	\item Speicherreservierung + Zuweisung und Belegung
@@ -193,55 +193,62 @@
 
 \begin{card}
 	Imperative Programmierung:\\
-	Von was wird durch eine Zuweisung abstrahiert?
-	\hr
-	TODO: hier geht es weiter...
-	Von allen verschiedenen Zuweisungsoperatoren\\
-	Beispiel
-\end{card}
-
-\begin{card}
-	Imperative Programmierung:\\
 	Von was wird durch 
-	\begin{enumerate}[a)]
+	\begin{itemize}
 	\item if-Abfrage
 	\item for-Schleife \texttt{for(int i=0;i<a;i++) block} 
 	\item while-Schleife
+	\end{itemize}
+	abstrahiert?
+	\hr
+	if-, for- und while-Konstrukte ersetzen verschiedene Goto-Anweisungen und Labels 
+	\begin{lstlisting}[language=C]
+	while(c>0) {
+	  c--;
+	}
+	\end{lstlisting}
+	wird zu 
+	\begin{lstlisting}[language=C]
+	start:
+	if(c <= 0) goto end;
+	  c--;
+	  goto start;
+	
+	end: ...
+	\end{lstlisting}
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch eine 
+	\begin{enumerate}[a)]
+	\item Prozedur (void)
+	\item Funktion (non-void)
 	\end{enumerate}
 	abstrahiert?
 	\hr
-	goto + label\\
-	Beispiel
-\end{card}
-
-\begin{card}
-	Imperative Programmierung:\\
-	Von was wird durch eine Prozedur (void) abstrahiert?
-	\hr
-	Von der Implementierung\\
-	Beispiel
-\end{card}
-
-\begin{card}
-	Imperative Programmierung:\\
-	Von was wird durch eine Funktion (non-void) abstrahiert?
-	\hr
-	Von der Implementierung\\
-	der Rückgabewert abstrahiert von der Funktion\\
-	Beispiel
+	\begin{enumerate}[a)]
+	\item Implementierung
+	\item Implementierung und Rückgabewert von der Funktion
+	\end{enumerate}
 \end{card}
 
 \begin{card}
 	Imperative Programmierung:\\
 	Von was wird in C und C++ und Java durch den abstrakten Datentyp Array abstrahiert?
 	\hr
-	C und C++: Von Pointern, Beispiel: 
+	Von den Speicherbereichen, relativer Zugriff\\
+	C und C++: Speicherbereiche sind zusammenhängend\\
+	Beispiel: 
 	\begin{lstlisting}
-	
+	int arr [] = {1,2,3};
+	arr[0]
 	\end{lstlisting}
 	
-	Java: Von Referenzen, Beispiel: \begin{lstlisting}
-	new String[]{"a", "b", "c"}.get(0)
+	Java: Speicherbereiche sind nicht zwingend zusammenhängend\\
+	Beispiel: 
+	\begin{lstlisting}
+	new int[]{1,2,3}[0]
 	\end{lstlisting}
 	
 \end{card}
@@ -250,14 +257,23 @@
 	Imperative Programmierung:\\
 	Funktionen werden in C, C++ und Java durch Aufrufe zur Laufzeit konkretisiert. Signatur und Methode sind die Abstraktionen. Zusätzlich bietet C++ Funktionen mit default Parametern. Was bedeuten diese für Abstraktion und Konkretisierung?
 	\hr
-	???
+	Default Parameter ermöglichen es, dass die überladene Methode nicht konkret die ursprüngliche Methode aufrufen muss. Es kann abstrakt die selbe Signatur mit den default Parametern verwendet werden.
 \end{card}
 
 \begin{card}
 	Imperative Programmierung:\\
 	Von was wird in C++ durch eine inline-Funktion abstrahiert?
 	\hr
-	Wie Makros als Textersetzung ohne Stack, jedoch wie Funktion mit Auswertung
+	Wie Makros als Textersetzung ohne Stack / Heap, jedoch wie Funktion mit Auswertung.
+	Konkrete Ersetzung des Wertes ohne Aufbau Stack / Heap.
+	\vfill
+	Abgrenzung: Makro $\Leftrightarrow$ Inline-Funktion\\
+	Haben beide keine Stack / Heap, d.h. beide arbeiten mit Textersetzung. Inline-Funktionen sehen aber aus wie Funktionen. 
+	Problem bei Texterzersetzung mit Mehrfachaufruf, Beispiel: 
+	\begin{lstlisting}
+	Max(x,y) = {x > y ? x : y}
+	Max(x++, y++)
+	\end{lstlisting}
 \end{card}
 
 \begin{card}
@@ -265,17 +281,17 @@
 	Von was wird in Java durch eine Referenz \texttt{Type ref} abstrahiert?
 	\hr
 	\texttt{Type}: Für alle Objekt-Typen und deren Ableitung von Type\\
-	\texttt{ref}: Abstraktion der Objekte, aber nicht vom Objekt selbst
+	\texttt{ref} steht für ein konkretes Objekt vom Typ \texttt{Type} oder einer Subklasse davon.
 \end{card}
 
 \begin{card}
 	Objektorientierte Programmierung:\\
-	Die meisten objektorientierter Sprachen verfügen über primitive Datentypen wie z.B. \texttt{int}. Warum haben diese primitiven Datentypen aus der Warte des Abstraktionskonzepts einen Sonderstatus?
+	Die meisten objektorientierter Sprachen verfügen über primitive Datentypen wie z.B. \texttt{int}. Warum haben diese primitiven Datentypen aus der Sicht des Abstraktionskonzepts einen Sonderstatus?
 	\hr
 	\begin{itemize}
-	\item Call-by-Value: Passen direkt in Referenzspeicherbereich
+	\item Call-by-Value: Passen direkt in Speicher ohne Referenzzugriff
 	\item keine Kapselung notwendig/möglich
-	\item Vererbung nicht möglich bei \texttt{int}.
+	\item Vererbung nicht möglich, da keine Klasse.
 	\end{itemize}
 \end{card}
 
@@ -284,16 +300,16 @@
 	Was wird durch die ausschließliche Verwendung von Klassen, Objekten und Referenzen, d.h. durch die Streichung der primitiven Datentypen, im Sinne des Abstraktionskonzepts erreicht?
 	\hr
 	\begin{itemize}
-	\item Kontinuität
-	\item Gemeinsamer Oberdatentyp
+	\item Kontinuität (Einheitlichkeit)
+	\item Gemeinsamer Oberdatentyp, von dem alles erbt $\rightarrow$ ein einziger Vererbungsbaum
 	\end{itemize}
 \end{card}
 
 \begin{card}
 	Objektorientierte Programmierung:\\
-	C++ und Java kennen die Möglichkeit des \textbf{overriding}. Inwiefern handelt es sich um eine Abstraktion? D.h. von welchen konkrete Elementen wird abstrahiert? 
+	C++ und Java kennen die Möglichkeit des \textbf{overriding} (überschreiben). Inwiefern handelt es sich um eine Abstraktion? D.h. von welchen konkrete Elementen wird abstrahiert? 
 	\hr
-	Funktionsname wird von der Implementierung der Objekt-Methode abstrahiert.
+	Der Funktionsname ist die Abstraktion von der konkreten Implementierung der Objekt-Methode, da sich durch das überschreiben die Implementierung je nach Konkretisierung ändert.
 \end{card}
 
 \begin{card}
@@ -306,20 +322,19 @@
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-	\item Overriding von Methoden ist somit eindeutig
+	\item Overriding von Methoden ist durch die Einfachvererbung eindeutig
 	\item Es steckt keine konkrete Implementierung dahinter
-	\item Durch die Reihenfolge der Vererbung
+	\item Durch die Reihenfolge der Vererbung (erst beste Funktion wird genutzt)
 	\end{enumerate}
 \end{card}
 
 \begin{card}
 	Objektorientierte Programmierung:\\
-	Inwiefern handelt es sich bei der Definition von superclasses um eine Abstraktion?
+	Inwiefern handelt es sich bei der Definition von Superclasses (Oberklassen) um eine Abstraktion?
 	\hr
 	\begin{itemize}
-	\item Verallgemeinerungder konkreten Klasse, mit weniger Eigenschaften
-	\item Allgemeingültige Klasse für alle Unterklassen
-	\item Generalisierung Richtung Oberklasse
+	\item Verallgemeinerung (Generalisierung / Abstraktion) der konkreten Klasse, mit allgemeineren und weniger Eigenschaften
+	\item Allgemeingültige Oberklasse für alle Unterklassen
 	\end{itemize}
 \end{card}
 
@@ -327,24 +342,27 @@
 	Funktionale Programmierung:\\
 	Inline-Funktionen sind Teil der meisten funktionalen Sprachen. Beschreiben Sie im Rahmen des Abstraktionskonzepts das Problem mit rekursiv definierten (inline-) Funktionen.
 	\hr
-	Nur 1 Rückgabewert\\
+	Eine rekursive Definition ist bei Inline-Funktionen (vgl. Makros) nicht möglich, da die Textersetzung unendlich ausgeführt wird.\\
 	Beispiel:\\
-	\vfill
-	Abgrenzung: Makro $\Leftrightarrow$ Inline-Funktion\\
-	Haben beide keine Stack und Heap, d.h. Textersetzung. Inline-Funktionen sehen aber aus wie Funktionen. 
-	Problem bei Texterzersetzung mit Mehrfachaufruf, Beispiel: 
-	\begin{lstlisting}
-	Max(x,y) = {x > y ? x : y}
-	Max(x++, y++)
+	\begin{lstlisting}[language=C]
+	inline int add(a, b) {
+	  if(b == 0) return 1; // ignoriert,
+	  return add(a, b-1) + 1; // da hier nur Textersetzung
+	}
 	\end{lstlisting}
+	
 \end{card}
 
 \begin{card}
 	Funktionale Programmierung:\\
 	Inwiefern kann man sagen, dass in rein funktionalen Sprachen auf einer höheren Stufe der Abstraktion programmiert wird?
 	\hr
-	Funktionen wie Werte veränderbar, daher nur Werte zu verarbeiten und keine Prozeduraufrufe vorhanden.\\
-	Beispiel: 
+	\begin{itemize}
+	\item Alles ist eine Funktion: Werte, Klassen und das Programm selbst. Es gibt keine Unterscheidung
+	\item Funktionen können (zur Laufzeit) erzeugt und verändert werden.
+	
+	\end{itemize}
+	Beispiel: Lamda-Ausdrücke
 \end{card}
 
 \begin{card}
@@ -356,11 +374,7 @@
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-	\item \begin{itemize}
-		\item Asynchroner Ablauf, Event-basiert / Ereignis-gesteuert
-		\item Dynamischer Kontrollfluss (Bsp: Callbacks), Funktionen können zur Laufzeit konstruiert/modifiziert werden.
-		\item Bessere Skalierbarkeit, da bekannter Gültigkeitsbereich
-		\end{itemize}
-	\item  Nein. Ackermann ist iterativ nicht lösbar, sondern nur rekursiv?
+	\item Abstraktion der Kontrollstruktur: dynamischer Kontrollfluss (Bsp: Callbacks), Funktionen können zur Laufzeit konstruiert/modifiziert werden.
+	\item  Nein. wie bei imperativen Sprachen. Gegenbsp.: Ackermann ist imperativ nicht lösbar, sondern nur rekursiv. TODO: Frage
 	\end{enumerate}
 \end{card}
