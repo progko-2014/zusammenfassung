@@ -7,7 +7,7 @@
 	Das $\lambda$-Kalkül unterscheidet zwei Arten von Ausdrücken: Auswertungen und Abstraktionen. Benennen Sie für jeden der Ausdrücke dessen Art und dann innerhalb des Ausdrucks gebundene Variablen und Rumpf bzw. Funktionsargument und Funktion. 
 	\begin{enumerate}[a)]
 	\item $\lambda a.(a \quad \lambda b.(b \quad a))$
-	\item $\lambda x.\lambda y.\lambda z.((z \ x) \quad (z \quad y))$
+	\item $\lambda x.\lambda y.\lambda z.((z \quad x) \quad (z \quad y))$
 	\end{enumerate}
 	\hr
 	Auswertung: in Klammern, hat Argumente\\
@@ -25,7 +25,6 @@
 	\end{enumerate}
 \end{card}
 
-
 \begin{card}
 	Das $\lambda$-Kalkül unterscheidet zwei Arten von Variablen: gebundene und freie. Benennen Sie für jeden der folgenden Ausdrücke diese.
 	\begin{enumerate}[a)]
@@ -35,7 +34,6 @@
 	\hr
 	Alle Variablen sind gebunden.
 \end{card}
-
 
 \begin{card}
 	Werten Sie folgende $\lambda$-Ausdrücke aus:
@@ -79,6 +77,54 @@
 	\end{enumerate}
 \end{card}
 
+\begin{card}
+	Gegeben sind folgende $\lambda$-Ausdrücke:
+	\begin{itemize}
+	\item def $id = \lambda x.x$
+	\item def $apply = \lambda f. \lambda x.(f \quad x)$
+	\end{itemize}
+	Zeigen Sie, dass $id = (apply \quad (apply \quad id))$
+	\hr
+	Hinweis: Literale aus verschiedenen eingesetzten $\lambda$-Ausdrücken sind nicht identisch trotz gleichem Namens.
+	$(apply \quad (apply \quad id)) \Rightarrow (apply \quad (\lambda f. \lambda x.(f \quad x) \quad id))$
+	
+	$(apply \quad \textbf{(}\lambda \textbf{f}. \lambda x.(\textbf{f} \quad x) \quad \uline{id}\textbf{)}) \Rightarrow 
+	(apply \quad \lambda x.(id \quad x))$
+	
+	$(apply \quad \lambda x0.\textbf{(} \lambda \textbf{x1} . \textbf{x1} \quad \uline{x0} \textbf{)}) \Rightarrow 
+	(apply \quad \lambda x0.x0)$
+	
+	$(apply \quad \lambda x0.x0) \Rightarrow (\lambda f. \lambda x2.(f \quad x2) \quad \lambda x0.x0)$
+	
+	$\textbf{(}\lambda \textbf{f}. \lambda x2.(\textbf{f} \quad x2) \quad \uline{\lambda x0.x0} \textbf{)} \Rightarrow
+	\lambda x2.(\lambda x0.x0 \quad x2)$
+	
+	$\lambda x2.\textbf{(}\lambda \textbf{x0}.\textbf{x0} \quad \uline{x2} \textbf{)} \Rightarrow
+	\lambda x2.x2 \Leftrightarrow \lambda x.x$
+\end{card}
+
+\begin{card}
+	Gegeben sind folgende $\lambda$-Ausdrücke:
+	\begin{itemize}
+	\item def $apply = \lambda f. \lambda x.(f \quad x)$
+	\item def $pair = \lambda x. \lambda y. \lambda z.((z \quad x ) \quad y)$
+	\end{itemize}
+	Zeigen Sie, dass $apply = \lambda x.\lambda y.(((pair \quad x) \quad y) \quad id)$
+	\hr
+\end{card}
+
+\begin{card}
+	Gegeben sind folgende $\lambda$-Ausdrücke:
+	\begin{itemize}
+	\item def $id = \lambda x.x$
+	\item def $apply = \lambda f. \lambda x.(f \quad x)$
+	\item def $pair = \lambda x. \lambda y. \lambda z.((z \quad x ) \quad y)$
+	\item def $self = \lambda x.(x \quad x)$
+	\item def $second = \lambda x.\lambda y. y$
+	\end{itemize}
+	Zeigen Sie, dass $id = (self \quad (self \quad second))$
+	\hr
+\end{card}
 
 \begin{card}
 	Wieso wird das abstrakteste $\lambda$-Kalkül als \textbf{typfrei} bezeichnet?
