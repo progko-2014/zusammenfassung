@@ -10,6 +10,16 @@
 	\item Formulieren Sie $\mathbf{P}$ als Suchproblem.
 	\end{enumerate}
 	\hr
+	\begin{enumerate}[a)]
+	\item Entscheidungsproblem: $A,S, S \subseteq A, f: A \rightarrow \{true, false\}$\\
+	$x \mapsto \begin{cases} 
+	true, x \in S \\
+	false, x \in A \setminus S
+	\end{cases}$
+	\item Suchproblem: $A,B,R \subseteq A \times B, f: A \rightarrow B \cup \{\perp\}$\\
+	$f(x) = y \Leftrightarrow (x,y) \in R, f(x) = \perp \text{ falls } (x,y) \notin R$
+	\end{enumerate}
+	TODO: Bsp, irgendwas mit Listen und Suchen darin
 \end{card}
 
 \begin{card}
@@ -19,20 +29,28 @@
 	\item Formulieren Sie $\mathbf{NP}$ als Suchproblem. 
 	\end{enumerate}
 	\hr
+	Vgl. vorherige Folie
 \end{card}
 
 \begin{card}
-	Die Zeitkomplexität eines Algorithmus wird in Abhängigkeit von der Länge der Eingabe auf der Turing-Maschine gemessen und nicht in Abhängigkeit vom Wert der Eingabe. Dabei bleibt die entsprechende Funktion $time_F$, die die Zeitkomplexität von Algorithmus F beschreibt, auf [01]* definiert, dh.
-	$time_F:[01]^* \rightarrow \mathbb{N}_0 : x \mapsto max \{ steps_F(y):|x| = |y| \}$
-	mit $steps_F(y)$ als Funktion, die die Rechenschritte zu y liefert. 
+	Die Zeitkomplexität eines Algorithmus wird in Abhängigkeit von der Länge der Eingabe auf der Turing-Maschine gemessen und nicht in Abhängigkeit vom Wert der Eingabe.\\
+	$time_F$ beschreibt die Zeitkomplexität von Algorithmus F:  $time_F:[01]^* \rightarrow \mathbb{N}_0 : x \mapsto max \{ steps_F(y):|x| = |y| \}$\\
+	mit $steps_F(y)$ als Funktion, die die Rechenschritte zu $y$ liefert. 
 	\begin{enumerate}[a)]
-	\item Nennen Sie zwei Gründe für diesen Wechsel des Maßes. Mit
+	\item Nennen Sie zwei Gründe für diesen Wechsel des Maßes. 
+	\item Mit
 	$time_F$ wird die folgende Relation definiert: 
 	$x \sim y := time_F(x) = time_F(y)$
-	\item Beschreiben Sie verbal, was die Relation besagt.
+	Beschreiben Sie verbal, was die Relation besagt.
 	\item Prüfen Sie, ob die Relation die drei klassischen Eigenschaften einer Relation erfüllt, dh. prüfen Sie, ob $\sim$ eine Äquivalenzrelation ist. 
 	\end{enumerate}
 	\hr
+	\begin{enumerate}[a)]
+	\item Warum nicht Länge der Eingabe und nicht Eingabewert?\\
+	Vergleich über Wachstum so möglich, unabhängig vom Wert. Keine absoluten Zahlen, sondern relative Größen. Sonst wäre Problem: Welcher Wert ist komplex? So ist das Maß simpler über \textbf{alle} Werte.
+	\item Die maximale Anzahl an Rechenschritten von $x$ und $y$ ist gleich. Dann ist die Relation geg.
+	\item Reflexivität, Symmetrie, Transitivität durch $=$ gegeben.
+	\end{enumerate}
 \end{card}
 
 \begin{card}
@@ -42,22 +60,22 @@
 	\item $\mathbf{P \subset NP}$
 	\item $\mathbf{NP \subset P}$
 	\end{enumerate}
-	in der Definition mit \textbf{Turing-Maschinen} und \textbf{Beweissystemen}
+	in der Definition mit \textbf{Turing-Maschinen} %ohne Beweissystem, lt Hebold
 	\hr
+	TODO
 \end{card}
 
 \begin{card}
 	Lösungsfunktion und Algorithmus sind etwas anderes.
 	\begin{enumerate}[a)]
 	\item Erklären Sie den Unterschied an einem Beispiel.
-	\item Wieso beziehen sich die Begriffe	\textbf{P} und \textbf{NP} auf Algorithmen und nicht auf Funktionen ? 
+	\item Wieso beziehen sich die Begriffe \textbf{P} und \textbf{NP} auf Probleme und nicht auf Funktionen ? 
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-	\item Primzahl und Verfahren zur Berechnung, ob eine Primzahl ist oder nicht.
-	\item Wieso beziehen sich die Begriffe	\textbf{P} und \textbf{NP} auf Algorithmen und nicht auf Funktionen ? 
+	\item %Primzahl und Verfahren zur Berechnung, ob eine Primzahl gegeben ist oder nicht.?
+	\item 
 	\end{enumerate}
-	\hr
 \end{card}
 
 \begin{card}
