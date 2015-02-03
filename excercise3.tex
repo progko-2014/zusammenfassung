@@ -103,7 +103,7 @@
 	int f(int *i) {
 	  // Veraendern der Speicheradresse und 
 	  //somit der Eingabe
-	  *i = 1234
+	  *i = 1234;
 	  ...
 	}
 	\end{lstlisting}	
@@ -114,15 +114,15 @@
 	\hr
 	Es werden Referenzen gespeichert. D.h. die Datenkapselung ist verletzt. Werte müssten unveränderlich (immutable) sein.
 	\begin{lstlisting}[language=Java]
-	Class Dummy{int value;}
+	class Dummy{int value;}
 	...
 	Dummy example = new Dummy()
 	ArrayList<Dummy> list = new ArrayList<Dummy>()
-	list.add(example)
+	list.add(example);
 	
 	// Zugriff auf value ueber 2 Wege:
-	example.value
-	list.get(0).value
+	example.value = 1;
+	list.get(0).value = 2;
 	\end{lstlisting}	
 \end{card}
 
@@ -189,6 +189,6 @@
 	\begin{lstlisting}[language=C]
 	#define printX print x
 	int x = 100;
-	printX() // Ausgabe: 100
+	printX(); // Ausgabe: 100
 	\end{lstlisting}
 \end{card}
