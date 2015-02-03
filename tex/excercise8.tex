@@ -48,7 +48,7 @@
 	\begin{enumerate}[a)]
 	\item Warum nicht Länge der Eingabe und nicht Eingabewert?\\
 	Vergleich über Wachstum so möglich, unabhängig vom Wert. Keine absoluten Zahlen, sondern relative Größen. Sonst wäre Problem: Welcher Wert ist komplex? So ist das Maß simpler über \textbf{alle} Werte.
-	\item Die maximale Anzahl an Rechenschritten von $x$ und $y$ ist gleich. Dann ist die Relation geg.
+	\item Die maximale Anzahl an Rechenschritten von $x$ und $y$ ist gleich. Dann ist die Relation gegeben.
 	\item Reflexivität, Symmetrie, Transitivität durch $=$ gegeben.
 	\end{enumerate}
 \end{card}
@@ -66,17 +66,20 @@
 \end{card}
 
 \begin{card}
-	Lösungsfunktion und Algorithmus sind etwas anderes.
+	Lösungsfunktion und \textbf{Problem} sind etwas anderes.
 	\begin{enumerate}[a)]
 	\item Erklären Sie den Unterschied an einem Beispiel.
 	\item Wieso beziehen sich die Begriffe \textbf{P} und \textbf{NP} auf Probleme und nicht auf Funktionen ? 
 	\end{enumerate}
-	\hr
+	\hr 
+	TODO
 	\begin{enumerate}[a)]
-	\item %Primzahl und Verfahren zur Berechnung, ob eine Primzahl gegeben ist oder nicht.?
-	\item 
+	\item Primzahl und Verfahren zur Berechnung, ob eine Primzahl gegeben ist oder nicht.?
+	\item Hinweis: Rechenschritte, Komplexitätsmaß time; siehe Skript
+	"Komplexitätstheorie" (aktualisierte Fassung!) 
 	\end{enumerate}
 \end{card}
+
 
 \begin{card}
 	In welche der beiden folgenden Komplexitätsklassen gehört ein Programm, das aus einer
@@ -86,6 +89,7 @@
 	\item \textbf{NP}
 	\end{enumerate}
 	\hr
+	Es gibt $2^n$ mögliche Teilmengen, daher nicht in \textbf{P}. Ob in \textbf{NP} ist nicht geklärt, d.h. nicht geklärt ob Parallelität schneller arbeitet.
 \end{card}
 
 \begin{card}
@@ -132,20 +136,10 @@
 			\item $f(n) =f(n - 1 ) + 10$
 			\item $f(n) =f(n- 1 ) +n$
 			\item $f(n) = 2*f(n- 1 )$
-			\item $f(n) =f(n/ 2 ) + 10$
-			\item $f(n) =f(n/ 2 ) +n$
-			\item $f(n) = 2*f(n/ 2 ) +n$
-			\item $f(n) = 3*f(n/ 2 )$
-			\item $f(n) = 2*f(n/ 2 ) + \mathbf{O} (n2)$
 			\end{enumerate}
 		\end{column}
 		\begin{column}{.5\linewidth}
 			\begin{enumerate}[a)]
-			\item 
-			\item 
-			\item 
-			\item 
-			\item 
 			\item 
 			\item 
 			\item 
@@ -195,10 +189,15 @@
 	Die Symbole $\mathbf{O}, \Omega, \Theta,o \text{ und } \omega$ beschreiben Relationen zwischen Funktionen.
 	\begin{enumerate}[a)]
 	\item Formulieren Sie die Aussagen, die erfüllt sein müssten, damit die genannten Relationen reflexiv, symmetrisch und transitiv sind.\\
-	(Hinweis: Es geht ausdrücklich nicht darum, eine gültige Aussage zu formulieren,
-	sondern nur um die Formalisierung.)
+	%(Hinweis: Es geht ausdrücklich nicht darum, eine gültige Aussage zu formulieren, sondern nur um die Formalisierung.)
 	\item Überprüfen Sie die Gültigkeit der Aussagen aus a). 
 	\item Handelt es sich bei den genannten Relationen jeweils um eine:
-	Äquivalenzrelation, Quasiordnung, Ordnung und/oder Halbordnung 
+	Äquivalenzrelation, Ordnung und/oder Halbordnung 
 	\end{enumerate}
+	\hr
+	$f \sim g := f \in O(g)$\\
+	Reflexivität: $f \sim f$\\
+	Transitivität: $f \sim g, g \sim h \Rightarrow f \sim h$\\
+	Symmetrie: $f \sim g \Rightarrow g \sim f$\\
+	mit $\lim\limits_{x \to \infty} \frac{|f(x)|}{|g(x)|} < \infty$
 \end{card}
