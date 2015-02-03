@@ -1,77 +1,14 @@
 % !TeX spellcheck = de
 \documentclass[10pt,a4paper]{beamer}
-
-\usepackage[german]{babel} % deutsch und deutsche Rechtschreibung
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc} % Umlaute und deutsches Trennen
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{mathabx}
-\usepackage{graphicx}
-\usepackage{url}
-\usepackage{color}
-\usepackage{listings}
-\usepackage{multicol}
-\usepackage{xspace}
-\usepackage[normalem]{ulem}
-\usepackage{wasysym}
-
-\DeclareGraphicsExtensions{.pdf,.jpeg,.png}
-\graphicspath{{img/}}
-
-% Klammern {{{
-\newcommand{\lrk}{\left(}
-\newcommand{\rrk}{\right)}
-\newcommand{\lgk}{\left\{}
-\newcommand{\rgk}{\right\}}
-\newcommand{\lek}{\left[}
-\newcommand{\rek}{\right]}
-% }}}
-
-\newcommand{\field}[1]{\ensuremath{\mathbb{#1}}\xspace}
-\newcommand{\N}{\field{N}}
-\newcommand{\Z}{\field{Z}}
-\newcommand{\Q}{\field{Q}}
-\newcommand{\R}{\field{R}}
-\newcommand{\C}{\field{C}}
-\newcommand{\K}{\field{K}}
-
-\newcommand{\inda}[2]{\textit{Induktionsanfang ($#1=#2$): }}
-\newcommand{\indv}{\textit{Induktionsvoraussetzung ($\star$): }}
-\newcommand{\inds}[1]{\textit{Induktionsschritt ($#1\rightsquigarrow #1+1$): }}
-\newcommand{\proofend}{\begin{flushright}$\Box$\end{flushright}}
-
-\newcommand{\BigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
-
-\newcommand{\ent}{\mathrel{\widehat{=}}}
-\newcommand{\hr}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\vspace{0.6em}\\}
-
-\newenvironment{card}[1]
-  {\begin{frame}[fragile,environment=card]#1}
-  {\end{frame}}
-  
-\lstset{
-  inputencoding=utf8,
-  basicstyle=\small\ttfamily,
-  tabsize=2,
-  breaklines=true,
-  prebreak=\mbox{$\ \curvearrowright$},
-  keepspaces=true,
-  %columns=flexible,
-  keywordstyle=\bfseries\color{blue},
-  stringstyle=\color{red!40!black},
-  commentstyle=\itshape\color{green!40!black},
-  identifierstyle=\color{blue!40!black}
-}
+\input{tex/packages-and-commands.tex}
 
 \begin{document}
-\input{excercise1.tex}
-\input{excercise2.tex}
-\input{excercise3.tex}
-\input{excercise4.tex}
-\input{excercise5.tex}
-\input{excercise6.tex}
-\input{excercise7.tex}
-\input{excercise8.tex}
+\input{tex/excercise1.tex}
+\input{tex/excercise2.tex}
+\input{tex/excercise3.tex}
+\input{tex/excercise4.tex}
+\input{tex/excercise5.tex}
+\input{tex/excercise6.tex}
+\input{tex/excercise7.tex}
+\input{tex/excercise8.tex}
 \end{document}
