@@ -13,15 +13,18 @@
 \begin{card}
 	Die Turing-Maschine realisiert ebenfalls das imperativen Programmierparadigma. Warum?
 	\hr
-	Jeder Zustand verknüpft über Befehle, vgl. Überführungsfunktion
+	\begin{itemize}
+	  \item Überführungsfunktion werden vorher definiert
+	  \item Abarbeiten der Behle nacheinander
+	  \item Jeder Zustand ist über Befehle verknüpft, vgl. Überführungsfunktion
+	\end{itemize}
 \end{card}
 
 \begin{card}
 	Wieso wird vom von-Neumann-Rechner\textbf{konzept} aber von der Turing-\textbf{Maschine} gesprochen?
 	\hr
-	Konzept: Abstraktion
-	
-	Maschine: Konkrete Idee (auch wenn so nicht realisierbar, durch das unendlich lange Band)
+  \textbf{Konzept:} Abstraktion (Sammlung von Leitsätzen und Prinzipien, Referenzmodell)\\
+  \textbf{Maschine:} Konkrete Idee (auch wenn so nicht realisierbar, durch das unendlich lange Band), Maschinenbeschreibung des direkten Programmablaufs
 	\begin{figure}[h]
 	\centering
 	\includegraphics[width=4cm]{Von-Neumann_Architektur}
@@ -34,22 +37,22 @@
 	Im Zusammenhang mit dem Neumann-Rechnerkonzept ist die Rede vom von-Neumann-Flaschenhals, wenn Nachteile des Konzepts genannte werden.
 	\begin{enumerate}[a)]
 	\item Was ist darunter zu verstehen?
-	\item Gibt es eine vergleichbare Problematik für die Turing-Maschine? 
+	\item Gibt es eine vergleichbare Problematik für die Turing-Maschine?
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-	\item Alle Befehle / Daten müssen durch den Bus
-	\item Schreib-/Lesekopf kann pro Zeiteinheit entweder schreiben oder lesen
-	\end{enumerate} 
+    \item Alle Befehle / Daten müssen seriell durch den Bus (Engpass)
+    \item Schreib-/Lesekopf kann pro Zeiteinheit entweder schreiben oder lesen
+	\end{enumerate}
 \end{card}
 
 \begin{card}
 	Nennen Sie wenigstens einen konzeptionellen Unterschied zwischen von-Neumann-Rechnerkonzept und Turing-Maschine.
 	\hr
 	Von TM ausgehend:
-	
+
 	\begin{itemize}
-	\item Daten und Programme liegen \textbf{nicht} im selben Speicher
+  \item Daten (Band) und Programme (Tabelle) liegen \textbf{nicht} im selben Speicher
 	\item keine Nummerierung/Adressierung eines Feldes auf dem Band
 	\item keine Sprungadressen
 	\item kann nur 1 Feld gehen pro Befehl
@@ -83,34 +86,40 @@
 	Wieso verletzt das Konzept der lokalen static-Variablen in C das Paradigma der funktionalen
 	Programmierung?
 	\hr
-	Funktionsausgabe nur abhängig von Eingabe. D.h. bei gleicher Eingabe gleiche Ausgabe (Idempotent, Deterministisch).
+	Funktionsausgabe nur abhängig von Eingabe. D.h. bei gleicher Eingabe, gleiche Ausgabe (Idempotent, Deterministisch).
 	\begin{lstlisting}[language=C]
 	int f(int i) {
-	  // Ausfuehrung bei Objekt-Init, 
+	  // Ausfuehrung bei Objekt-Init,
 	  // nicht bei Methodenaufruf
-	  static int x = 0; 
+	  static int x = 0;
 	  x++;
 	  return x+i;
 	}
-	\end{lstlisting}	
+	\end{lstlisting}
+	Lokale static Variablen sind über Funktionen hinaus beständig und es entsteht somit eine Abhängigkeit bei wiederholten
+	Aufrufen der gleichen Funktion, die Idempotenz wird verletzt.
 \end{card}
 
 \begin{card}
 	Wieso verletzen Pointer in C das Paradigma der funktionalen Programmierung?
 	\hr
-	Pardigma der f. Programmierung: Funktionsausgabe nur abhängig von Eingabe.  D.h. bei gleicher Eingabe gleiche Ausgabe.
 	\begin{lstlisting}[language=C]
 	int f(int *i) {
-	  // Veraendern der Speicheradresse und 
-	  //somit der Eingabe
+	  // Veraendern der Speicheradresse und
+	  // somit der Eingabe
 	  *i = 1234;
 	  ...
 	}
-	\end{lstlisting}	
+	\end{lstlisting}
+  \begin{itemize}
+    \item Funktionsausgabe nur abhängig von Eingabe.  D.h. bei gleicher Eingabe gleiche Ausgabe.
+    \item Nebenläufigkeit (Parallelisierbarkeit) wird verletzt
+    \item keine referenzielle Transparenz der Variablen
+  \end{itemize}
 \end{card}
 
 \begin{card}
-	In Java gibt es mit dem Collection-Framework eine Reihe von sogenannten Container-Klassen. Welches objektorientierte Programmierparadigma verletzen Objekte z.B. der Klassen	ArrayList oder Vector? 
+	In Java gibt es mit dem Collection-Framework eine Reihe von sogenannten Container-Klassen. Welches objektorientierte Programmierparadigma verletzen Objekte z.B. der Klassen	ArrayList oder Vector?
 	\hr
 	Es werden Referenzen gespeichert. D.h. die Datenkapselung ist verletzt. Werte müssten unveränderlich (immutable) sein.
 	\begin{lstlisting}[language=Java]
@@ -119,11 +128,11 @@
 	Dummy example = new Dummy()
 	ArrayList<Dummy> list = new ArrayList<Dummy>()
 	list.add(example);
-	
+
 	// Zugriff auf value ueber 2 Wege:
 	example.value = 1;
 	list.get(0).value = 2;
-	\end{lstlisting}	
+	\end{lstlisting}
 \end{card}
 
 \begin{card}
@@ -131,13 +140,13 @@
 	\hr
 	Zustandslosigkeit durch:
 	\begin{itemize}
-	\item kein static und Pointer 
+	\item kein static und Pointer
 	\item keine Systemaufrufe
 	\end{itemize}
 \end{card}
 
 \begin{card}
-	Das funktionale Programmierparadigma, das die referentielle Transparenz der Variablen fordert, wird in C durch die Zuweisung verletzt. 
+	Das funktionale Programmierparadigma, das die referentielle Transparenz der Variablen fordert, wird in C durch die Zuweisung verletzt.
 	\begin{enumerate}[a)]
 	\item Wie müssten die Regeln für die Verwendung der Zuweisung geändert werden, damit die	Zuweisung in das funktionale Konzept passt?
 	\item Welcher Art von Anweisung entspräche die veränderte Zuweisung dann?
@@ -147,20 +156,20 @@
 	\item Unveränderliche Variablen, Einmal-Zuweisung, bzw. nur Init.
 	\item Konstanteninitialisierung
 	\end{enumerate}
-	
+
 \end{card}
 
 \begin{card}
-	Die referentielle Transparenz sorgt dafür, dass Programme in rein funktionalen Sprachen	problemlos nebenläufig abgearbeitet werden können. 
+	Die referentielle Transparenz sorgt dafür, dass Programme in rein funktionalen Sprachen	problemlos nebenläufig abgearbeitet werden können.
 	\begin{enumerate}[a)]
-	\item Erklären Sie den Zusammenhang an einem Beispiel. 
-	\item Erklären Sie an einem Beispiel den Zusammenhang fehlender referentieller Transparenz und Problemen bei nebenläufig ausgeführten Programmen. 
+	\item Erklären Sie den Zusammenhang an einem Beispiel.
+	\item Erklären Sie an einem Beispiel den Zusammenhang fehlender referentieller Transparenz und Problemen bei nebenläufig ausgeführten Programmen.
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
 	\item Werte unveränderlich (immutable), d.h. kein Zustand und stark begrenzter Gültigkeitsbereich. Funktionen sind Thread-Safe, da Parameter nicht von außen geändert werden können.\\
-	Beispiel: Immutable-Klassen sind automatisch thread-Safe, parallelisierbar und skalierbar. 
-	\item Objekt-Parameter können während Thread-Unterbrechung über eine Referenz außerhalb der eigentlich Funktion verändert werden und haben somit einen anderen Zustand. Kein Determinismus, Race-Condition möglich.
+	Beispiel: Immutable-Klassen sind automatisch Thread-Safe, parallelisierbar und skalierbar.
+\item Objekt-Parameter können während Thread-Unterbrechung über eine Referenz außerhalb der eigentlich Funktion verändert werden und haben somit einen anderen Zustand. Kein Determinismus, Race-Condition (nicht vorhersehbare Zustände) möglich.
 	\end{enumerate}
 \end{card}
 
@@ -173,7 +182,7 @@
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-	\item Performancevorteile, da weniger Overhead ohne Heap / Stack.
+	\item Performancevorteile, da weniger Overhead durch Stackmanagement
 	\item Ja, erhöhen Geschwindigkeit
 	\item Rekursionen können nicht aufgelöst werden. Daher nur als Zusatz, nicht als Ersatz für normale Funktionen.
 	\end{enumerate}
@@ -183,7 +192,7 @@
 	Angenommen in C würden innerhalb von parametrisierten Makros Zuweisungen nicht mehr	zugelassen sein.\\
 	Inwiefern verletzen Makros dann trotzdem weiterhin Paradigmen der funktionalen Programmierung?
 	\hr
-	Variablen sind außerhalb vom Makro gültig, d.h vor oder nach dem Aufruf / Ersetzung.\\
+	Variablen sind außerhalb vom Makro gültig, d.h. vor oder nach dem Aufruf / Ersetzung.\\
 	Durch die Textersetzung können Variablen(namen) genutzt werden, die erst im nachfolgenden Programm definiert werden. Dadurch ist Idempotenz / Determinismus verletzt.\\
 	Beispiel:
 	\begin{lstlisting}[language=C]
