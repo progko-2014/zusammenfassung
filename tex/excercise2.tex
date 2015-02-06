@@ -9,7 +9,9 @@
 	Beispiel: Die Folge der Werte $( 3, 4, 5 )$ liefert die Summen $0, 3, 4, 5, 7, 8, 9, 12$.
 	\hr
 	Bilde Potenzmenge der Eingabe und addiere Elemente dieser einzelnen Mengen.\\
-	Zum Beispiel: $2^{\{ 3, 4, 5 \}} = \{\emptyset, \{3\}, \{4\}, \{5\}, \{3,4\}, \{4,5\}, \{3,5\}, \{3,4,5\} \}$
+	Zum Beispiel: $2^{\{ 3, 4, 5 \}} = \{\emptyset, \{3\}, \{4\}, \{5\}, \{3,4\}, \{3,5\}, \{4,5\}, \{3,4,5\} \}$
+
+	Ergebis: 0, 3, 4, 5, 7, 8, 9, 12
 \end{card}
 
 \begin{card}
@@ -38,19 +40,19 @@
 	Inwiefern wird bei der \textbf{strukturierten} Programmierung abstrahiert?
 	\hr
 	if, for, while-Konstrukte ersetzen Sprungbefehle\\
-	Beispiel: 
+	Beispiel:
 	\begin{lstlisting}[language=C]
 	while(c > 0) {
 	  c--;
 	}
 	\end{lstlisting}
-	wird zu 
+	wird zu
 	\begin{lstlisting}[language=C]
 	start:
 	if(c <= 0) goto end;
 	  c--;
 	  goto start;
-	
+
 	end: ...
 	\end{lstlisting}
 \end{card}
@@ -84,20 +86,22 @@
 			Beispiel: A extends B\\
 			(A Konkretisierung  von B $\leftrightarrow$ B Generalisierung/Abstraktion von A)
 	\item Polymorphismus, dynamisches Binden\\
-		Beispiel:
-		\begin{lstlisting}[language=Java]
-		class B {
-		  void f() { out.println("B"); }
-		}
-		
-		class A extends B {
-		  void f() { out.println("A"); }
-		}
-		
-		B testA = new A();
-		testA.f(); // "A"
-		B testB = new B();
-		testB.f(); // "B"
+Beispiel:
+\begin{lstlisting}[language=Java]
+class B {
+  void f() { out.println("B"); }
+}
+
+class A extends B {
+  void f() { out.println("A"); }
+}
+
+B testA = new A();
+testA.f(); // "A"
+B testB = new B();
+testB.f(); // "B"
+A testA = (A) new B();
+testA.f(); // ClassCastException
 		\end{lstlisting}
 	\end{itemize}
 \end{card}
@@ -109,14 +113,14 @@
 	\item Nur Funktionen und Rückgabewerte, keine Unterscheidung zwischen Daten(typen) und  Objekten\\
 		Beispiel:
 		%eigentlich JavaScript
-		\begin{lstlisting}[language=Java] 
+		\begin{lstlisting}[language=Java]
 		function addiere(x,y) {
 		  if (typeof y === "undefined" ) {
 		    return function (y) { return x + y; }
 		  }
 		  return x + y;
 		}
-		addiere(2,4); // 6 
+		addiere(2,4); // 6
 		var addiere_zu_drei = addiere(3)
 		addiere_zu_drei(5) // 8
 		\end{lstlisting}
@@ -132,16 +136,24 @@
 	\begin{itemize}
 	\item Lists, Arrays als Abstraktion\\
 		vgl. Gruppe (Math.), generische Datentypen\\
-		Beispiele: 
-		\begin{lstlisting}[language=Java] 
+		Beispiele:
+		\begin{lstlisting}[language=Java]
 		static Object getFirst(ArrayList b) {
 		   return ...
 		}
-		
+
 		ArrayList a = new ArrayList<Integer>();
 		...
 		<?> c = getFirst(a);
 		\end{lstlisting}
+
+		\begin{lstlisting}[language=Java]
+ArrayList<?> a = new ArrayList<?>();
+<?> a[0];
+
+		\end{lstlisting}
+    Der Zugriff auf ein Array-Element über \texttt{[]} ist abstrakt, weil der entsprechende Wert nur referenziert wird.
+    Konkret ist: \texttt{ArrayList<int>()}.
 	\end{itemize}
 \end{card}
 
@@ -153,10 +165,15 @@
 	Die Konkretisierung erfolgt zur \textbf{Laufzeit}, d.h. bei der Zuweisung wird der Typ und Name konkret festgelegt.\\
 	Beispiel:
 	\begin{lstlisting}[language=Java]
-	// Abstraktion: Instanziierung
-	List x = new ArrayList();
-	// Konkretisierung: Zuweisung, Casting
-	void doSth(List x) {ArrayList y=(ArrayList)x;}
+// Abstraktion: Instanziierung
+List x = new ArrayList();
+// Konkretisierung: Zuweisung, Casting
+ArrayList y = (ArrayList) x;
+
+  oder
+
+// Instanziierung (A) mit Zuweisung (K)
+A a = new B();
 	\end{lstlisting}
 \end{card}
 
@@ -182,7 +199,7 @@
 
 \begin{card}
 	Imperative Programmierung:\\
-	Von was wird durch eine Initialisierung \texttt{int i=42} bzw. Zuweisung abstrahiert?
+	Von was wird durch eine Initialisierung \texttt{int i=42} abstrahiert?
 	\hr
 	\begin{itemize}
 	\item Speicherreservierung + Zuweisung und Belegung
@@ -193,34 +210,43 @@
 
 \begin{card}
 	Imperative Programmierung:\\
-	Von was wird durch 
+	Von was wird durch eine Zuweisung abstrahiert?
+	\hr
+  Von den unterschiedlichen Arten einer Zuweisung (\texttt{int}, \texttt{long}, \texttt{double}, \texttt{float}, ...).
+
+  \textit{?: Immer wird das Zeichen „=“ genutzt und intern wird konkret ein unterschiedliches Verfahren angewendet.}
+\end{card}
+
+\begin{card}
+	Imperative Programmierung:\\
+	Von was wird durch
 	\begin{itemize}
 	\item if-Abfrage
-	\item for-Schleife \texttt{for(int i=0;i<a;i++) block} 
+	\item for-Schleife \texttt{for(int i=0;i<a;i++) block}
 	\item while-Schleife
 	\end{itemize}
 	abstrahiert?
 	\hr
-	if-, for- und while-Konstrukte ersetzen verschiedene Goto-Anweisungen und Labels 
+	if-, for- und while-Konstrukte ersetzen verschiedene Goto-Anweisungen und Labels
 	\begin{lstlisting}[language=C]
 	while(c>0) {
 	  c--;
 	}
 	\end{lstlisting}
-	wird zu 
+	wird zu
 	\begin{lstlisting}[language=C]
 	start:
 	if(c <= 0) goto end;
 	  c--;
 	  goto start;
-	
+
 	end: ...
 	\end{lstlisting}
 \end{card}
 
 \begin{card}
 	Imperative Programmierung:\\
-	Von was wird durch eine 
+	Von was wird durch eine
 	\begin{enumerate}[a)]
 	\item Prozedur (void)
 	\item Funktion (non-void)
@@ -239,37 +265,37 @@
 	\hr
 	Von den Speicherbereichen, relativer Zugriff\\
 	C und C++: Speicherbereiche sind zusammenhängend\\
-	Beispiel: 
+	Beispiel:
 	\begin{lstlisting}
 	int arr [] = {1,2,3};
-	arr[0]
+	arr[0];
 	\end{lstlisting}
-	
+
 	Java: Speicherbereiche sind nicht zwingend zusammenhängend\\
-	Beispiel: 
+	Beispiel:
 	\begin{lstlisting}
-	new int[]{1,2,3}[0]
+  int[] arr = new int[]{1,2,3};
+	arr[0];
 	\end{lstlisting}
-	
+
 \end{card}
 
 \begin{card}
 	Imperative Programmierung:\\
 	Funktionen werden in C, C++ und Java durch Aufrufe zur Laufzeit konkretisiert. Signatur und Methode sind die Abstraktionen. Zusätzlich bietet C++ Funktionen mit default Parametern. Was bedeuten diese für Abstraktion und Konkretisierung?
 	\hr
-	Default Parameter ermöglichen es, dass die überladene Methode nicht konkret die ursprüngliche Methode aufrufen muss. Es kann abstrakt die selbe Signatur mit den default Parametern verwendet werden.
+  Default-Parameter ermöglichen es, dass die überladene Methode nicht die ursprüngliche Methode aufrufen muss (K). Es kann die Signatur mit den Default-Parametern verwendet werden (A).
 \end{card}
 
 \begin{card}
 	Imperative Programmierung:\\
 	Von was wird in C++ durch eine inline-Funktion abstrahiert?
 	\hr
-	Wie Makros als Textersetzung ohne Stack / Heap, jedoch wie Funktion mit Auswertung.
-	Konkrete Ersetzung des Wertes ohne Aufbau Stack / Heap.
+	Wie Makros als Textersetzung ohne Stack/Heap, jedoch wie Funktion mit Auswertung.
+	Konkrete Ersetzung des Wertes ohne Aufbau Stack/Heap.
 	\vfill
 	Abgrenzung: Makro $\Leftrightarrow$ Inline-Funktion\\
-	Haben beide keine Stack / Heap, d.h. beide arbeiten mit Textersetzung. Inline-Funktionen sehen aber aus wie Funktionen. 
-	Problem bei Texterzersetzung mit Mehrfachaufruf, Beispiel: 
+	Beide haben keinen Stack/Heap, d.h. beide arbeiten mit Textersetzung. Inline-Funktionen sehen aus wie Funktionen, daher das Problem bei Texterzersetzung mit Mehrfachaufruf, Beispiel:
 	\begin{lstlisting}
 	Max(x,y) = {x > y ? x : y}
 	Max(x++, y++)
@@ -280,7 +306,7 @@
 	Objektorientierte Programmierung:\\
 	Von was wird in Java durch eine Referenz \texttt{Type ref} abstrahiert?
 	\hr
-	\texttt{Type}: Für alle Objekt-Typen und deren Ableitung von Type\\
+  \texttt{Type} steht für alle Objekt-Typen und deren Ableitung von \texttt{Type}.\\
 	\texttt{ref} steht für ein konkretes Objekt vom Typ \texttt{Type} oder einer Subklasse davon.
 \end{card}
 
@@ -291,7 +317,7 @@
 	\begin{itemize}
 	\item Call-by-Value: Passen direkt in Speicher ohne Referenzzugriff
 	\item keine Kapselung notwendig/möglich
-	\item Vererbung nicht möglich, da keine Klasse.
+	\item Vererbung nicht möglich, da keine Klasse
 	\end{itemize}
 \end{card}
 
@@ -302,19 +328,20 @@
 	\begin{itemize}
 	\item Kontinuität (Einheitlichkeit)
 	\item Gemeinsamer Oberdatentyp, von dem alles erbt $\rightarrow$ ein einziger Vererbungsbaum
+  \item Speicherplatz wird eingepart, da bei gleichen Werten auf den gleichen Speicherbereich gezeigt wird z.B. bei Zahlen (Singleton-Pattern)
 	\end{itemize}
 \end{card}
 
 \begin{card}
 	Objektorientierte Programmierung:\\
-	C++ und Java kennen die Möglichkeit des \textbf{overriding} (überschreiben). Inwiefern handelt es sich um eine Abstraktion? D.h. von welchen konkrete Elementen wird abstrahiert? 
+	C++ und Java kennen die Möglichkeit des \textbf{overriding} (überschreiben). Inwiefern handelt es sich um eine Abstraktion? D.h. von welchen konkrete Elementen wird abstrahiert?
 	\hr
-	Der Funktionsname ist die Abstraktion von der konkreten Implementierung der Objekt-Methode, da sich durch das überschreiben die Implementierung je nach Konkretisierung ändert.
+	Der Funktionsname ist die Abstraktion von der konkreten Implementierung der Methode, da sich durch das Überschreiben die Implementierung ändert.
 \end{card}
 
 \begin{card}
 	Objektorientierte Programmierung:\\
-	Mehrfachvererbung ist in Java bei Klassen nicht zugelassen. 
+	Mehrfachvererbung ist in Java bei Klassen nicht zugelassen.
 	\begin{enumerate}[a)]
 	\item Nennen Sie eine Begründung im Rahmen des Abstraktionsprinzips.
 	\item Wieso ist Mehrfachvererbung bei Interfaces zugelassen?
@@ -333,7 +360,7 @@
 	Inwiefern handelt es sich bei der Definition von Superclasses (Oberklassen) um eine Abstraktion?
 	\hr
 	\begin{itemize}
-	\item Verallgemeinerung (Generalisierung / Abstraktion) der konkreten Klasse, mit allgemeineren und weniger Eigenschaften
+    \item Verallgemeinerung (Generalisierung / Abstraktion) der konkreten (Unter-)Klasse, mit allgemeineren und weniger Eigenschaften
 	\item Allgemeingültige Oberklasse für alle Unterklassen
 	\end{itemize}
 \end{card}
@@ -346,11 +373,21 @@
 	Beispiel:\\
 	\begin{lstlisting}[language=C]
 	inline int add(a, b) {
-	  if(b == 0) return 1; // ignoriert,
+	  if(b == 0) return 1; // nicht ausgewertet,
 	  return add(a, b-1) + 1; // da hier nur Textersetzung
 	}
 	\end{lstlisting}
-	
+
+	wird zu
+
+  \begin{lstlisting}
+if ...
+return ...
+if ...
+return ...
+...
+  \end{lstlisting}
+
 \end{card}
 
 \begin{card}
@@ -358,16 +395,17 @@
 	Inwiefern kann man sagen, dass in rein funktionalen Sprachen auf einer höheren Stufe der Abstraktion programmiert wird?
 	\hr
 	\begin{itemize}
-	\item Alles ist eine Funktion: Werte, Klassen und das Programm selbst. Es gibt keine Unterscheidung
+	\item Alles ist eine Funktion: Werte, Klassen und das Programm selbst. Es gibt keine Unterscheidung und es wird nur
+	  mit Symbolen gearbeitet.
 	\item Funktionen können (zur Laufzeit) erzeugt und verändert werden.
-	
+
 	\end{itemize}
 	Beispiel: Lamda-Ausdrücke
 \end{card}
 
 \begin{card}
 	Funktionale Programmierung:\\
-	In rein funktionalen Sprachen sind Funktionen als Parameter und Rückgabewerte von Funktionen zugelassen. 
+	In rein funktionalen Sprachen sind Funktionen als Parameter und Rückgabewerte von Funktionen zugelassen.
 	\begin{enumerate}[a)]
 	\item  Inwiefern wird dadurch eine höhere Stufe der Abstraktion erreicht, als Paradigmen bei Sprachen, die dieses Feature nicht haben?
 	\item Ist es möglich, durch diese Erweiterung Probleme zu lösen, die in imperativen Sprachen nicht gelöst werden können?
