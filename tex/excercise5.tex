@@ -4,53 +4,132 @@
 \end{card}
 
 \begin{card}
-	Was bedeutet es, wenn die Verankerung bei n=a, also z.B. n=5 bewiesen wird, aber nicht für kleinere Werte?
+  In der Analysis gilt die folgende verallgemeinerte Produktregel:
+  \[
+  (f_1 \cdot f_2 \cdot \ldots \cdot f_n)' = (f_1' \cdot f_2 \cdot \ldots \cdot f_n) + (f_1 \cdot f_2' \cdot \ldots \cdot f_n) + \cdot + (f_1 \cdot f_2 \cdot \ldots \cdot f_n')
+  \]
+  für die differenzierbare Funktionen $f_i$. Beweisen Sie den Satz mit Hilfe der Wertverlaufsinduktion.
+  \hr
+  \begin{align*}
+    \lrk f_1 \rrk ' &= f_1' \\
+    (f_1 \cdot f_2 \cdot \ldots \cdot f_{n+1})' &= (f_1' \cdot \ldots \cdot f_{n+1}) + \ldots + (f_1 \cdot \ldots \cdot f_{n+1}') \\
+    &= ((f_1 \cdot f_2 \cdot \ldots \cdot f_n)(f_{n+1}))' \\
+    &= (f_1 \cdot f_2 \cdot \ldots \cdot f_n)' \cdot f_{n+1} + (f_1 \cdot f_2 \cdot \ldots \cdot f_n) \cdot (f_{n+1})' \\
+    &= f_1' \cdot f_2 \cdot \ldots \cdot f_n \cdot f_{n+1} + \ldots \\
+    & \hspace{3.3cm} + f_1 \cdot f_2 \cdot \ldots \cdot f_n' \cdot f_{n+1} \\
+    & \hspace{3.3cm} + f_1 \cdot f_2 \cdot \ldots \cdot f_n \cdot f_{n+1}' \\
+    &= (f_1 \cdot f_2 \cdot \ldots \cdot f_{n+1})' \\
+  \end{align*}
+\end{card}
+
+\begin{card}
+	Die strukturelle Induktion setzt sich die Idee der vollständigen Induktion auf Mengen um. Wie lautet entsprechend:
+  \begin{enumerate}[a)]
+	  \item die Verankerung
+	  \item der Induktionsschritt
+	  \item die Verallgemeinerung
+	\end{enumerate}
+	bei der strukturellen Induktion?
 	\hr
-	Bewiesen erst ab n=5 und aufwärts, bzw. Voraussetzung erst ab dann beweisbar anwendbar.
+	\begin{enumerate}
+	  \item Beweisen für die Grundelemente
+	  \item Zeigen, dass sich grüßere Elemente rekursiv aus kleineren Elementen zusammensetzen.
+	  \item Ist es für die Grundelemente und den Induktionsschritt bewiesen, so gilt die Verallgemeinerung.
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+  Die Folge der Fibonacci-Zahlen ist für $n \in \N \, (\geq 1)$ wie folgt definiert ($m := n+2$):
+  \[
+    a_{m+2} =
+\begin{cases}
+  a_{m+1} + a_{m} & \qquad m > 0 \\
+  1 & \qquad \text{sonst}
+\end{cases}
+  \]
+  Beweisen Sie mit Hilfe struktureller Induktion für ($a_n$) die Gültigkeit folgender Sätze:
+  \begin{enumerate}[a)]
+    \item $1 + a_1 + a_2 + \ldots + a_n = a_{n+2}$
+    \item $3 \mid n \Rightarrow a_{n}$ ist gerade und $3 \nmid n \Rightarrow a_{n}$ ist ungerade
+	\end{enumerate}
+	\hr
+  \begin{enumerate}[a)]
+	  \item
+	    \begin{align*}
+        n = 1: 1+a_1 &= a_{1+2} \\
+        2 &= 2 \\
+        n = 2: 1+a_1+a_2 &= a_{2+2} \\
+        3 &= 3 \\
+        1 + a_1 + \ldots + a_n + a_{n+1} &= a_{(n+1)+2} \\
+        a_{n+2} + a_{n+1} &= a_{n+3} \\
+	    \end{align*}
+	  \item TODO
+	\end{enumerate}
+\end{card}
+
+\begin{card}
+  Zeigen Sie mit Hilfe der doppelten Induktion, dass xor für boolsche Ausdrücke nicht universell ist. (Hinweis: Die
+  Tautologie ist nicht dargestellbar.)
+	\hr
+  \begin{tabular}{cc|c|c|c|c|c}
+    a & b & $\oplus$ & $\land$ & $\lor$ & $\top$ & $\bot$ \\ \hline
+    0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+    0 & 1 & 1 & 0 & 1 & 1 & 0 \\
+    1 & 0 & 1 & 0 & 1 & 1 & 0 \\
+    1 & 1 & 0 & 1 & 1 & 1 & 0 \\
+  \end{tabular}
+  % \begin{align*}
+  %   a \oplus b \oplus a \oplus b \Rightalign a \oplus \ldots \oplus a \oplus a \oplus \ldots \oplus a \\
+  % \end{align*}
+\end{card}
+
+\begin{card}
+	Was bedeutet es, wenn die Verankerung bei $n=a$, also z.B. $n=5$ bewiesen wird, aber nicht für kleinere Werte?
+	\hr
+	Bewiesen erst ab $n=5$ und aufwärts, bzw. Voraussetzung erst ab dann beweisbar anwendbar.
 \end{card}
 
 \begin{card}
 	Kann man aus der Allgemeingültigkeit von $\varphi$ schließen, dass $\varphi (0)$ und $\varphi (n)\Rightarrow \varphi (n^+)$ gelten?
 	\hr
-	Durch 0 und den Nachfolger schließt man auf die Allgemeingültigkeit, daher ist dieser Satz falsch... hier sind Prämisse und Konklusion vertauscht.
+	Durch die Allgemeingültigkeit von $\varphi$ können alle Einzelfälle und deren Nachfolger bestimmt werden.
+	% Durch 0 und den Nachfolger schließt man auf die Allgemeingültigkeit, daher ist dieser Satz falsch... hier sind Prämisse und Konklusion vertauscht.
 \end{card}
 
 \begin{card}
-	Angenommen $\varphi$ wird für 0 bewiesen, ist für ein $n= a > 0$ ungültig und $\varphi(n) \Rightarrow \varphi(n+1)$ kann wiederum gezeigt werden. Was besagt das für die Induktion? 
+	Angenommen $\varphi$ wird für 0 bewiesen, ist für ein $n= a > 0$ ungültig und $\varphi(n) \Rightarrow \varphi(n+1)$ kann wiederum gezeigt werden. Was besagt das für die Induktion?
 	\hr
-	
+	Durch den gültigen Nachfolger, muss es für alle $a > 0$ gelten. Da es für ein $a > 0$ nicht gilt, ist entweder der
+	Schritt oder die Verankerung falsch.
 \end{card}
 
 \begin{card}
 	Darf die bewiesene Verankerung im Induktionsschritt verwendet werden?
 	\hr
-	Induktionsschritt ist die Verallgemeinerung, die Verankerung wird mit konkreten Werten angewendet. Daraus folgt: Nein, darf man nicht.
+	Der Induktionsschritt ist die Verallgemeinerung. Die Verankerung wird auf konkreten Werten angewendet. Daraus folgt: Nein, darf man nicht.
 \end{card}
 
 \begin{card}
 	Das Schema der vollständigen Induktion lautet:\\
-	Gilt für eine Menge A
-	\begin{enumerate}[a)]
-	\item $0 \in A$
-	\item $x \in A \Rightarrow x^+ \in A$
-	\end{enumerate}
-	$\vDash \mathbb{N} \subseteq A$\\
-	
-	oder 
-	
-	Gilt für ein auf $\mathbb{N}$ definiertes Prädikat $\varphi$	
-	\begin{enumerate}[a)]
-	\item $\varphi(0)$
-	\item $\varphi(x) \Rightarrow \varphi(x+)$
-	\end{enumerate}
-	$\vDash \forall x (\varphi(x))$\\
+  \begin{minipage}[t]{0.48\textwidth}
+    Gilt für eine Menge A:\\
+    $0 \in A$\\
+    $x \in A \Rightarrow x^+ \in A$\\
+    $\vDash \mathbb{N} \subseteq A$\\
+	\end{minipage}
+  \begin{minipage}[t]{0.48\textwidth}
+    Gilt für ein auf $\mathbb{N}$ definiertes Prädikat $\varphi$:\\
+    $\varphi(0)$\\
+    $\varphi(x) \Rightarrow \varphi(x^+)$\\
+    $\vDash \forall x (\varphi(x))$\\
+	\end{minipage}
 	Geben Sie wenigstens 3 Möglichkeiten der Verallgemeinerung (Abstrahierung) an.
 	\hr
 	\begin{enumerate}[a)]
-	\item beliebige Startwerte, statt 0
-	\item mehrere Startwerte/Verankerungen
-	\item andere Nachfolgerfunktion
-	\item $\mathbb{N}$ oder Menge $A$ kann ersetzt werden
-	\item Prädikat $\varphi$ kann ersetzt werden
+    \item beliebiges Startelement $s$, statt 0
+    \item mehrere Startelemente / Verankerungen
+    \item andere Nachfolgerfunktion
+    \item $\N$ kann durch eine beliebige Menge ersetzt werden
+    \item mehrstelliges Prädikat $\varphi$
 	\end{enumerate}
 \end{card}
