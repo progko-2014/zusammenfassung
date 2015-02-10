@@ -135,12 +135,12 @@
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-	\item 	$True \equiv \lambda x.\lambda y . x$\\
-			$False \equiv \lambda x.\lambda y . y$
+	\item 	$\top \equiv \lambda x.\lambda y . x$\\
+			$\bot \equiv \lambda x.\lambda y . y$
 	\item 	$if \equiv \lambda c.\lambda t.\lambda e.((c \quad t) \quad e)$ // c ? t : e\\
-			$impl \equiv \lambda a.\lambda b.((a \quad b) \quad True)$ // a $\rightarrow$ b = a ? b : true\\
-			Probieren über Binden von: $((impl \quad False) \quad False) = True$ ...
-	\item	$not \equiv \lambda z.(z (False \quad True))$\\
+			$impl \equiv \lambda a.\lambda b.((a \quad b) \quad \top)$ // a $\rightarrow$ b = a ? b : $\top$\\
+			Probieren über Binden von: $((impl \quad \bot) \quad \bot) = \top$ ...
+	\item	$not \equiv \lambda z.(z (\bot \quad \top))$\\
 			$equiv \equiv  \lambda a.\lambda b.((a \quad b) \quad not(b))$ //a ? b : !b
 	\end{enumerate}
 \end{card}
