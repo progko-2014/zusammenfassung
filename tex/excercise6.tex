@@ -1,129 +1,129 @@
 \begin{card}
-	\frametitle{Übung 5: $\lambda$-Kalkül}
-	\url{http://people.f4.htw-berlin.de/~hebold/htw/pka/exercises/algorithmen-lambdaCalculus.pdf}
+  \frametitle{Übung 5: $\lambda$-Kalkül}
+  \url{http://people.f4.htw-berlin.de/~hebold/htw/pka/exercises/algorithmen-lambdaCalculus.pdf}
 \end{card}
 
 \begin{card}
-	Das $\lambda$-Kalkül unterscheidet zwei Arten von Ausdrücken: Auswertungen und Abstraktionen. Benennen Sie für jeden der Ausdrücke dessen Art und dann innerhalb des Ausdrucks gebundene Variablen und Rumpf bzw. Funktionsargument und Funktion. 
-	\begin{enumerate}[a)]
-	\item $\lambda a.(a \quad \lambda b.(b \quad a))$
-	\item $\lambda x.\lambda y.\lambda z.((z \quad x) \quad (z \quad y))$
-	\end{enumerate}
-	\hr
-	Auswertung: in Klammern, hat Argumente\\
-	Abstraktion: hat \textit{keine} Argumente, $\sim$ Funktion
-	Achtung: Nicht verwechseln mit Rumpf, der auch in Klammern stehen kann.
-	\begin{enumerate}[a)]
-	\item Abstraktion, da nicht in Klammern\\
-	Funktion: $\lambda a.f$\\
-	Rumpf: $(a \quad \lambda b.(b \quad a))$\\
-	Gebundene Variablen: $a$ (was ist mit b?)
-	\item wie 1)\\
-	Funktion: $\lambda x.\lambda y.\lambda z.f$ \\
-	Rumpf: $((z \ x) \quad (z \quad y))$\\
-	Gebundene Variablen: $x,y,z$
-	\end{enumerate}
+  Das $\lambda$-Kalkül unterscheidet zwei Arten von Ausdrücken: Auswertungen und Abstraktionen. Benennen Sie für jeden der Ausdrücke dessen Art und dann innerhalb des Ausdrucks gebundene Variablen und Rumpf bzw. Funktionsargument und Funktion.
+  \begin{enumerate}[a)]
+    \item $\lambda a.(a \quad \lambda b.(b \quad a))$
+    \item $\lambda x.\lambda y.\lambda z.((z \quad x) \quad (z \quad y))$
+  \end{enumerate}
+  \hr
+  Auswertung: in Klammern, hat Argumente\\
+  Abstraktion: hat \textit{keine} Argumente, entspricht Funktion
+  Achtung: Nicht verwechseln mit Rumpf, der auch in Klammern stehen kann.
+  \begin{enumerate}[a)]
+    \item Abstraktion, da nicht in Klammern\\
+      Funktion: $\lambda a.f$\\
+      Rumpf: $(a \quad \lambda b.(b \quad a))$\\
+      Gebundene Variablen: $a, b$
+    \item Abstraktion, da nicht in Klammern\\
+      Funktion: $\lambda x.\lambda y.\lambda z.f$ \\
+      Rumpf: $((z \ x) \quad (z \quad y))$\\
+      Gebundene Variablen: $x,y,z$
+  \end{enumerate}
 \end{card}
 
 \begin{card}
-	Das $\lambda$-Kalkül unterscheidet zwei Arten von Variablen: gebundene und freie. Benennen Sie für jeden der folgenden Ausdrücke diese.
-	\begin{enumerate}[a)]
-	\item $\lambda x.\lambda y.(\lambda x.y \quad \lambda y.x)$
-	\item $\lambda x.(x \quad (\lambda y.(\lambda x.x \quad y) \quad x))$
-	\end{enumerate}
-	\hr
-	Alle Variablen sind gebunden.
+  Das $\lambda$-Kalkül unterscheidet zwei Arten von Variablen: gebundene und freie. Benennen Sie für jeden der folgenden Ausdrücke diese.
+  \begin{enumerate}[a)]
+    \item $\lambda x.\lambda y.(\lambda x.y \quad \lambda y.x)$
+    \item $\lambda x.(x \quad (\lambda y.(\lambda x.x \quad y) \quad x))$
+  \end{enumerate}
+  \hr
+  Alle Variablen sind gebunden.
 \end{card}
 
 \begin{card}
-	Werten Sie folgende $\lambda$-Ausdrücke aus:
-	\begin{enumerate}[a)]
-	\item $((\lambda x.\lambda y.(y \quad x) \quad \lambda p.\lambda q.p) \quad \lambda i.i)$
-	\item $(((\lambda x.\lambda y.\lambda z((x \quad y) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \lambda i.i) \quad\lambda j.j)$
-	\end{enumerate}
-	\hr
-	Der \underline{Ausdruck} wird als Wert in dem/der \textbf{Symbol/Variable} ersetzt, festgelegt durch $\lambda\mathbf{Symbol}$. Beachte die Klammern um den jeweilige Funktion, die erst die Auswertung erlaubt.
-	\begin{enumerate}[a)]
-	\item
-	$(\textbf{(}\lambda \mathbf{x}.\lambda y.(y \quad \mathbf{x}) \quad \uline{\lambda p.\lambda q.p}\textbf{)} \quad \lambda i.i) 
-	\Rightarrow 
-	(\lambda y.(y \quad \lambda p.\lambda q.p) \quad \lambda i.i)$\\
-	
-	$\textbf{(}\lambda \mathbf{y}.(\mathbf{y} \quad \lambda p.\lambda q.p) \quad \uline{\lambda i.i}\textbf{)}
-	\Rightarrow
-	(\lambda i.i \quad \lambda p.\lambda q.p)$\\
-	
-	$\textbf{(}\lambda \mathbf{i}.\mathbf{i} \quad \uline{\lambda p.\lambda q.p}\textbf{)}
-	\Rightarrow
-	\lambda p.\lambda q.p$
-	\item 
-	$((\textbf{(}\lambda \mathbf{x}.\lambda y.\lambda z((\mathbf{x} \quad y) \quad z) \quad \uline{\lambda f.\lambda a.(f \quad a)}\textbf{)} \quad \lambda i.i) \quad \lambda j.j) \Rightarrow
-	((\lambda y.\lambda z((\lambda f.\lambda a.(f \quad a) \quad y) \quad z) \quad \lambda i.i) \quad \lambda j.j)$
-	\vfill
-	$(\textbf{(}\lambda \textbf{y}.\lambda z((\lambda f.\lambda a.(f \quad a) \quad \textbf{y}) \quad z) \quad \uline{\lambda i.i} \textbf{)} \quad \lambda j.j) \Rightarrow 
-	(\lambda z((\lambda f.\lambda a.(f \quad a) \quad \lambda i.i) \quad z) \quad \lambda j.j)$
-	\vfill
-	$\textbf{(}\lambda \textbf{z}((\lambda f.\lambda a.(f \quad a) \quad \lambda i.i) \quad \textbf{z}) \quad \uline{\lambda j.j} \textbf{)} \Rightarrow 
-	((\lambda f.\lambda a.(f \quad a) \quad \lambda i.i) \quad \lambda j.j)$
-	\vfill
-	$(\textbf{(}\lambda \textbf{f}.\lambda a.(\textbf{f} \quad a) \quad \uline{\lambda i.i}\textbf{)} \quad \lambda j.j) \Rightarrow
-	(\lambda a.(\lambda i.i \quad a) \quad \lambda j.j)$
-	
-	$\textbf{(}\lambda \textbf{a}.(\lambda i.i \quad \textbf{a}) \quad \uline{\lambda j.j}\textbf{)} \Rightarrow
-	(\lambda i.i \quad \lambda j.j)$
-	
-	$\textbf{(}\lambda \textbf{i}.\textbf{i} \quad \uline{\lambda j.j}\textbf{)} \Rightarrow
-	\lambda j.j$
-	\end{enumerate}
+  Werten Sie folgende $\lambda$-Ausdrücke aus:
+  \begin{enumerate}[a)]
+    \item $((\lambda x.\lambda y.(y \quad x) \quad \lambda p.\lambda q.p) \quad \lambda i.i)$
+    \item $(((\lambda x.\lambda y.\lambda z((x \quad y) \quad z) \quad \lambda f.\lambda a.(f \quad a)) \quad \lambda i.i) \quad\lambda j.j)$
+  \end{enumerate}
+  \hr
+  Der \underline{Ausdruck} wird als Wert in dem/der \textbf{Symbol/Variable} ersetzt, festgelegt durch $\lambda\mathbf{Symbol}$. Beachte die Klammern um den jeweilige Funktion, die erst die Auswertung erlaubt.
+  \begin{enumerate}[a)]
+    \item
+      $(\textbf{(}\lambda \mathbf{x}.\lambda y.(y \quad \mathbf{x}) \quad \uline{\lambda p.\lambda q.p}\textbf{)} \quad \lambda i.i)
+      \Rightarrow
+      (\lambda y.(y \quad \lambda p.\lambda q.p) \quad \lambda i.i)$\\
+
+      $\textbf{(}\lambda \mathbf{y}.(\mathbf{y} \quad \lambda p.\lambda q.p) \quad \uline{\lambda i.i}\textbf{)}
+      \Rightarrow
+      (\lambda i.i \quad \lambda p.\lambda q.p)$\\
+
+      $\textbf{(}\lambda \mathbf{i}.\mathbf{i} \quad \uline{\lambda p.\lambda q.p}\textbf{)}
+      \Rightarrow
+      \lambda p.\lambda q.p$
+    \item
+      $((\textbf{(}\lambda \mathbf{x}.\lambda y.\lambda z.((\mathbf{x} \quad y) \quad z) \quad \uline{\lambda f.\lambda a.(f \quad a)}\textbf{)} \quad \lambda i.i) \quad \lambda j.j) \Rightarrow
+      ((\lambda y.\lambda z.((\lambda f.\lambda a.(f \quad a) \quad y) \quad z) \quad \lambda i.i) \quad \lambda j.j)$
+      \vfill
+      $(\textbf{(}\lambda \textbf{y}.\lambda z.((\lambda f.\lambda a.(f \quad a) \quad \textbf{y}) \quad z) \quad \uline{\lambda i.i} \textbf{)} \quad \lambda j.j) \Rightarrow
+      (\lambda z((\lambda f.\lambda a.(f \quad a) \quad \lambda i.i) \quad z) \quad \lambda j.j)$
+      \vfill
+      $\textbf{(}\lambda \textbf{z}.((\lambda f.\lambda a.(f \quad a) \quad \lambda i.i) \quad \textbf{z}) \quad \uline{\lambda j.j} \textbf{)} \Rightarrow
+      ((\lambda f.\lambda a.(f \quad a) \quad \lambda i.i) \quad \lambda j.j)$
+      \vfill
+      $(\textbf{(}\lambda \textbf{f}.\lambda a.(\textbf{f} \quad a) \quad \uline{\lambda i.i}\textbf{)} \quad \lambda j.j) \Rightarrow
+      (\lambda a.(\lambda i.i \quad a) \quad \lambda j.j)$
+
+      $\textbf{(}\lambda \textbf{a}.(\lambda i.i \quad \textbf{a}) \quad \uline{\lambda j.j}\textbf{)} \Rightarrow
+      (\lambda i.i \quad \lambda j.j)$
+
+      $\textbf{(}\lambda \textbf{i}.\textbf{i} \quad \uline{\lambda j.j}\textbf{)} \Rightarrow
+      \lambda j.j$
+  \end{enumerate}
 \end{card}
 
 \begin{card}
-	Gegeben sind folgende $\lambda$-Ausdrücke:
-	\begin{itemize}
-	\item def $id = \lambda x.x$
-	\item def $apply = \lambda f. \lambda x.(f \quad x)$
-	\end{itemize}
-	Zeigen Sie, dass $id = (apply \quad (apply \quad id))$
-	\hr
-	Hinweis: Literale aus verschiedenen eingesetzten $\lambda$-Ausdrücken sind nicht identisch trotz gleichem Namens.
-	$(apply \quad (apply \quad id)) \Rightarrow (apply \quad (\lambda f. \lambda x.(f \quad x) \quad id))$
-	
-	$(apply \quad \textbf{(}\lambda \textbf{f}. \lambda x.(\textbf{f} \quad x) \quad \uline{id}\textbf{)}) \Rightarrow 
-	(apply \quad \lambda x.(id \quad x))$
-	
-	$(apply \quad \lambda x0.\textbf{(} \lambda \textbf{x1} . \textbf{x1} \quad \uline{x0} \textbf{)}) \Rightarrow 
-	(apply \quad \lambda x0.x0)$
-	
-	$(apply \quad \lambda x0.x0) \Rightarrow (\lambda f. \lambda x2.(f \quad x2) \quad \lambda x0.x0)$
-	
-	$\textbf{(}\lambda \textbf{f}. \lambda x2.(\textbf{f} \quad x2) \quad \uline{\lambda x0.x0} \textbf{)} \Rightarrow
-	\lambda x2.(\lambda x0.x0 \quad x2)$
-	
-	$\lambda x2.\textbf{(}\lambda \textbf{x0}.\textbf{x0} \quad \uline{x2} \textbf{)} \Rightarrow
-	\lambda x2.x2 \Leftrightarrow \lambda x.x$
+  Gegeben sind folgende $\lambda$-Ausdrücke:
+  \begin{itemize}
+  \item def $id = \lambda x.x$
+  \item def $apply = \lambda f. \lambda x.(f \quad x)$
+  \end{itemize}
+  Zeigen Sie, dass $id = (apply \quad (apply \quad id))$
+  \hr
+  Hinweis: Literale aus verschiedenen eingesetzten $\lambda$-Ausdrücken sind nicht identisch trotz gleichem Namens.
+  $(apply \quad (apply \quad id)) \Rightarrow (apply \quad (\lambda f. \lambda x.(f \quad x) \quad id))$
+
+  $(apply \quad \textbf{(}\lambda \textbf{f}. \lambda x.(\textbf{f} \quad x) \quad \uline{id}\textbf{)}) \Rightarrow
+  (apply \quad \lambda x.(id \quad x))$
+
+  $(apply \quad \lambda x_{0}.\textbf{(} \lambda \textbf{$x_{1}$} . \textbf{$x_{1}$} \quad \uline{x_{0}} \textbf{)}) \Rightarrow
+  (apply \quad \lambda x_{0}.x_{0})$
+
+  $(apply \quad \lambda x_{0}.x_{0}) \Rightarrow (\lambda f. \lambda x_{2}.(f \quad x_{2}) \quad \lambda x_{0}.x_{0})$
+
+  $\textbf{(}\lambda \textbf{f}. \lambda x_{2}.(\textbf{f} \quad x_{2}) \quad \uline{\lambda x_{0}.x_{0}} \textbf{)} \Rightarrow
+  \lambda x_{2}.(\lambda x_{0}.x_{0} \quad x_{2})$
+
+  $\lambda x_{2}.\textbf{(}\lambda \textbf{$x_{0}$}.\textbf{$x_{0}$} \quad \uline{x_{2}} \textbf{)} \Rightarrow
+  \lambda x_{2}.x_{2} \Leftrightarrow \lambda x.x$
 \end{card}
 
 \begin{card}
-	Gegeben sind folgende $\lambda$-Ausdrücke:
-	\begin{itemize}
-	\item def $apply = \lambda f. \lambda x.(f \quad x)$
-	\item def $pair = \lambda x. \lambda y. \lambda z.((z \quad x ) \quad y)$
-	\end{itemize}
-	Zeigen Sie, dass $apply = \lambda x.\lambda y.(((pair \quad x) \quad y) \quad id)$
-	\hr
+  Gegeben sind folgende $\lambda$-Ausdrücke:
+  \begin{itemize}
+    \item def $apply = \lambda f. \lambda x.(f \quad x)$
+    \item def $pair = \lambda x. \lambda y. \lambda z.((z \quad x ) \quad y)$
+  \end{itemize}
+  Zeigen Sie, dass $apply = \lambda x.\lambda y.(((pair \quad x) \quad y) \quad id)$
+  \hr
 \end{card}
 
 \begin{card}
-	Gegeben sind folgende $\lambda$-Ausdrücke:
-	\begin{itemize}
-	\item def $id = \lambda x.x$
-	\item def $apply = \lambda f. \lambda x.(f \quad x)$
-	\item def $pair = \lambda x. \lambda y. \lambda z.((z \quad x ) \quad y)$
-	\item def $self = \lambda x.(x \quad x)$
-	\item def $second = \lambda x.\lambda y. y$
-	\end{itemize}
-	Zeigen Sie, dass $id = (self \quad (self \quad second))$
-	\hr
+  Gegeben sind folgende $\lambda$-Ausdrücke:
+  \begin{itemize}
+    \item def $id = \lambda x.x$
+    \item def $apply = \lambda f. \lambda x.(f \quad x)$
+    \item def $pair = \lambda x. \lambda y. \lambda z.((z \quad x ) \quad y)$
+    \item def $self = \lambda x.(x \quad x)$
+    \item def $second = \lambda x.\lambda y. y$
+  \end{itemize}
+  Zeigen Sie, dass $id = (self \quad (self \quad second))$
+  \hr
 \end{card}
 
 \begin{card}
@@ -152,41 +152,59 @@
 \end{card}
 
 \begin{card}
-	Bei $\lambda$-Kalkül–Ausdrücken wird von Auswertung und Abstraktion gesprochen. Erklären Sie an einem Beispiel, in wiefern bei $\lambda$-Kalkül–Ausdrücken abstrahiert und	konkretisiert wird.
-	\hr
+  Bei $\lambda$-Kalkül--Ausdrücken wird von Auswertung und Abstraktion gesprochen. Erklären Sie an einem Beispiel, in wiefern bei $\lambda$-Kalkül--Ausdrücken abstrahiert und konkretisiert wird.
+  \hr
+  Abtraktion: Funktion $\lambda x.x$\\
+  Konkretisierung: Auswertung einer Funktion $(\lambda x.x \quad a)$
 \end{card}
 
 \begin{card}
-	Mit welchen Programmierkonzept aus C ist das typfreie $\lambda$-Kalkül vergleichbar? 
-	\begin{enumerate}[a)]
-	\item Makros
-	\item Templates
-	\item Funktionen
-	\item Pointern
-	\end{enumerate}
-	\hr
-	Makros, da diese keine Textersetzung durchführen.
+  Mit welchen Programmierkonzept aus C ist das typfreie $\lambda$-Kalkül vergleichbar?
+  \begin{enumerate}[a)]
+    \item Makros
+    \item Templates
+    \item Funktionen
+    \item Pointern
+  \end{enumerate}
+  \hr
+  Makros, da diese nur Textersetzung durchführen.
+  \begin{enumerate}[a)]
+    \item Ja, da Makros nur Textersetzung durchführen.
+    \item Nein, da diese generische Datentypen sind und daher nicht typfrei.
+    \item Nein, weil Funktionen nicht typfrei sind.
+    \item (Ja, da Pointer nur auf Speicheradressen zeigen und typfrei sind?)
+  \end{enumerate}
 \end{card}
 
 \begin{card}
-	Im Zusammenhang mit der Auswertung von $\lambda$-Ausdrücken kann es zu Namenskonflikten	kommen, die mit Hilfe der sogenannten
-	$\alpha$
-	Konvertierung gelöst werden. Erklären Sie an einem Beispiel die Problematik. Wie wird das Problem konkret gelöst?
-	\hr
-  Die $\alpha$-Konvertierung ist das Umbenennen der Elemente. Bei $(\lambda x.(x \quad x) \quad \lambda x.(x \quad x))$ kommt es zu einem Konflikt. Nach
-  der Konvertierung: $(\lambda x.(x \quad x) \quad \lambda f.(f \quad f))$
+  Im Zusammenhang mit der Auswertung von $\lambda$-Ausdrücken kann es zu Namenskonflikten kommen, die mit Hilfe der sogenannten
+  $\alpha$--Konvertierung gelöst werden.
+  \begin{enumerate}[a)]
+    \item Erklären Sie an einem Beispiel die Problematik.
+    \item Wie wird das Problem konkret gelöst?
+  \end{enumerate}
+  \hr
+  \begin{enumerate}[a)]
+    \item Die $\alpha$--Konvertierung ist das Umbenennen der Elemente. Bei $(\lambda x.(x \quad x) \quad \lambda x.(x \quad x))$ kommt es zu einem Konflikt.
+    \item Vor der $\beta$--Reduktion muss eine Umbennenung durchgeführt werden. Nach der Konvertierung: $(\lambda x.(x \quad x) \quad \lambda f.(f \quad f))$
+  \end{enumerate}
 \end{card}
 
 \begin{card}
-	Die Auswertung von Ausdrücken wird als $\beta$–Reduktion bezeichnet. Welches Problem tritt hier auf? (Beispiel!)
-	\hr
-	Es können Konflikte auftreten, die durch die $\alpha$-Konvertierung gelöst werden müssen.
-
-	Beispiel: $(\lambda x.(x \quad x) \quad \lambda x.(x \quad x))$
+  Die Auswertung von Ausdrücken wird als $\beta$–Reduktion bezeichnet. Welches Problem tritt hier auf? (Beispiel!)
+  \hr
+  \begin{itemize}
+    \item Es können Namenskonflikte auftreten, die durch die $\alpha$-Konvertierung gelöst werden müssen.\\
+      Beispiel: $(\lambda x.(x \quad x) \quad \lambda x.(x \quad x))$
+    \item Endlosrekursion
+  \end{itemize}
 \end{card}
 
 \begin{card}
-	Die einzige Möglichkeit im $\lambda$-Kalkül eine Wiederholung zu formulieren basiert auf dem sogenannten Fixpunktsatz. Was ist damit gemeint? Wieso lösen Fixpunkte das Problem der Wiederholung? 
-	\hr
-	Tafelanachrieb?
+  Die einzige Möglichkeit im $\lambda$-Kalkül eine Wiederholung zu formulieren basiert auf dem sogenannten Fixpunktsatz. Was ist damit gemeint? Wieso lösen Fixpunkte das Problem der Wiederholung?
+  \hr
+  Der Fixpunktsatz berechnet den Punkt, andem die Eingabe auch die Ausgabe ergibt. Dieser ist definiert als
+  \[
+    \forall F \exists H ((F \quad H) = H)
+  \]
 \end{card}
