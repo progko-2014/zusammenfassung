@@ -1,5 +1,5 @@
 \begin{card}
-  \frametitle{Übung 5: $\lambda$-Kalkül}
+  \frametitle{Übung 6: $\lambda$-Kalkül}
   \url{http://people.f4.htw-berlin.de/~hebold/htw/pka/exercises/algorithmen-lambdaCalculus.pdf}
 \end{card}
 
@@ -129,19 +129,19 @@
 \begin{card}
 	Definieren mit Hilfe des $\lambda$-Kalküls die:
 	\begin{enumerate}[a)]
-	\item booleschen Werte true und false
-	\item die Implikation
-	\item die Äquivalenz 
+    \item booleschen Werte true und false
+    \item die Implikation
+    \item die Äquivalenz
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-	\item 	$\top \equiv \lambda x.\lambda y . x$\\
-			$\bot \equiv \lambda x.\lambda y . y$
-	\item 	$if \equiv \lambda c.\lambda t.\lambda e.((c \quad t) \quad e)$ // c ? t : e\\
-			$impl \equiv \lambda a.\lambda b.((a \quad b) \quad \top)$ // a $\rightarrow$ b = a ? b : $\top$\\
-			Probieren über Binden von: $((impl \quad \bot) \quad \bot) = \top$ ...
-	\item	$not \equiv \lambda z.(z (\bot \quad \top))$\\
-			$equiv \equiv  \lambda a.\lambda b.((a \quad b) \quad not(b))$ //a ? b : !b
+    \item $\top \equiv \lambda x.\lambda y . x$\\
+        $\bot \equiv \lambda x.\lambda y . y$
+    \item $if \equiv \lambda c.\lambda t.\lambda e.((c \quad t) \quad e)$ // c ? t : e\\
+        $impl \equiv \lambda a.\lambda b.((a \quad b) \quad \top)$ // a $\rightarrow$ b = a ? b : $\top$\\
+        Probieren über Binden von: $((impl \quad \bot) \quad \bot) = \top$ ...
+    \item	$not \equiv \lambda z.((z \quad \bot) \quad \top)$\\
+        $equiv \equiv  \lambda a.\lambda b.((a \quad b) \quad not(b))$ //a ? b : !b
 	\end{enumerate}
 \end{card}
 
