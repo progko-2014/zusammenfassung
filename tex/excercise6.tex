@@ -127,6 +127,25 @@
 \end{card}
 
 \begin{card}
+	Definieren mit Hilfe des $\lambda$-Kalküls die:
+	\begin{enumerate}[a)]
+	\item booleschen Werte true und false
+	\item die Implikation
+	\item die Äquivalenz 
+	\end{enumerate}
+	\hr
+	\begin{enumerate}[a)]
+	\item 	$True \equiv \lambda x.\lambda y . x$\\
+			$False \equiv \lambda x.\lambda y . y$
+	\item 	$if \equiv \lambda c.\lambda t.\lambda e.((c \quad t) \quad e)$ // c ? t : e\\
+			$impl \equiv \lambda a.\lambda b.((a \quad b) \quad True)$ // a $\rightarrow$ b = a ? b : true\\
+			Probieren über Binden von: $((impl \quad False) \quad False) = True$ ...
+	\item	$not \equiv \lambda z.(z (False \quad True))$\\
+			$equiv \equiv  \lambda a.\lambda b.((a \quad b) \quad not(b))$ //a ? b : !b
+	\end{enumerate}
+\end{card}
+
+\begin{card}
 	Wieso wird das abstrakteste $\lambda$-Kalkül als \textbf{typfrei} bezeichnet?
 	\hr
 	Arbeit nur auf Symbolen, reine Textersetzung
