@@ -85,20 +85,21 @@
   \end{itemize}
   Zeigen Sie, dass $id = (apply \quad (apply \quad id))$
   \hr
-  Hinweis: Literale aus verschiedenen eingesetzten $\lambda$-Ausdrücken sind nicht identisch trotz gleichem Namens.
-  $(apply \quad (apply \quad id)) \Rightarrow (apply \quad (\lambda f. \lambda x.(f \quad x) \quad id))$
-
+  Hinweis: Literale aus verschiedenen eingesetzten $\lambda$-Ausdrücken sind nicht identisch trotz gleichen Namens.
+  \vfill
+  $(apply \quad (\textbf{apply} \quad id)) \Rightarrow (apply \quad (\lambda f. \lambda x.(f \quad x) \quad id))$
+  \vfill
   $(apply \quad \textbf{(}\lambda \textbf{f}. \lambda x.(\textbf{f} \quad x) \quad \uline{id}\textbf{)}) \Rightarrow
   (apply \quad \lambda x.(id \quad x))$
-
+  \vfill
   $(apply \quad \lambda x_{0}.\textbf{(} \lambda \textbf{$x_{1}$} . \textbf{$x_{1}$} \quad \uline{x_{0}} \textbf{)}) \Rightarrow
   (apply \quad \lambda x_{0}.x_{0})$
-
-  $(apply \quad \lambda x_{0}.x_{0}) \Rightarrow (\lambda f. \lambda x_{2}.(f \quad x_{2}) \quad \lambda x_{0}.x_{0})$
-
+  \vfill
+  $(\textbf{apply} \quad \lambda x_{0}.x_{0}) \Rightarrow (\lambda f. \lambda x_{2}.(f \quad x_{2}) \quad \lambda x_{0}.x_{0})$
+  \vfill
   $\textbf{(}\lambda \textbf{f}. \lambda x_{2}.(\textbf{f} \quad x_{2}) \quad \uline{\lambda x_{0}.x_{0}} \textbf{)} \Rightarrow
   \lambda x_{2}.(\lambda x_{0}.x_{0} \quad x_{2})$
-
+  \vfill
   $\lambda x_{2}.\textbf{(}\lambda \textbf{$x_{0}$}.\textbf{$x_{0}$} \quad \uline{x_{2}} \textbf{)} \Rightarrow
   \lambda x_{2}.x_{2} \Leftrightarrow \lambda x.x$
 \end{card}
@@ -107,23 +108,59 @@
   Gegeben sind folgende $\lambda$-Ausdrücke:
   \begin{itemize}
     \item def $apply = \lambda f. \lambda x.(f \quad x)$
+    \item def $id = \lambda x.x$
     \item def $pair = \lambda x. \lambda y. \lambda z.((z \quad x ) \quad y)$
   \end{itemize}
   Zeigen Sie, dass $apply = \lambda x.\lambda y.(((pair \quad x) \quad y) \quad id)$
   \hr
+  $\lambda x_{0}.\lambda y_{0}.(((\textbf{pair} \quad x_{0}) \quad y_{0}) \quad id) \Rightarrow 
+  \lambda x_{0}.\lambda y_{0}.(((\lambda x_{1}. \lambda y_{1}. \lambda z.((z \quad x_{1} ) \quad y_{1}) \quad x_{0}) \quad y_{0}) \quad id)$
+  \vfill
+  $\lambda x_{0}.\lambda y_{0}.((\textbf{(}\lambda \mathbf{x_{1}}. \lambda y_{1}. \lambda z.((z \quad \mathbf{x_{1}} ) \quad y{1}) \quad \uline{x_{0}} \textbf{)} \quad y_{0}) \quad id) \Rightarrow 
+  \lambda x_{0}.\lambda y_{0}.((\lambda y_{1}. \lambda z.((z \quad x_{0} ) \quad y_{1}) \quad y_{0}) \quad id)$
+  \vfill
+  $\lambda x_{0}.\lambda y_{0}.(\textbf{(} \lambda \mathbf{y_{1}}. \lambda z.((z \quad x_{0} ) \quad \mathbf{y_{1}}) \quad \uline{y_{0}} \textbf{)} \quad id) \Rightarrow
+  \lambda x_{0}.\lambda y_{0}.( \lambda z.((z \quad x_{0} ) \quad y_{0}) \quad id)$
+  \vfill
+  $\lambda x_{0}.\lambda y_{0}.\textbf{(} \lambda \textbf{z}.((\textbf{z} \quad x_{0} ) \quad y_{0})\quad \uline{id} \textbf{)}  \Rightarrow
+  \lambda x_{0}.\lambda y_{0}.((id \quad x_{0} ) \quad y_{0})$
+  \vfill
+  $\lambda x_{0}.\lambda y_{0}.((\textbf{id} \quad x_{0} ) \quad y_{0}) \Rightarrow 
+  \lambda x_{0}.\lambda y_{0}.((\lambda x_{2}.x_{2} \quad x_{0} ) \quad y_{0})$
+  \vfill
+  $\lambda x_{0}.\lambda y_{0}.(\textbf{(}\lambda \mathbf{x_{2}}.\mathbf{x_{2}} \quad \uline{x_{0}} \textbf{)} \quad y_{0}) \Rightarrow 
+  \lambda x_{0}.\lambda y_{0}.(x_{0} \quad y_{0}) \Leftrightarrow \lambda f. \lambda x.(f \quad x)$
 \end{card}
 
 \begin{card}
   Gegeben sind folgende $\lambda$-Ausdrücke:
   \begin{itemize}
     \item def $id = \lambda x.x$
-    \item def $apply = \lambda f. \lambda x.(f \quad x)$
-    \item def $pair = \lambda x. \lambda y. \lambda z.((z \quad x ) \quad y)$
     \item def $self = \lambda x.(x \quad x)$
     \item def $second = \lambda x.\lambda y. y$
   \end{itemize}
   Zeigen Sie, dass $id = (self \quad (self \quad second))$
   \hr
+  $(self \quad (\textbf{self} \quad second)) \Rightarrow (self \quad (\lambda x.(x \quad x) \quad second))$
+  \vfill
+  $(self \quad \textbf{(}\lambda \textbf{x}.(\textbf{x} \quad \textbf{x}) \quad \uline{second}\textbf{)}) \Rightarrow 
+  (self \quad (second \quad second))$
+  \vfill
+  $(\textbf{self} \quad (second \quad second)) \Rightarrow 
+  (\lambda x.(x \quad x) \quad (second \quad second))$
+  \vfill
+  $\textbf{(}\lambda \textbf{x}.(\textbf{x} \quad \textbf{x}) \quad \uline{(second \quad second)}\textbf{)} \Rightarrow
+  ((second \quad second) \quad (second \quad second))$
+  \vfill
+  $((\textbf{second} \quad second) \quad (second \quad second)) \Rightarrow ((\lambda x.\lambda y. y \quad second) \quad (second \quad second))$
+  \vfill
+  $(\textbf{(}\lambda \textbf{x}.\lambda y. y \quad \uline{second}\textbf{)} \quad (second \quad second)) \Rightarrow (\lambda y. y \quad (second \quad second))$
+  \vfill
+  $\textbf{(}\lambda \textbf{y}. \textbf{y} \quad \uline{(second \quad second)}\textbf{)} \Rightarrow (second \quad second)$
+  \vfill
+  $(\textbf{second} \quad second) \Rightarrow (\lambda x.\lambda y. y \quad second)$
+  \vfill
+  $\textbf{(}\lambda \textbf{x}.\lambda y. y \quad \uline{second}\textbf{)} \Rightarrow \lambda y. y \Leftrightarrow \lambda x.x$
 \end{card}
 
 \begin{card}
