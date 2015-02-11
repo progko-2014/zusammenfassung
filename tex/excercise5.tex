@@ -4,31 +4,133 @@
 \end{card}
 
 \begin{card}
-  Beweisen Sie mit Hilfe der vollständigen Induktion:
-  \begin{enumerate}[a)]
-    \item $\forall n (n \in \N_0 \rightarrow 2^0 + 2^1 + \ldots + 2^n = 2^{n+1} - 1)$
-    \item $n \in \N_0 \Rightarrow n^2 + n$ ist gerade
-    \item $n \in \N_0 \Rightarrow 5^n + 7$ ist durch 4 teilbar
-    \item $n \in \N_0 \Rightarrow 1 + 3 + 5 + \ldots + (2n - 1) = n^2$
-    \item $n \in \N_0 \Rightarrow 3 \mid n^3 - n$
-    \item $n \in \N_0 \Rightarrow 0 \cdot 0! + 1 \cdot 1! + 2 \cdot 2! + \ldots + n \cdot n! = (n+1)!-1$
-  \end{enumerate}
+  Beweisen Sie mit Hilfe der vollständigen Induktion:\\
+  $\forall n (n \in \N_0 \rightarrow 2^0 + 2^1 + \ldots + 2^n = 2^{n+1} - 1)$
   \hr
-  \begin{enumerate}[a)]
-    \item Funktioniert
-    \item Funktioniert
-    \item Funktioniert
-    \item Funktioniert
-    \item Funktioniert
-    \item Funktioniert
-  \end{enumerate}
+  \begin{align*}
+    \forall n (n \in \N_0 \rightarrow 2^0 + 2^1 + \ldots + 2^n &= 2^{n+1} - 1) \\
+    \sum\limits_{i=0}^n 2^i &= 2^{n+1} - 1 \\
+    2^0 = 2^1 - 1 &= 1 & (IA: n=0) \\
+    \sum\limits_{i=0}^{n+1} 2^i &= 2^{(n+1)+1} - 1 & (IS: n=n+1) \\
+    \sum\limits_{i=0}^{n} 2^i + 2^{n+1} = 2^{n+2} - 1 \\
+    2^{n+1} - 1 + 2^{n+1} &= 2^{n+2} - 1 & |+1 \\
+    2^{n+1} + 2^{n+1} &= 2^{n+2} \\
+    2 \cdot 2^{n+1} &= 2^{n+2} \\
+    2^{n+2} &= 2^{n+2}
+  \end{align*}
 \end{card}
 
 \begin{card}
-  Der reguläre Ausdruck \texttt{(10){n}} steht für eine Folge von binären Ziffern.Zeigen Sie, dass der Ausdruck für alle
+  Beweisen Sie mit Hilfe der vollständigen Induktion:\\
+  $n \in \N_0 \Rightarrow n^2 + n$ ist gerade
+  \hr
+  \begin{align*}
+    \forall n (n \in \N_0 \rightarrow n^2 + n \text{ ist gerade}) \\
+    0^2 + 0 \text{ ist gerade} \quad (IA: n=0) \\
+    (n+1)^2 + (n+1) \quad (IS: n=n+1) \\
+    n^2 + 2n + 1 + (n+1) \\
+    n^2 + n \quad + \quad 2n + 2 \\
+    n^2 + n \text{ ist gerade} \\
+    2n + 2 \text{ ist gerade} \\
+    \text{gerade } + \text{ gerade} = \text{ gerade} \\
+  \end{align*}
+\end{card}
+
+\begin{card}
+  Beweisen Sie mit Hilfe der vollständigen Induktion:\\
+  $n \in \N_0 \Rightarrow 5^n + 7$ ist durch 4 teilbar
+  \hr
+  % TODO
+  \begin{align*}
+    4 &\mid 5^n + 7 \\
+    4 &\mid (5^0 + 7 = 1+7 = 8) & (IA: n=0) \\
+    4 &\mid (5^{n+1} + 7) & (IS: n=n+1) \\
+    4 &\mid (5 \cdot 5^n + 7) & \\
+    4 &\mid (5 \cdot 5^n + 7) & \\
+    ...
+  \end{align*}
+\end{card}
+
+\begin{card}
+  Beweisen Sie mit Hilfe der vollständigen Induktion:\\
+  $n \in \N_0 \Rightarrow 1 + 3 + 5 + \ldots + (2n - 1) = n^2$
+  \hr
+  \begin{align*}
+    1 + 3 + 5 + \ldots + (2n - 1) &= n^2 \\
+    \sum\limits_{i=1}^n 2i - 1 &= n^2 \\
+    2 \cdot 1 - 1 &= 1^2 = 1 & (IA: n=1) \\
+    \sum\limits_{i=1}^{n+1} 2i - 1 &= (n+1)^2 & (IS: n=n+1) \\
+    \sum\limits_{i=1}^{n} 2i - 1 + 2 \cdot (n+1) - 1 &= (n+1)^2 & \\
+    n^2 + 2 \cdot (n+1) - 1 &= (n+1)^2 & \\
+    n^2 + 2n + 2 - 1 &= (n+1)^2 & \\
+    n^2 + 2n + 1 &= (n+1)^2 & \\
+    n^2 + 2n + 1 &= n^2 + 2n + 1
+  \end{align*}
+\end{card}
+
+\begin{card}
+  Beweisen Sie mit Hilfe der vollständigen Induktion:\\
+  $n \in \N_0 \Rightarrow 3 \mid n^3 - n$
+  \hr
+  \begin{align*}
+    3 \mid n^3 - n & \\
+    3 \mid 0 - 0 & (IA: n=0) \\
+    3 \mid (n+1)^3 - n & (IS: n=n+1) \\
+    3 \mid n^3 + 3n^2 + 3n + 1 - (n+1) & \\
+    3 \mid n^3 + 3n^2 + 3n + 1 - n - 1 & \\
+    3 \mid n^3 - n \quad + \quad 3n^2 + 3n & \\
+    3 \mid n^3 - n & \\
+    3 \mid 3(k^2 + n) & \\
+  \end{align*}
+\end{card}
+
+\begin{card}
+  Beweisen Sie mit Hilfe der vollständigen Induktion:\\
+  $n \in \N_0 \Rightarrow 0 \cdot 0! + 1 \cdot 1! + 2 \cdot 2! + \ldots + n \cdot n! = (n+1)!-1$
+  \hr
+  \begin{align*}
+    0 \cdot 0! + 1 \cdot 1! + 2 \cdot 2! + \ldots + n \cdot n! &= (n+1)!-1 & \\
+    \sum\limits_{i=0}^{n} i \cdot i! &= (n+1)!-1 & \\
+    0 \cdot 0! &= (0+1)!-1 = 0 & (IA: n=0) \\
+    \sum\limits_{i=0}^{n+1} i \cdot i! &= ((n+1)+1)!-1 & (IS: n=n+1) \\
+    \sum\limits_{i=0}^{n} i \cdot i! + (n+1) \cdot (n+1)! &= (n+2)!-1 & \\
+    (n+1)! - 1 + (n+1) \cdot (n+1)! &= (n+2)!-1 & \\
+    n! \cdot (n+1) - 1 + (n+1) \cdot n! \cdot (n+1) &= (n+2)!-1 & \\
+    n! - 1 + n!(n+1) &= (n+2)!-1 & \\
+    n!(-1 + (n+1)) &= (n+2)!-1 & \\
+    n!(n+2) &= (n+2)!-1 & ?? \\
+  \end{align*}
+\end{card}
+
+\begin{card}
+  Der reguläre Ausdruck \texttt{(10){n}} steht für eine Folge von binären Ziffern. Zeigen Sie, dass der Ausdruck für alle
   $n \geq 1$ dem Wert $\frac{2(4^n - 1)}{3}$ entspricht.
   \hr
-  TODO
+  \begin{align*}
+    \sum\limits_{i=1}^{n} 2^{2i-1} &= \frac{2(4^n - 1)}{3} & \\
+    2 \cdot 1 - 1 &= \frac{2(4^1 - 1)}{3} = 1 & (IA: n=0) \\
+    \sum\limits_{i=1}^{n+1} 2^{2i-1} &= \frac{2(4^{(n+1)} - 1)}{3} & (IS: n=n+1) \\
+    \sum\limits_{i=1}^{n} 2^{2i-1} + 2^{2(n+1) - 1} &= \frac{2(4^{(n+1)} - 1)}{3} & \\
+    \frac{2(4^{n} - 1)}{3} + 2^{2n+1} &= \frac{2(4^{(n+1)} - 1)}{3} & \\
+    \frac{2(4^{n} - 1)}{3} + \frac{3 \cdot 2^{2n+1}}{3} &= \frac{2(4^{(n+1)} - 1)}{3} & |\cdot 3 \\
+    2(4^{n} - 1) + 3 \cdot 2^{2n+1} &= 2(4^{(n+1)} - 1) & (nächste Folie) \\
+  \end{align*}
+\end{card}
+
+\begin{card}
+  Der reguläre Ausdruck \texttt{(10){n}} steht für eine Folge von binären Ziffern. Zeigen Sie, dass der Ausdruck für alle
+  $n \geq 1$ dem Wert $\frac{2(4^n - 1)}{3}$ entspricht.
+  \hr
+  \begin{align*}
+    2(4^{n} - 1) + 3 \cdot 2^{2n+1} &= 2(4^{(n+1)} - 1) & |:2 \\
+    4^{n} - 1 + 3 \cdot 2^{2n} &= 4^{(n+1)} - 1 & |+1 \\
+    4^{n} + 3 \cdot 2^{2n} &= 4^{(n+1)} & \\
+    4^{n} + 3 \cdot 4^n &= 4^{(n+1)} & \\
+    4^{n} + 3 \cdot 4^n &= 4^{(n+1)} & \\
+    (1+3) \cdot 4^{n} &= 4^{(n+1)} & \\
+    4 \cdot 4^{n} &= 4^{(n+1)} & \\
+    4^{n+1} &= 4^{(n+1)} & \\
+  \end{align*}
 \end{card}
 
 \begin{card}
