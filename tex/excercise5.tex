@@ -10,9 +10,9 @@
   \begin{align*}
     \forall n (n \in \N_0 \rightarrow 2^0 + 2^1 + \ldots + 2^n &= 2^{n+1} - 1) \\
     \sum\limits_{i=0}^n 2^i &= 2^{n+1} - 1 \\
-    2^0 = 2^1 - 1 &= 1 & (IA: n=0) \\
+    2^0 &= 2^1 - 1 = 1 & (IA: n=0) \\
     \sum\limits_{i=0}^{n+1} 2^i &= 2^{(n+1)+1} - 1 & (IS: n=n+1) \\
-    \sum\limits_{i=0}^{n} 2^i + 2^{n+1} = 2^{n+2} - 1 \\
+    \sum\limits_{i=0}^{n} 2^i + 2^{n+1} &= 2^{n+2} - 1 \\
     2^{n+1} - 1 + 2^{n+1} &= 2^{n+2} - 1 & |+1 \\
     2^{n+1} + 2^{n+1} &= 2^{n+2} \\
     2 \cdot 2^{n+1} &= 2^{n+2} \\
@@ -22,17 +22,17 @@
 
 \begin{card}
   Beweisen Sie mit Hilfe der vollständigen Induktion:\\
-  $n \in \N_0 \Rightarrow n^2 + n$ ist gerade
+  $n \in \N_0 \Rightarrow n^2 + n$ ist gerade oder $n \in \N_0 \Rightarrow 2 \mid n^2 + n$
   \hr
   \begin{align*}
-    & \forall n (n \in \N_0 \rightarrow n^2 + n \text{ ist gerade}) \\
-    & 0^2 + 0 \text{ ist gerade} \quad (IA: n=0) \\
-    & (n+1)^2 + (n+1) \quad (IS: n=n+1) \\
-    & n^2 + 2n + 1 + (n+1) \\
-    & n^2 + n \quad + \quad 2n + 2 \\
-    & n^2 + n \text{ ist gerade} \\
-    & 2n + 2 \text{ ist gerade} \\
-    & \text{gerade } + \text{ gerade} = \text{ gerade} \\
+    2 &\mid n^2 + n & \\
+    2 &\mid 0^2 + 0 & (IA: n=0) \\
+    2 &\mid (n+1)^2 + (n+1) & (IS: n=n+1) \\
+    2 &\mid n^2 + 2n + 1 + (n+1) & \\
+    2 &\mid n^2 + n \quad + \quad 2n + 2 & \\
+    2 &\mid n^2 + n \quad + \quad 2(n + 1) & 2k = n^2+n \\
+    2 &\mid 2k + 2l & \\
+    2 &\mid 2(k + l) & \\
   \end{align*}
 \end{card}
 
@@ -40,14 +40,15 @@
   Beweisen Sie mit Hilfe der vollständigen Induktion:\\
   $n \in \N_0 \Rightarrow 5^n + 7$ ist durch 4 teilbar
   \hr
-  % TODO
   \begin{align*}
     4 &\mid 5^n + 7 \\
     4 &\mid (5^0 + 7 = 1+7 = 8) & (IA: n=0) \\
     4 &\mid (5^{n+1} + 7) & (IS: n=n+1) \\
     4 &\mid 5 (5^n + 7) - 5 \cdot 7 + 7 & \\
     4 &\mid 5 (5^n + 7) - 28 & \\
-    4 &\mid 5 (5^n + 7) \quad \land \quad 4 \mid -28 & \\
+    4 &\mid 5 (5^n + 7) \quad + \quad (-28) & 4k = 5^n + 7 \\
+    4 &\mid 5 \cdot 4k \quad + \quad 4 \cdot (-7) & \\
+    4 &\mid 4(5k + (-7)) & \\
   \end{align*}
 \end{card}
 
@@ -79,7 +80,9 @@
     3 &\mid n^3 + 3n^2 + 3n + 1 - (n+1) & \\
     3 &\mid n^3 + 3n^2 + 3n + 1 - n - 1 & \\
     3 &\mid n^3 - n \quad + \quad 3n^2 + 3n & \\
-    3 &\mid n^3 - n \quad \land \quad 3 \mid 3(k^2 + n) & \\
+    3 &\mid n^3 - n \quad + \quad 3(n^2 + n) & 3k = n^3 - n \\
+    3 &\mid 3k + 3l & \\
+    3 &\mid 3(k + l) & \\
   \end{align*}
 \end{card}
 
@@ -122,8 +125,7 @@
   \begin{align*}
     2(4^{n} - 1) + 3 \cdot 2^{2n+1} &= 2(4^{(n+1)} - 1) & |:2 \\
     4^{n} - 1 + 3 \cdot 2^{2n} &= 4^{(n+1)} - 1 & |+1 \\
-    4^{n} + 3 \cdot 2^{2n} &= 4^{(n+1)} & \\
-    4^{n} + 3 \cdot 4^n &= 4^{(n+1)} & \\
+    4^{n} + 3 \cdot 2^{2n} &= 4^{(n+1)} & 2^{2n} = \left(2^2 \right)^n = 4^n \\
     4^{n} + 3 \cdot 4^n &= 4^{(n+1)} & \\
     (1+3) \cdot 4^{n} &= 4^{(n+1)} & \\
     4 \cdot 4^{n} &= 4^{(n+1)} & \\
@@ -145,7 +147,14 @@
   Zeigen Sie mit Hilfe der vollständigen Induktion, dass die Anzahl der Elemente der Potenzmenge $P(A)$ einer endlichen
   Menge $A$ gleich $2^{|A|}$ ist.
   \hr
-  TODO
+  \begin{align*}
+    P(A) &= 2^{|A|} & \\
+    P(\emptyset) &= 2^0 = 1 & (IA: |A| = 0) \\
+    P(A \cup \{e\}) &= 2^{|A \cup \{e\}|} & (IS: A = A \cup \{e\}) \\
+    2 \cdot P(A) &= 2^{|A|+1} & \\
+    2 \cdot 2^{|A|} &= 2^{|A|+1} & \\
+    2^{|A|+1} &= 2^{|A|+1} & \\
+  \end{align*}
 \end{card}
 
 \begin{card}
@@ -183,7 +192,7 @@
 	\end{enumerate}
 	bei der strukturellen Induktion?
 	\hr
-	\begin{enumerate}
+  \begin{enumerate}[a)]
 	  \item Beweisen für die Grundelemente
 	  \item Zeigen, dass sich grüßere Elemente rekursiv aus kleineren Elementen zusammensetzen.
 	  \item Ist es für die Grundelemente und den Induktionsschritt bewiesen, so gilt die Verallgemeinerung.
@@ -208,11 +217,9 @@
   \begin{enumerate}[a)]
 	  \item
 	    \begin{align*}
-        n = 1: 1+a_1 &= a_{1+2} \\
-        2 &= 2 \\
-        n = 2: 1+a_1+a_2 &= a_{2+2} \\
-        3 &= 3 \\
-        1 + a_1 + \ldots + a_n + a_{n+1} &= a_{(n+1)+2} \\
+        1+a_1 &= a_{1+2} = 2 & (IA: n=1) \\
+        1+a_1+a_2 &= a_{2+2} = 3 & (IA: n=2) \\
+        1 + a_1 + \ldots + a_n + a_{n+1} &= a_{(n+1)+2} & (IS: n=n+1) \\
         a_{n+2} + a_{n+1} &= a_{n+3} \\
 	    \end{align*}
 	  \item TODO
