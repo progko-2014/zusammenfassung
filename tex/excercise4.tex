@@ -24,7 +24,7 @@
 	\begin{itemize}
 	\item in Präfix-Schreibweise umformen
 	\item S() einfügen
-	\item Parameter $1, 2 \dots i \dots n$ durch $P^n_i$ ersetzen und hinten anfügen.
+	\item Parameter $1, 2 \dots i \dots m$ durch $P^m_i$ ersetzen und hinten anfügen.
 	\end{itemize}
 	
 	\begin{enumerate}[a)]
@@ -33,7 +33,8 @@
     	$S(+,S(\cdot,a,b,),c) \Rightarrow S(+, S(\cdot, P^3_1, P^3_2), P^3_3)(a, b, c)$
     	\vfill
     \item[d)] $S(\cdot, P^3_1, S(+, P^3_2, P^3_3))(4, 3, x)$
-    \item[e)] $S(\cdot, +, +)(a, b)$ TODO
+    \item[e)] 
+    	Da die Funktionen gleiche Variablen(namen) und daher Stelligkeit besitzen, wird $P$ nicht benötigt: $S(\cdot, +, +)(a, b)$
     \item[h)] $S(\cdot, S(+, P^4_1, P^4_2), S(+, P^4_3, P^4_4))(a, b, c, d)$
 	\end{enumerate}
 \end{card}
@@ -52,7 +53,10 @@
         pre &= S(R(O, P^3_2), P^1_1, O) \\
         \dotdiv &= S(R(P^1_1, pre \circ P^3_1)), P^2_2, P^2_1)(a, b)
       \end{align*}
-    \item $sign = S(R(O, N \circ O \circ P^3_2), P^1_1, O)$
+    \item
+       \begin{align*}
+         sign = S(R(O, N \circ O \circ P^3_2), P^1_1, O)
+       \end{align*}
     \item
       \begin{align*}
         first &= S(\cdot, S(gt, P^2_1, P^2_2), P^2_1) \\
@@ -125,12 +129,7 @@
       \item Ja, da die Parameter $g_1, \ldots, g_n$ sind.
       \item Ja, da die Parameter von $g_i$ $x_1, \ldots, x_m$ ist.
     \end{enumerate}
-    \item
-    \begin{enumerate}[i)]
-      \item Overloading / Variable Parameterliste muss in der Sprache vorhanden sein und benutzt werden oder $n$ unterschiedliche Funktionen müssen definiert werden.
-      \item siehe i)
-      \item siehe i)
-    \end{enumerate}
+    \item Overloading / Variable Parameterliste muss in der Sprache vorhanden sein und benutzt werden oder $n$ unterschiedliche Funktionen müssen definiert werden.
   \end{enumerate}
 \end{card}
 
@@ -174,23 +173,19 @@
 \end{card}
 
 \begin{card}
-Sie wollen eine primitiv rekursive Funktion definieren, die die Funktion
-\[
-f(x) =
-\begin{cases}
-1 & \text{wenn $x = 1$} \\
-  \frac{x}{2} & \text{wenn $x$ gerade} \\
-3 \cdot x + 1 &\text{wenn $x$ ungerade}
-\end{cases}
-\]
-berechnet, d.h. die Formulierung erfolgt ausschließlich mit den Funktionen bzw. Funktionssymbolen $N, 0, P^m_i , S, R$.
-  \begin{enumerate}[a)]
-    \item Warum scheitern Sie?
-  \end{enumerate}
+	Sie wollen eine primitiv rekursive Funktion definieren, die die Funktion
+	\[
+	f(x) =
+	\begin{cases}
+	1 & \text{wenn $x = 1$} \\
+	  \frac{x}{2} & \text{wenn $x$ gerade} \\
+	3 \cdot x + 1 &\text{wenn $x$ ungerade}
+	\end{cases}
+	\]
+	berechnet, d.h. die Formulierung erfolgt ausschließlich mit den Funktionen bzw. Funktionssymbolen $N, 0, P^m_i , S, R$.\\
+	Warum scheitern Sie?
   \hr
-  \begin{enumerate}[a)]
-    \item Da die Rekursion durch $R$ umgesetzt wird, muss $m$ gesetzt sein, sodass eine Schleife definiert wird. Bei der Ackermann-Funktion ist unklar, wie viele Durchläufe getätigt werden müssen, um das Ergebnis zu erhalten. Daher ist eine Endlos-Schleife notwendig und primitiv rekursive Funktionen können dies nicht umsetzen.
-  \end{enumerate}
+	Da die Rekursion durch $R$ umgesetzt wird, muss $m$ gesetzt sein, sodass eine Schleife definiert wird. Bei der Ackermann-Funktion ist unklar, wie viele Durchläufe getätigt werden müssen, um das Ergebnis zu erhalten. Daher ist eine Endlos-Schleife notwendig und primitiv rekursive Funktionen können dies nicht umsetzen.
 \end{card}
 
 \begin{card}
