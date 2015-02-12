@@ -5,17 +5,35 @@
 
 \begin{card}
   Formulieren Sie die folgenden Ausdrücke mit Hilfe von F = ${+, \cdot}$ und ${N, O, P^m_i, S^{n+1}, R}$:
-	\begin{enumerate}[a)]
-    \item[a)] $a \cdot b + c$
-    \item[d)] $4 \cdot (3 + x)$
-    \item[e)] $(a + b) \cdot (a + b)$
-    \item[h)] $(a + b) \cdot (c + d)$
-	\end{enumerate}
+	\begin{columns}
+		\begin{column}{.5\linewidth}
+			\begin{enumerate}[a)]
+   			 \item[a)] $a \cdot b + c$
+   			 \item[d)] $4 \cdot (3 + x)$
+   			\end{enumerate}
+   		\end{column}
+   		\begin{column}{.5\linewidth}
+			\begin{enumerate}[a)]
+			\item[e)] $(a + b) \cdot (a + b)$
+			\item[h)] $(a + b) \cdot (c + d)$
+   			\end{enumerate}
+		\end{column}
+	\end{columns}
 	\hr
+	Hinweis zum Vorgehen und der Reihenfolge:
+	\begin{itemize}
+	\item in Präfix-Schreibweise umformen
+	\item S() einfügen
+	\item Parameter $1, 2 \dots i \dots n$ durch $P^n_i$ ersetzen und hinten anfügen.
+	\end{itemize}
+	
 	\begin{enumerate}[a)]
-    \item[a)] $S(+, S(\cdot, P^3_1, P^3_2), P^3_3)(a, b, c)$
+    \item[a)] 
+    	$a \cdot b + c \Rightarrow +(\cdot(a,b,),c)$\\
+    	$S(+,S(\cdot,a,b,),c) \Rightarrow S(+, S(\cdot, P^3_1, P^3_2), P^3_3)(a, b, c)$
+    	\vfill
     \item[d)] $S(\cdot, P^3_1, S(+, P^3_2, P^3_3))(4, 3, x)$
-    \item[e)] $S(\cdot, +, +)(a, b)$
+    \item[e)] $S(\cdot, +, +)(a, b)$ TODO
     \item[h)] $S(\cdot, S(+, P^4_1, P^4_2), S(+, P^4_3, P^4_4))(a, b, c, d)$
 	\end{enumerate}
 \end{card}

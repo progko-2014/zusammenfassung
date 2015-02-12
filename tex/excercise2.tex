@@ -369,7 +369,7 @@ arr[0];
 	Funktionale Programmierung:\\
 	Inline-Funktionen sind Teil der meisten funktionalen Sprachen. Beschreiben Sie im Rahmen des Abstraktionskonzepts das Problem mit rekursiv definierten (inline-) Funktionen.
 	\hr
-	Eine rekursive Definition ist bei Inline-Funktionen (vgl. Makros) nicht möglich, da die Textersetzung unendlich ausgeführt wird.\\
+	Eine rekursive Definition ist bei Inline-Funktionen (vgl. Makros) nicht möglich, da die Textersetzung unendlich ausgeführt wird, bzw. Compiler nicht weiß wie oft ersetzt werden soll(te).\\
 	Beispiel:\\
 	\begin{lstlisting}[language=C]
 	inline int add(a, b) {
@@ -397,7 +397,8 @@ return ...
 	\begin{itemize}
 	\item Alles ist eine Funktion: Werte, Klassen und das Programm selbst. Es gibt keine Unterscheidung und es wird nur
 	  mit Symbolen gearbeitet.
-	\item Funktionen können (zur Laufzeit) erzeugt und verändert werden.
+	\item Funktionen können (zur Laufzeit) erzeugt und verändert werden.\\
+	  $\Rightarrow$ Funktionen die Funktionen verarbeiten (Meta-Funktionen)
 
 	\end{itemize}
 	Beispiel: Lamda-Ausdrücke
