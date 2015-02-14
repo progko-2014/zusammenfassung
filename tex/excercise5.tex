@@ -140,7 +140,15 @@
     \item Zeigen Sie, dass die Verallgemeinerung, also der Induktionsschluss falsch ist.
   \end{enumerate}
   \hr
-  TODO
+  \begin{enumerate}[a)]
+    \item
+      \begin{align*}
+        (n+1) + 2 &= (n+1) + 1 & \\
+        (n+2) + 1 &= (n+1) + 1 & \text{nach Voraussetzung} \\
+        1 &= 1 & \\
+      \end{align*}
+    \item Zeigen Sie, dass die Verallgemeinerung, also der Induktionsschluss falsch ist.
+  \end{enumerate}
 \end{card}
 
 \begin{card}
@@ -172,14 +180,15 @@
   für die differenzierbare Funktionen $f_i$. Beweisen Sie den Satz mit Hilfe der Wertverlaufsinduktion.
   \hr
   \begin{align*}
-    \lrk f_1 \rrk ' &= f_1' \\
-    (f_1 \cdot \ldots \cdot f_{n+1})' &= (f_1' \cdot \ldots \cdot f_{n+1}) + \ldots + (f_1 \cdot \ldots \cdot f_{n+1}') \\
-    &= ((f_1 \cdot \ldots \cdot f_n)(f_{n+1}))' \\
+    \lrk f_1 \rrk ' &= f_1' & \varphi(1) \\
+    (f_1 \cdot \ldots \cdot f_{n+1})' &= (f_1' \cdot \ldots \cdot f_{n+1}) + \ldots + (f_1 \cdot \ldots \cdot f_{n+1}') & \varphi(n^+) \\
+    ((f_1 \cdot \ldots \cdot f_n) \cdot f_{n+1})'
     &= (f_1 \cdot \ldots \cdot f_n)' \cdot f_{n+1} + (f_1 \cdot \ldots \cdot f_n) \cdot (f_{n+1})' \\
     &= f_1' \cdot \ldots \cdot f_n \cdot f_{n+1} + \ldots + f_1 \cdot \ldots \cdot f_n' \cdot f_{n+1} + \\
     &\hspace{1.5em} f_1 \cdot \ldots \cdot f_n \cdot f_{n+1}' \\
     &= (f_1 \cdot \ldots \cdot f_{n+1})' \\
   \end{align*}
+  \[ \varphi(1), \varphi(n) \Rightarrow \varphi(n^+) \vDash \varphi(n) \]
 \end{card}
 
 \begin{card}

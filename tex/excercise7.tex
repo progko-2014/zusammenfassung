@@ -26,13 +26,19 @@
     \item $N$
     \item $P^m_i$
     \item $S^{n+1}$
+    \item $R$
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
     \item $0 = \lambda x.^\lceil 0 ^\rceil$
-    \item $^\lceil n+1 ^\rceil = [\bot, ^\lceil n ^\rceil] = \lambda x.((x \quad \bot) ^\lceil n ^\rceil)$\\
+    \item $^\lceil n+1 ^\rceil = [\bot, ^\lceil n ^\rceil] = \lambda x.((x \quad \bot) \quad ^\lceil n ^\rceil)$\\
     \item $P^m_i = \lambda x_1,...,x_m.x_i$
-    \item $S^{n+1} = \lambda x.(...((F (G_1 \quad x)) (G_2 \quad x)) ... (G_n \quad x))$
+    \item $S^{n+1} = \lambda x.(F \quad (G_1 \quad x) \quad \ldots \quad (G_n \quad x))$
+    \item
+      \begin{align*}
+        (H \quad m^+) &= ((G \quad (H \quad m)) \quad m) \\
+        ((H \quad m^+) \quad x) &= (((G \quad (H \quad m) \quad x) \quad m) \quad x)
+      \end{align*}
 	\end{enumerate}
 \end{card}
 
@@ -43,19 +49,18 @@
     \item succ
 	\end{enumerate}
 	\hr
-  \[Y = \lambda f.(\lambda x.(f(x \quad x) \lambda x.(f(x \quad x)))\]
 	\begin{enumerate}[a)]
-    \item $(Y \quad not) = ... (Endlos-Auflösen)$
-    \item $(Y \quad succ) = ... (Endlos-Auflösen)$
+    \item
+      \begin{align*}
+        Y &= \lambda f.(\lambda x.(f(x \quad x) \quad \lambda x.(f(x \quad x))) \\
+        (Y \quad not) &= (\lambda f.(\lambda x.(f(x \quad x) \quad \lambda x.(f(x \quad x))) \quad not) \\
+        &= (\lambda x.(not(x \quad x) \quad \lambda x.(not(x \quad x))) \\
+        &= not(\lambda x.(not(x \quad x)) \quad \lambda x.(not(x \quad x))) \\
+        &= not(not(\lambda x.(not(x \quad x)) \quad \lambda x.(not(x \quad x)))) \\
+        &= ... \text{ (Endlos-Auflösen)} \\
+      \end{align*}
+    \item $(Y \quad succ) = ...$ (Endlos-Auflösen)
 	\end{enumerate}
-	Info: \url{https://de.wikipedia.org/wiki/Fixpunkt-Kombinator}
-\end{card}
-
-\begin{card}
-	Definieren Sie im $\lambda$-Kalkül das primitiv rekursive Funktionsschema \textbf{R}
-	\hr
-  $(H \quad m) = ((G \quad (H \quad m^-)) \quad m)$\\
-  $\Leftrightarrow ((H \quad m^+) \quad x) = (((G \quad (H \quad m) \quad x) \quad m^+) \quad x)$
 \end{card}
 
 \begin{card}
