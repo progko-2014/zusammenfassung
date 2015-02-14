@@ -185,13 +185,13 @@
 	berechnet, d.h. die Formulierung erfolgt ausschließlich mit den Funktionen bzw. Funktionssymbolen $N, 0, P^m_i , S, R$.\\
 	Warum scheitern Sie?
   \hr
-	Da die Rekursion durch $R$ umgesetzt wird, muss $m$ gesetzt sein, sodass eine Schleife definiert wird. Bei der Ackermann-Funktion ist unklar, wie viele Durchläufe getätigt werden müssen, um das Ergebnis zu erhalten. Daher ist eine Endlos-Schleife notwendig und primitiv rekursive Funktionen können dies nicht umsetzen.
+	Da die Rekursion durch $R$ umgesetzt wird, muss $m$ gesetzt sein, sodass eine Schleife definiert wird. Bei der Collatz-Funktion ist unklar, wie viele Durchläufe getätigt werden müssen, um das Ergebnis zu erhalten. Daher ist eine Endlos-Schleife notwendig und primitiv rekursive Funktionen können dies nicht umsetzen.
 \end{card}
 
 \begin{card}
   Was bedeutet die Aussage: „Alle berechenbaren Funktionen können mit Hilfe der Funktionen $0, N, P^m_i, S^{n+1}, R$ und $\mu$ formuliert werden“ für die Programmierung?
   \hr
-  Die Ackermannfunktion ist umsetzbar und Endlosschleifen sind möglich. Alle berechenbare Probleme können mit primitiv rekursiven Funktionen umgesetzt werden.
+  Das Collatz-Problem ist umsetzbar und Endlosschleifen sind möglich. Alle berechenbare Probleme können mit allgemein rekursiven Funktionen umgesetzt werden.
 \end{card}
 
 \begin{card}
@@ -202,11 +202,11 @@
   \end{itemize}
   \hr
   \begin{align*}
-    c(0,2) &= 3 \\
-    c(2,0) &= 3 \\
+    c(1,2) &= 6 \\
+    c(2,1) &= 6 \\
     \\
-    p(0,2) &= 9 \\
-    p(2,0) &= 4 \\
+    p(1,2) &= 18 \\
+    p(2,1) &= 12 \\
   \end{align*}
 
   \begin{itemize}
