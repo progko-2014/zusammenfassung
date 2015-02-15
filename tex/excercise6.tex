@@ -175,7 +175,7 @@
     \item $\top \equiv \lambda x.\lambda y . x$\\
         $\bot \equiv \lambda x.\lambda y . y$
     \item $if \equiv \lambda c.\lambda t.\lambda e.((c \quad t) \quad e) \quad \ent \quad c \; ? \; t : e$ \\
-        $impl \equiv \lambda a.\lambda b.((a \quad b) \quad \top)$ \quad \ent \quad $a \rightarrow b = a \; ? \; b : \top$ \\
+        $impl \equiv \lambda a.\lambda b.((a \quad b) \quad \top) \quad \ent \quad a \rightarrow b = a \; ? \; b : \top$ \\
         Probieren über Binden von: $((impl \quad \bot) \quad \bot) = \top$ ...
     \item	$not \equiv \lambda z.((z \quad \bot) \quad \top)$\\
         $equiv \equiv  \lambda a.\lambda b.((a \quad b) \quad not(b)) \quad \ent \quad a \Leftrightarrow b = a \; ? \; b : \neg b$
