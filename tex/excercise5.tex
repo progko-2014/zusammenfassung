@@ -78,10 +78,10 @@
     \sum\limits_{i=1}^n 2i - 1 &= n^2 \\
     2 \cdot 1 - 1 &= 1^2 = 1 & (IA: n=1) \\
     \sum\limits_{i=1}^{n+1} 2i - 1 &= (n+1)^2 & (IS: n=n+1) \\
-    \sum\limits_{i=1}^{n} 2i - 1 + 2 \cdot (n+1) - 1 &= (n+1)^2 & \\
+    \sum\limits_{i=1}^{n} 2i - 1 + 2 \cdot (n+1) - 1 &= (n+1)^2 & (\text{IA einsetzen:} \sum\limits_{i=1}^n 2i - 1 = n^2)\\
     n^2 + 2 \cdot (n+1) - 1 &= (n+1)^2 & \\
     n^2 + 2n + 2 - 1 &= (n+1)^2 & \\
-    n^2 + 2n + 1 &= (n+1)^2 & \\
+    n^2 + 2n + 1 &= (n+1)^2 & (\text{Binomische Formel})\\
     n^2 + 2n + 1 &= n^2 + 2n + 1
   \end{align*}
 \end{card}
@@ -111,12 +111,12 @@
     \sum\limits_{i=0}^{n} i \cdot i! &= (n+1)!-1 & \\
     0 \cdot 0! &= (0+1)!-1 = 0 & (IA: n=0) \\
     \sum\limits_{i=0}^{n+1} i \cdot i! &= ((n+1)+1)!-1 & (IS: n=n+1) \\
-    \sum\limits_{i=0}^{n} i \cdot i! + (n+1) \cdot (n+1)! &= (n+2)!-1 & \\
-    (n+1)! - 1 + (n+1) \cdot (n+1)! &= (n+2)!-1 & |+1 \\
-    (n+1)! + (n+1) \cdot (n+1)! &= (n+2)! & \\
-    (n+1)! \cdot ((n+1)+1) &= (n+2)! & \\
-    (n+1)! \cdot (n+2) &= (n+2)! & \\
-    (n+2)! &= (n+2)! & \\
+    \sum\limits_{i=0}^{n} i \cdot i! \quad + (n+1) \cdot (n+1)! &= (n+2)!-1 &  (\text{IA einsetzen})\\
+    (n+1)! - 1 \quad + (n+1) \cdot (n+1)! &= (n+2)!-1 & \\
+    (n+1)! + (n+1) \cdot (n+1)! \quad -1&= (n+2)!-1 & (\text{Ausklammern})\\
+    (n+1)! \cdot ((n+1) -1) \quad -1&= (n+2)!-1 & \\
+    (n+1)! \cdot (n+2) -1&= (n+2)!-1 & (a! \cdot a = (a+1)!)\\
+    (n+2)! -1&= (n+2)!-1 & \\
   \end{align*}
 \end{card}
 
