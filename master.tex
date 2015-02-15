@@ -1,6 +1,14 @@
 % !TeX spellcheck = de
-\documentclass[10pt,a4paper]{beamer}
+\documentclass[10pt,a4paper,handout]{beamer}
 \input{tex/packages-and-commands.tex}
+
+%\pgfpagesuselayout{4 on 1}[a4paper,landscape,border shrink=5mm]
+%\newcommand{\hr}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\vspace{0.6em}\\}
+%\newcommand{\newslide}{}
+
+\newcommand{\hr}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\vspace{0.6em}\\\pause}
+\newcommand{\newslide}{\pause}
+
 
 \begin{document}
 \input{tex/excercise1.tex}
