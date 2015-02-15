@@ -37,9 +37,10 @@
 \end{card}
 
 \begin{card}
-  Beweisen Sie mit Hilfe der vollständigen Induktion:\\
+  1: Beweisen Sie mit Hilfe der vollständigen Induktion:\\
   $n \in \N_0 \Rightarrow 5^n + 7$ ist durch 4 teilbar
   \hr
+  Lösungsvorschlag 1:
   \begin{align*}
     4 &\mid 5^n + 7 \\
     4 &\mid (5^0 + 7 = 1+7 = 8) & (IA: n=0) \\
@@ -50,6 +51,22 @@
     4 &\mid 5 \cdot 4k \quad + \quad 4 \cdot (-7) & \\
     4 &\mid 4(5k + (-7)) & \\
   \end{align*}
+\end{card}
+
+\begin{card}
+  2: Beweisen Sie mit Hilfe der vollständigen Induktion:\\
+  $n \in \N_0 \Rightarrow 5^n + 7$ ist durch 4 teilbar
+  \hr
+  Lösungsvorschlag 2:
+  \begin{align*}
+    4 &\mid 5^n + 7 \\
+    4 &\mid (5^0 + 7 = 1+7 = 8) & (IA: n=0) \\
+    4 &\mid 5^{n+1} + 7 & (IS: n=n+1) \\
+    4 &\mid 5^n \cdot 5^1 + 7 & \\
+    4 &\mid 5 \cdot 5^n + 7 & \\
+    4 &\mid 4 \cdot 5^n + 5^n + 7 & \\
+  \end{align*}
+  $4 \cdot 5^n$ ist auch durch 4 teilbar, $5^n + 7$ ist laut IA durch 4 teilbar. $\square$
 \end{card}
 
 \begin{card}
