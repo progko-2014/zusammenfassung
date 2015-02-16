@@ -178,7 +178,7 @@
         $impl \equiv \lambda a.\lambda b.((a \quad b) \quad \top) \quad \ent \quad a \rightarrow b = a \; ? \; b : \top$ \\
         Probieren über Binden von: $((impl \quad \bot) \quad \bot) = \top$ ...
     \item	$not \equiv \lambda z.((z \quad \bot) \quad \top)$\\
-        $equiv \equiv  \lambda a.\lambda b.((a \quad b) \quad not(b)) \quad \ent \quad a \Leftrightarrow b = a \; ? \; b : \neg b$
+        $equiv \equiv  \lambda a.\lambda b.((a \quad b) \quad (not \quad b)) \quad \ent \quad a \Leftrightarrow b = a \; ? \; b : \neg b$
 	\end{enumerate}
 \end{card}
 

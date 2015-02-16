@@ -148,9 +148,8 @@ testA.f(); // ClassCastException
 		\end{lstlisting}
 
 		\begin{lstlisting}[language=Java]
-ArrayList<?> a = new ArrayList<?>();
-<?> a[0];
-
+		ArrayList<?> a = new ArrayList<?>();
+		<?> a.get(0);
 		\end{lstlisting}
     Der Zugriff auf ein Array-Element über \texttt{[]} ist abstrakt, weil der entsprechende Wert nur referenziert wird.
     Konkret ist: \texttt{ArrayList<int>()}.
@@ -328,7 +327,7 @@ arr[0];
 	\begin{itemize}
 	\item Kontinuität (Einheitlichkeit)
 	\item Gemeinsamer Oberdatentyp, von dem alles erbt $\rightarrow$ ein einziger Vererbungsbaum
-  \item Speicherplatz wird eingepart, da bei gleichen Werten auf den gleichen Speicherbereich gezeigt wird z.B. bei Zahlen (Singleton-Pattern)
+  \item Speicherplatz wird eingespart, da bei gleichen Werten auf den gleichen Speicherbereich gezeigt wird z.B. bei Zahlen (Singleton-Pattern)
 	\end{itemize}
 \end{card}
 

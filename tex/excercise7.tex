@@ -38,7 +38,7 @@
     \item
       \begin{align*}
         (H \quad m^+) &= ((G \quad (H \quad m)) \quad m) \\
-        ((H \quad m^+) \quad x) &= (((G \quad (H \quad m) \quad x) \quad m) \quad x)
+        ((H \quad m^+) \quad x) &= ((G \quad ((H \quad m) \quad x) \quad m) \quad x)
       \end{align*}
 	\end{enumerate}
 \end{card}
@@ -80,6 +80,7 @@
 	\hr
   \begin{enumerate}[a)]
 	  \item Komposition, Mehrstelligkeit (Currying)
-	  \item Currying = $(\dots (f(a_1)a_2) \dots a_n) = f(a_1,a_2, \dots, a_n)$
+	  \item Komposition: $(f_n( \dots (f_2(f_1(a))) \dots)) =f_1 \circ f_2 \circ \cdots \circ f_n(a)$\\
+	  		Currying: $f(a_1)(a_2) \cdots (a_n) = f(a_1,a_2, \dots, a_n)$
 	\end{enumerate}
 \end{card}
