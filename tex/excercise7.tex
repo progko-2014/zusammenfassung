@@ -49,18 +49,23 @@
     \item not
     \item succ
 	\end{enumerate}
+  \[ Y &= \lambda f.(\lambda x.(f(x \quad x) \quad \lambda x.(f(x \quad x))) \]
 	\hr
 	\begin{enumerate}[a)]
     \item
       \begin{align*}
-        Y &= \lambda f.(\lambda x.(f(x \quad x) \quad \lambda x.(f(x \quad x))) \\
         (Y \quad not) &= (\lambda f.(\lambda x.(f(x \quad x) \quad \lambda x.(f(x \quad x))) \quad not) \\
         &= (\lambda x.(not(x \quad x) \quad \lambda x.(not(x \quad x))) \\
         &= not(\lambda x.(not(x \quad x)) \quad \lambda x.(not(x \quad x))) \\
-        &= not(not(\lambda x.(not(x \quad x)) \quad \lambda x.(not(x \quad x)))) \\
-        &= ... \text{ (Endlos-Auflösen)} \\
+        &= not(Y \quad not) \\
       \end{align*}
-    \item $(Y \quad succ) = ...$ (Endlos-Auflösen)
+    \item
+      \begin{align*}
+        (Y \quad succ) &= (\lambda f.(\lambda x.(f(x \quad x) \quad \lambda x.(f(x \quad x))) \quad succ) \\
+        &= (\lambda x.(succ(x \quad x) \quad \lambda x.(succ(x \quad x))) \\
+        &= succ(\lambda x.(succ(x \quad x)) \quad \lambda x.(succ(x \quad x))) \\
+        &= succ(Y \quad succ) \\
+      \end{align*}
 	\end{enumerate}
 \end{card}
 
