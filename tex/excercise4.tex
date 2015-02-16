@@ -22,18 +22,18 @@
 	\hr
 	Hinweis zum Vorgehen und der Reihenfolge:
 	\begin{itemize}
-	\item in Präfix-Schreibweise umformen
-	\item S() einfügen
-	\item Parameter $1, 2 \dots i \dots m$ durch $P^m_i$ ersetzen und hinten anfügen.
+    \item in Präfix-Schreibweise umformen
+    \item S() einfügen
+    \item Parameter $1, 2 \dots i \dots m$ durch $P^m_i$ ersetzen und hinten anfügen.
 	\end{itemize}
-	
+
 	\begin{enumerate}[a)]
-    \item[a)] 
-    	$a \cdot b + c \Rightarrow +(\cdot(a,b,),c)$\\
-    	$S(+,S(\cdot,a,b,),c) \Rightarrow S(+, S(\cdot, P^3_1, P^3_2), P^3_3)(a, b, c)$
+    \item[a)]
+    	$a \cdot b + c \Rightarrow +(\cdot(a,b),c)$\\
+    	$S(+,S(\cdot,a,b),c) \Rightarrow S(+, S(\cdot, P^3_1, P^3_2), P^3_3)(a, b, c)$
     	\vfill
     \item[d)] $S(\cdot, P^3_1, S(+, P^3_2, P^3_3))(4, 3, x)$
-    \item[e)] 
+    \item[e)]
     	Da die Funktionen gleiche Variablen(namen) und daher Stelligkeit besitzen, wird $P$ nicht benötigt: $S(\cdot, +, +)(a, b)$
     \item[h)] $S(\cdot, S(+, P^4_1, P^4_2), S(+, P^4_3, P^4_4))(a, b, c, d)$
 	\end{enumerate}
@@ -50,12 +50,13 @@
   \begin{enumerate}[a)]
     \item
       \begin{align*}
-        pre &= S(R(O, P^3_2), P^1_1, O) \\
-        \dotdiv &= S(R(P^1_1, pre \circ P^3_1)), P^2_2, P^2_1)(a, b)
+        pre &= R(O, P^2_2) \\
+        swap &= S(f, P^2_2, P^2_1) \\
+        \dotdiv &= swap(R(P^1_1, pre \circ P^3_1))
       \end{align*}
     \item
        \begin{align*}
-         sign = S(R(O, N \circ O \circ P^3_2), P^1_1, O)
+         sign = R(O, N \circ O \circ P^2_2)
        \end{align*}
     \item
       \begin{align*}
@@ -86,7 +87,7 @@
     \item[f)] $gt = sign(x \dotdiv y)$ \\
               $eq = nsign(gt(x, y) + gt(y,x))$ \\
               $ge = gt + eq$
-    \item[g)] $absDiff(a,b) = diff(a, b) + diff(b, a)$ \\
+            \item[g)] $|a - b| = (a \dotdiv b) + b \dotdiv a$ \\
 	\end{enumerate}
 \end{card}
 
