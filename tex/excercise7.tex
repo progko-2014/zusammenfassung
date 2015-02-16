@@ -13,9 +13,10 @@
 	\hr
 	\begin{enumerate}[a)]
     \item $^\lceil 0 ^\rceil = \lambda x.x$
-    \item $^\lceil n+1 ^\rceil = [\bot, ^\lceil n ^\rceil] = \lambda x.((x \quad \bot) ^\lceil n ^\rceil)$
-    \item $^\lceil 1 ^\rceil = [\bot, ^\lceil 0 ^\rceil] = \lambda x.((x \quad \bot) ^\lceil 0 ^\rceil)$\\
-        $^\lceil 2 ^\rceil = [\bot, ^\lceil 1 ^\rceil] = \lambda x.((x \quad \bot) ^\lceil 1 ^\rceil)$
+    \item $^\lceil n+1 ^\rceil = [\bot, ^\lceil n ^\rceil] = \lambda x.((x \quad \bot) \quad ^\lceil n ^\rceil)$
+    \item $^\lceil 1 ^\rceil = [\bot, ^\lceil 0 ^\rceil] = \lambda x.((x \quad \bot) \quad ^\lceil 0 ^\rceil)$\\
+        $^\lceil 2 ^\rceil = [\bot, ^\lceil 1 ^\rceil] = \lambda x.((x \quad \bot) \quad ^\lceil 1 ^\rceil)$\\
+        \dots
 	\end{enumerate}
 \end{card}
 
