@@ -12,10 +12,10 @@
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-    \item $^\lceil 0 ^\rceil = \lambda x.x$
-    \item $^\lceil n+1 ^\rceil = [\bot, ^\lceil n ^\rceil] = \lambda x.((x \quad \bot) \quad ^\lceil n ^\rceil)$
-    \item $^\lceil 1 ^\rceil = [\bot, ^\lceil 0 ^\rceil] = \lambda x.((x \quad \bot) \quad ^\lceil 0 ^\rceil)$\\
-        $^\lceil 2 ^\rceil = [\bot, ^\lceil 1 ^\rceil] = \lambda x.((x \quad \bot) \quad ^\lceil 1 ^\rceil)$\\
+    \item $\lambdanumber{0} = \lambda x.x$
+    \item $\lambdanumber{n} = [\bot, \lambdanumber{n}] = \lambda x.((x \quad \bot) \quad \lambdanumber{n})$
+    \item $\lambdanumber{1} = [\bot, \lambdanumber{0}] = \lambda x.((x \quad \bot) \quad \lambdanumber{0})$\\
+          $\lambdanumber{2} = [\bot, \lambdanumber{1}] = \lambda x.((x \quad \bot) \quad \lambdanumber{1})$\\
         \dots
 	\end{enumerate}
 \end{card}
@@ -31,8 +31,8 @@
 	\end{enumerate}
 	\hr
 	\begin{enumerate}[a)]
-    \item $0 = \lambda x.^\lceil 0 ^\rceil$
-    \item $^\lceil n+1 ^\rceil = [\bot, ^\lceil n ^\rceil] = \lambda x.((x \quad \bot) \quad ^\lceil n ^\rceil)$\\
+    \item $0 = \lambda x.\lambdanumber{0}$
+    \item $(N \quad \lambdanumber{n}) = (\lambda y.[\bot, y] = \lambda y.\lambda x.((x \quad \bot) \quad y) \quad \lambdanumber{n})$\\
     \item $P^m_i = \lambda x_1,...,x_m.x_i$
     \item $S^{n+1} = \lambda x.(F \quad (G_1 \quad x) \quad \ldots \quad (G_n \quad x))$
     \item
