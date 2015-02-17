@@ -190,9 +190,55 @@
 \end{card}
 
 \begin{card}
+  Berechnen Sie für die Ackermann-Funktion in der Definition:
+  \begin{align*}
+    a(0, y+1) &= y+2 \\
+    a(x+1, 0) &= a(x, 1) \\
+    a(x+1, y+1) &= a(x, a(x+1, y)) \\
+  \end{align*}
+  \begin{enumerate}[a)]
+    \item $a(1,1)$
+    \item $a(2,3)$
+    \item $a(1,3)$
+    \item $a(3,4)$
+  \end{enumerate}
+  \hr
+  \begin{enumerate}[a)]
+    \item
+      \begin{align*}
+        a(1,1) &= a(0, a(1,0)) \\
+        a(1,0) &= a(0,1) \\
+        a(0,1) &= 0+2 = 2 \\
+        a(0,2) &= 3 \\
+      \end{align*}
+  \end{enumerate}
+\end{card}
+
+\begin{card}
   Was bedeutet die Aussage: „Alle berechenbaren Funktionen können mit Hilfe der Funktionen $0, N, P^m_i, S^{n+1}, R$ und $\mu$ formuliert werden“ für die Programmierung?
   \hr
   Das Collatz-Problem ist umsetzbar und Endlosschleifen sind möglich. Alle berechenbare Probleme können mit allgemein rekursiven Funktionen umgesetzt werden.
+\end{card}
+
+\begin{card}
+  Was unterscheidet die folgenden Aufzählfunktionen $\N^2 \rightarrow \N$ (Paare natürlicher Zahlen auf natürliche Zahlen) voneinander:
+  \begin{itemize}
+    \item $c(x, y) = \frac{(x + y)(x + y + 1)}{2}$
+    \item $p(x, y) = 2^x \cdot 3^y$
+  \end{itemize}
+  \hr
+  \begin{align*}
+    c(1,2) &= 6 \\
+    c(2,1) &= 6 \\
+    \\
+    p(1,2) &= 18 \\
+    p(2,1) &= 12 \\
+  \end{align*}
+
+  \begin{itemize}
+    \item $c$ ist surjektiv.
+    \item $p$ scheint bijektiv zu sein.
+  \end{itemize}
 \end{card}
 
 \begin{card}
